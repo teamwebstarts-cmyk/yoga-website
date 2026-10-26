@@ -1,0 +1,201 @@
+@font-face {
+    font-family: "FlaticonSetYoga";
+    src: url("../fonts/flaticon-set-yoga.woff2") format("woff2"),
+url("../fonts/flaticon-set-yoga.woff") format("woff"),
+url("../fonts/flaticon-set-yoga.eot") format("embedded-opentype"),
+url("../fonts/flaticon-set-yoga.ttf") format("truetype"),
+url("../fonts/flaticon-set-yoga.svg") format("svg")
+}
+
+i[class^="flaticon-set-"]:before, i[class*=" flaticon-set-"]:before {
+    font-family: FlaticonSetYoga !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-set-yoga-pose:before {
+    content: "\f101";
+}
+.flaticon-set-yoga:before {
+    content: "\f102";
+}
+.flaticon-set-lotus:before {
+    content: "\f103";
+}
+.flaticon-set-exercise:before {
+    content: "\f104";
+}
+.flaticon-set-yoga-1:before {
+    content: "\f105";
+}
+.flaticon-set-yoga-2:before {
+    content: "\f106";
+}
+.flaticon-set-yoga-3:before {
+    content: "\f107";
+}
+.flaticon-set-yoga-pose-1:before {
+    content: "\f108";
+}
+.flaticon-set-exercise-1:before {
+    content: "\f109";
+}
+.flaticon-set-lotus-1:before {
+    content: "\f10a";
+}
+.flaticon-set-exercise-2:before {
+    content: "\f10b";
+}
+.flaticon-set-lotus-2:before {
+    content: "\f10c";
+}
+.flaticon-set-yoga-pose-2:before {
+    content: "\f10d";
+}
+.flaticon-set-yoga-4:before {
+    content: "\f10e";
+}
+.flaticon-set-pilates:before {
+    content: "\f10f";
+}
+.flaticon-set-yoga-5:before {
+    content: "\f110";
+}
+.flaticon-set-fitness:before {
+    content: "\f111";
+}
+.flaticon-set-yoga-mat:before {
+    content: "\f112";
+}
+.flaticon-set-meditation:before {
+    content: "\f113";
+}
+.flaticon-set-yoga-6:before {
+    content: "\f114";
+}
+.flaticon-set-yoga-pose-3:before {
+    content: "\f115";
+}
+.flaticon-set-yoga-pose-4:before {
+    content: "\f116";
+}
+.flaticon-set-meditation-1:before {
+    content: "\f117";
+}
+.flaticon-set-calendar:before {
+    content: "\f118";
+}
+.flaticon-set-yoga-7:before {
+    content: "\f119";
+}
+.flaticon-set-meditation-2:before {
+    content: "\f11a";
+}
+.flaticon-set-yoga-8:before {
+    content: "\f11b";
+}
+.flaticon-set-yoga-9:before {
+    content: "\f11c";
+}
+.flaticon-set-soul:before {
+    content: "\f11d";
+}
+.flaticon-set-yoga-10:before {
+    content: "\f11e";
+}
+.flaticon-set-yoga-11:before {
+    content: "\f11f";
+}
+.flaticon-set-serene:before {
+    content: "\f120";
+}
+.flaticon-set-yoga-pose-5:before {
+    content: "\f121";
+}
+.flaticon-set-yoga-12:before {
+    content: "\f122";
+}
+.flaticon-set-yoga-13:before {
+    content: "\f123";
+}
+.flaticon-set-mat:before {
+    content: "\f124";
+}
+.flaticon-set-tool:before {
+    content: "\f125";
+}
+.flaticon-set-towels:before {
+    content: "\f126";
+}
+.flaticon-set-workout:before {
+    content: "\f127";
+}
+.flaticon-set-weights:before {
+    content: "\f128";
+}
+.flaticon-set-treadmill:before {
+    content: "\f129";
+}
+.flaticon-set-report:before {
+    content: "\f12a";
+}
+.flaticon-set-dumbbell:before {
+    content: "\f12b";
+}
+.flaticon-set-courses:before {
+    content: "\f12c";
+}
+.flaticon-set-healthy-food:before {
+    content: "\f12d";
+}
+.flaticon-set-landscape:before {
+    content: "\f12e";
+}
+.flaticon-set-exercise-3:before {
+    content: "\f12f";
+}
+.flaticon-set-mental-health:before {
+    content: "\f130";
+}
+.flaticon-set-meditation-3:before {
+    content: "\f131";
+}
+.flaticon-set-stones:before {
+    content: "\f132";
+}
+.flaticon-set-drop:before {
+    content: "\f133";
+}
+.flaticon-set-herbal:before {
+    content: "\f134";
+}
+.flaticon-set-spa:before {
+    content: "\f135";
+}
+.flaticon-set-product-safety:before {
+    content: "\f136";
+}
+.flaticon-set-brain:before {
+    content: "\f137";
+}
+.flaticon-set-medical-app:before {
+    content: "\f138";
+}
+.flaticon-set-tea:before {
+    content: "\f139";
+}
+.flaticon-set-group:before {
+    content: "\f13a";
+}
+.flaticon-set-brochure:before {
+    content: "\f13b";
+}
+.flaticon-set-book:before {
+    content: "\f13c";
+}
+
