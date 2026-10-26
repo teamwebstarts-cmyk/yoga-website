@@ -19,9 +19,12 @@ Get-ChildItem css\*.css | ForEach-Object {
         $v = $m.Groups[1].Value.Trim()
         if ($v.StartsWith('data:')) { continue }
         if ($v -match '^https?://') { continue }
+        # strip url query (?...) and fragment (#...) e.g. font.woff?wmnaxx#iefix
+        $v = ($v -split '\?')[0]
+        $v = ($v -split '#')[0]
         # ../images/... -> images/...
         if ($v.StartsWith('../')) { $v = $v.Substring(3) }
-        if ($v -match '\.(png|jpg|jpeg|gif|webp|svg|ttf|woff2?)') { $refs.Add($v) | Out-Null }
+        if ($v -match '\.(png|jpg|jpeg|gif|webp|svg|ttf|woff2?)$') { $refs.Add($v) | Out-Null }
     }
 }
 

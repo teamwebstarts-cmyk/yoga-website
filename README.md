@@ -54,3 +54,17 @@ _screenshots/               Validation captures (local vs original, desktop/mobi
 ## Known limitation
 
 - The contact form (`action="#"`) has **no backend** — same as the original template, which ships no handler either. Front-end validation (`required` on the name field) works, but submissions go nowhere until an integration (e.g. Formspree/mail handler) is configured. Nav links to other template pages (`page-about.html` etc.) intentionally 404 locally since only `index.html` is in scope.
+- `jquery-ui.css` references six jQuery UI sprite images (`images/ui-icons_*.png`) that are **missing on the origin server as well** (verified 404 upstream). They are fetched only when a jQuery UI widget (e.g. datepicker) renders — none exist on this page — so the original and this clone behave identically.
+
+## Layout
+
+```
+index.html          entry point
+css/                all stylesheets (bootstrap, style.css, 13 @import deps)
+js/                 all 21 scripts
+images/             icons/, banner/, resource/ + jquery-ui sprites (upstream-missing)
+fonts/              Gallient, FontAwesome, flaticon sets, linearicons
+_original.html      untouched source snapshot (recovery reference)
+_tools/             recovery & verification scripts (not needed at runtime)
+_screenshots/       validation captures (original vs clone)
+```
