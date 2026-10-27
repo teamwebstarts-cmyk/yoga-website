@@ -11,6 +11,17 @@ python -m http.server 8765
 
 Works from any static server (must be served over HTTP, not `file://`, because the CSS uses `@import` and fonts).
 
+## Admin dashboard
+
+`dashboard.html` — create/update/delete the home page's services slider cards
+(backed by the Appwrite `services` table; see `js/services-data.js`).
+
+- Sign in with the admin account (`admin@yogava.com` — change the password after
+  first login; manage users in the Appwrite Console).
+- Access is enforced twice: the page checks for the `admin` user label, and the
+  `services` table only allows `create/update/delete` for `label:admin`
+  server-side. The public site reads anonymously (`read("any")`).
+
 ## Structure
 
 ```
