@@ -5,53 +5,14 @@
   <title>Yogava Admin — Services Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
+  <!-- Theme: site design system (tokens, fonts, components) + admin overrides -->
   <link href="css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    :root { --ad-bg: #f4f6f8; --ad-card: #ffffff; --ad-ink: #22303c; --ad-muted: #6b7a88; --ad-accent: #2f6f5e; --ad-danger: #b3423a; }
-    * { box-sizing: border-box; }
-    body { margin: 0; background: var(--ad-bg); color: var(--ad-ink); font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-    .ad-topbar { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; background: var(--ad-ink); color: #fff; }
-    .ad-topbar .brand { font-weight: 700; letter-spacing: .3px; }
-    .ad-topbar .brand small { display: block; font-weight: 400; opacity: .7; font-size: 12px; }
-    .ad-btn { border: 0; border-radius: 8px; padding: 9px 16px; font-size: 14px; cursor: pointer; background: var(--ad-accent); color: #fff; }
-    .ad-btn.secondary { background: #e6eaee; color: var(--ad-ink); }
-    .ad-btn.danger { background: var(--ad-danger); }
-    .ad-btn:disabled { opacity: .55; cursor: not-allowed; }
-    .ad-wrap { max-width: 1080px; margin: 28px auto; padding: 0 20px; }
-    .ad-card { background: var(--ad-card); border-radius: 12px; padding: 28px; box-shadow: 0 6px 24px rgba(20, 40, 60, .08); }
-    .ad-login { max-width: 420px; margin: 9vh auto 0; }
-    .ad-login h1 { font-size: 22px; margin: 0 0 6px; }
-    .ad-login p { color: var(--ad-muted); margin: 0 0 22px; font-size: 14px; }
-    .ad-field { margin-bottom: 16px; }
-    .ad-field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
-    .ad-field input, .ad-field textarea { width: 100%; border: 1px solid #d6dee5; border-radius: 8px; padding: 10px 12px; font-size: 14px; font-family: inherit; }
-    .ad-field textarea { min-height: 88px; resize: vertical; }
-    .ad-field .hint { color: var(--ad-muted); font-size: 12px; margin-top: 4px; }
-    .ad-msg { border-radius: 8px; padding: 10px 14px; font-size: 14px; margin: 14px 0; display: none; }
-    .ad-msg.error { display: block; background: #fbeceb; color: var(--ad-danger); }
-    .ad-msg.ok { display: block; background: #e9f5f0; color: var(--ad-accent); }
-    .ad-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
-    .ad-head h1 { font-size: 20px; margin: 0; }
-    table.ad-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-    table.ad-table th { text-align: left; color: var(--ad-muted); font-size: 12px; text-transform: uppercase; letter-spacing: .5px; padding: 10px 8px; border-bottom: 2px solid #e6eaee; }
-    table.ad-table td { padding: 12px 8px; border-bottom: 1px solid #edf1f4; vertical-align: middle; }
-    table.ad-table img { width: 64px; height: 44px; object-fit: cover; border-radius: 6px; display: block; }
-    .ad-actions { display: flex; gap: 8px; }
-    .ad-actions .ad-btn { padding: 6px 12px; font-size: 13px; }
-    .ad-form-title { font-size: 17px; margin: 26px 0 4px; }
-    .ad-grid { display: grid; grid-template-columns: 120px 1fr 1fr; gap: 16px; }
-    .ad-grid .full { grid-column: 1 / -1; }
-    .ad-user { font-size: 13px; opacity: .85; margin-right: 12px; }
-    .ad-visor { display: none; }
-    .ad-visor.visible { display: block; }
-    .ad-preview { margin-top: 4px; width: 120px; height: 82px; object-fit: cover; border-radius: 8px; border: 1px solid #d6dee5; display: none; }
-    .ad-link { background: none; border: 0; color: var(--ad-accent); cursor: pointer; font-size: 13px; padding: 0; text-decoration: underline; }
-    @media (max-width: 720px) { .ad-grid { grid-template-columns: 1fr; } }
-  </style>
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/dashboard-theme.css" rel="stylesheet" />
 </head>
 <body>
   <div class="ad-topbar">
-    <div class="brand">Yogava Admin<small>services dashboard</small></div>
+    <div class="brand">Yogava<small>services dashboard</small></div>
     <div id="ad-userbox" class="ad-visor">
       <span class="ad-user" id="ad-user-email"></span>
       <button class="ad-btn secondary" id="ad-logout" type="button">Log out</button>
@@ -61,6 +22,9 @@
   <!-- Login gate -->
   <div class="ad-wrap" id="ad-login-view">
     <div class="ad-card ad-login">
+      <div class="sec-title mb-0">
+        <div class="sub-title">Admin access</div>
+      </div>
       <h1>Admin sign in</h1>
       <p>Only accounts with the <code>admin</code> label can manage services.</p>
       <div class="ad-msg" id="ad-login-msg"></div>
@@ -81,6 +45,9 @@
   <!-- MFA challenge step -->
   <div class="ad-wrap ad-visor" id="ad-mfa-view">
     <div class="ad-card ad-login">
+      <div class="sec-title mb-0">
+        <div class="sub-title">Secure sign-in</div>
+      </div>
       <h1>Two-step verification</h1>
       <p>Enter the code we just emailed to <strong id="ad-mfa-email">your address</strong>.</p>
       <div class="ad-msg" id="ad-mfa-msg"></div>
@@ -90,7 +57,7 @@
           <input type="text" id="ad-otp" inputmode="numeric" maxlength="6" required autocomplete="one-time-code" />
         </div>
         <button class="ad-btn" type="submit" id="ad-mfa-btn">Verify code</button>
-        <button class="ad-link" id="ad-mfa-resend" type="button" style="margin-left:10px">Resend code</button>
+        <button class="ad-link" id="ad-mfa-resend" type="button">Resend code</button>
       </form>
     </div>
   </div>
@@ -98,17 +65,22 @@
   <!-- Dashboard -->
   <div class="ad-wrap ad-visor" id="ad-panel-view">
     <div class="ad-card">
+      <div class="sec-title mb-0">
+        <div class="sub-title">Dashboard</div>
+      </div>
       <div class="ad-head">
         <h1>Services cards</h1>
         <button class="ad-btn" id="ad-new" type="button">+ New service</button>
       </div>
       <div class="ad-msg" id="ad-panel-msg"></div>
-      <table class="ad-table">
-        <thead>
-          <tr><th>#</th><th>Image</th><th>Title</th><th>Description</th><th style="width:170px">Actions</th></tr>
-        </thead>
-        <tbody id="ad-rows"></tbody>
-      </table>
+      <div class="ad-table-wrap">
+        <table class="ad-table">
+          <thead>
+            <tr><th>#</th><th>Image</th><th>Title</th><th>Description</th><th style="width:170px">Actions</th></tr>
+          </thead>
+          <tbody id="ad-rows"></tbody>
+        </table>
+      </div>
 
       <div class="ad-form-title" id="ad-form-title">New service</div>
       <form id="ad-form">
@@ -147,6 +119,6 @@
   <script src="https://cdn.jsdelivr.net/npm/appwrite@29.1.0"></script>
   <script src="js/appwrite-config.js"></script>
   <script src="js/appwrite-init.js"></script>
-  <script src="js/dashboard.js?v=3"></script>
+  <script src="js/dashboard.js?v=2"></script>
 </body>
 </html>
