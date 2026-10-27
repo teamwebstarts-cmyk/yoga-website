@@ -9,9 +9,11 @@
  * table only allows create/update/delete for label:admin, and panel
  * data requires a fully-authenticated (MFA-completed) session.
  *
- * Enrollment (first-time setup): verify email via emailed link ->
- * enable MFA -> done. The emailed verification link redirects back
- * to THIS page; the secret in the URL is auto-completed here.
+ * Email MFA is a BACKEND default, not a UI toggle: the admin account
+ * is provisioned (label admin, verified email, mfa=true) by
+ * `_tools/sync-appwrite-env.py --bootstrap-admin`, so Appwrite itself
+ * forces the second factor on every sign-in. This page never enables
+ * or disables it; it only answers the challenge.
  */
 (function () {
   'use strict';
@@ -30,7 +32,6 @@
   var el = function (id) { return document.getElementById(id); };
   var V = {
     login: el('ad-login-view'),
-    setup: el('ad-setup-wrap'),
     mfa: el('ad-mfa-view'),
     panel: el('ad-panel-view'),
     userbox: el('ad-userbox'),
@@ -39,8 +40,6 @@
   var state = {
     userId: null,
     email: '',
-    emailVerified: false,
-    mfaEnabled: false,
     sessionActive: false, // password step done (possibly awaiting MFA)
     challengeId: null,
   };
@@ -56,7 +55,6 @@
     V.mfa.classList.remove('visible');
     V.panel.classList.remove('visible');
     V.userbox.classList.remove('visible');
-    V.setup.classList.remove('visible');
   }
 
   function showLogin(msg, ok) {
@@ -105,33 +103,13 @@
   function route(user) {
     state.userId = user.$id;
     state.email = user.email;
-    state.emailVerified = !!user.emailVerification;
-    state.mfaEnabled = !!user.mfa;
 
     if (!isAdmin(user)) { showLogin('This account is not an admin.', false); return; }
 
-    if (!state.mfaEnabled) {
-      // Not enrolled yet: allow in (testing mode) with a nudge, or
-      // if the email is verified, finish enrollment automatically.
-      if (state.emailVerified && state.sessionActive) {
-        services.account.updateMFA({ mfa: true })
-          .then(function () {
-            state.mfaEnabled = true;
-            showMsg(el('ad-panel-msg'), 'Email MFA is now enabled for this account.', true);
-            showPanel(user);
-          })
-          .catch(function (err) {
-            showPanel(user); // don't block on enrollment hiccups
-          });
-        return;
-      }
-      showPanel(user);
-      return;
-    }
-
     // account.get() succeeded -> the session is FULLY authenticated
-    // (Appwrite only resolves it when no factor is pending), so no
-    // new challenge is needed regardless of MFA being enabled.
+    // (Appwrite only resolves it when no factor is pending). MFA is a
+    // backend default: any sign-in that reaches this point already
+    // cleared the email-factor challenge.
     showPanel(user);
   }
 
@@ -224,73 +202,6 @@
         showLogin('Signed out.', true);
       });
   });
-
-  /* ---------- one-time enrollment UI ---------- */
-
-  el('ad-enroll-link').addEventListener('click', function () {
-    V.setup.classList.toggle('visible');
-    el('ad-setup-email').textContent = el('ad-email').value.trim() || 'your address';
-  });
-
-  el('ad-setup-send').addEventListener('click', function () {
-    var msg = el('ad-setup-msg');
-    var proceed = function () {
-      services.account.createVerification({ url: window.location.href.split('?')[0] })
-        .then(function () {
-          showMsg(msg, 'Verification email sent — click the link in your inbox, then press “I verified”.', true);
-        })
-        .catch(function (err) {
-          showMsg(msg, 'Could not send: ' + ((err && err.message) || err), false);
-        });
-    };
-    if (state.sessionActive) { proceed(); return; }
-    // No session yet: create one with the credentials typed above.
-    services.account.createEmailPasswordSession({
-      email: el('ad-email').value.trim(),
-      password: el('ad-password').value,
-    }).then(function () {
-      state.sessionActive = true;
-      proceed();
-    }).catch(function () {
-      showMsg(msg, 'Type your email + password above first, then click again.', false);
-    });
-  });
-
-  el('ad-setup-done').addEventListener('click', function () {
-    var msg = el('ad-setup-msg');
-    services.account.get()
-      .then(function (user) {
-        if (!user.emailVerification) {
-          showMsg(msg, 'Not verified yet — click the link in the email first.', false);
-          return null;
-        }
-        return services.account.updateMFA({ mfa: true })
-          .then(function () {
-            state.mfaEnabled = true;
-            showLogin('Email MFA is enabled. Sign in — we\'ll email you a 6-digit code each time.', true);
-          });
-      })
-      .catch(function () { showLogin('Session expired — sign in again.', false); });
-  });
-
-  /* ---------- emailed verification link auto-completion ---------- */
-
-  (function handleVerifyRedirect() {
-    var q = new URLSearchParams(window.location.search);
-    var secret = q.get('secret');
-    var userId = q.get('userId');
-    if (!secret || !userId) return;
-    services.account.updateVerification({ userId: userId, secret: secret })
-      .then(function () {
-        window.history.replaceState({}, '', window.location.pathname);
-        showLogin('Email verified! Now finish two-step setup below.', true);
-        V.setup.classList.add('visible');
-      })
-      .catch(function () {
-        window.history.replaceState({}, '', window.location.pathname);
-        showLogin('That verification link is invalid or expired.', false);
-      });
-  })();
 
   /* ---------- rows / CRUD (unchanged) ---------- */
 
