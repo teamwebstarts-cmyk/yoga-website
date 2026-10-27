@@ -124,9 +124,10 @@
           // Password accepted, waiting for 2nd factor.
           state.sessionActive = true;
           state.email = knownEmail || 'your address';
+          // createEmailChallenge() stores the challenge id in state
+          // itself; its chain resolves with no value — just await it.
           createEmailChallenge()
-            .then(function (ch) {
-              state.challengeId = ch.$id;
+            .then(function () {
               showMfa();
             })
             .catch(function (e2) {
