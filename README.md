@@ -68,3 +68,5 @@ _original.html      untouched source snapshot (recovery reference)
 _tools/             recovery & verification scripts (not needed at runtime)
 _screenshots/       validation captures (original vs clone)
 ```
+
+> Dev tooling, validation screenshots and the original page snapshot live on the `archive/tooling` branch.
