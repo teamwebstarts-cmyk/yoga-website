@@ -20,12 +20,13 @@ window.APPWRITE_CONFIG = {
   projectId: '6ae04d6900049efeae83',
 
   // Database identifiers for future integrations.
-  // Leave as empty strings until a database/table is created;
-  // set them here (via .env) when that happens.
+  // Populated from .env (APPWRITE_DATABASE_ID / APPWRITE_TABLES).
+  // APPWRITE_TABLES holds comma-separated 'name=id' pairs, e.g.
+  //     APPWRITE_TABLES=services=services,contact=contact-xyz
   database: {
-    databaseId: '', // e.g. 'yogava-main'
+    databaseId: 'yogava-main',
     tables: {
-      // tableId: '' - reserved for future tables, e.g. contact submissions
+      services: 'services',
     },
   },
 };
