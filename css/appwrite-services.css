@@ -1,0 +1,52 @@
+/**
+ * Services slider (Appwrite-driven) — card consistency overrides
+ * ---------------------------------------------------------------
+ * Loaded after style.css. Equalizes card heights across the row and
+ * bottom-aligns the CTA so every .service-block-two card matches,
+ * regardless of description length.
+ *
+ * Scoped to .service-slider only — other sliders (gallery,
+ * testimonials) are untouched.
+ */
+
+/* Slide stretches to the tallest card in view; inner card fills it. */
+.service-slider .swiper-slide {
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 30px; /* spacing previously from inner-block margin */
+}
+
+/* Card becomes a full-height flex column: content top, CTA bottom. */
+.service-slider .service-block-two .inner-block {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+/* Description grows to absorb height differences between cards,
+   which keeps every "Read More" button aligned on the same baseline. */
+.service-slider .service-block-two .inner-block .text {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+@media (max-width: 575.98px) {
+  /* Stacked (column) upper-box on phones — keep the title image pair
+     neat while preserving equal card heights. */
+  .service-slider .service-block-two .inner-block {
+    padding: 30px 20px;
+  }
+}
