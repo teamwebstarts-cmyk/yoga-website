@@ -45,10 +45,7 @@
     .ad-visor { display: none; }
     .ad-visor.visible { display: block; }
     .ad-preview { margin-top: 4px; width: 120px; height: 82px; object-fit: cover; border-radius: 8px; border: 1px solid #d6dee5; display: none; }
-    .ad-codes { background: #f7f9fa; border: 1px dashed #cfd8df; padding: 12px 16px; border-radius: 8px; font-family: Consolas, monospace; font-size: 14px; white-space: pre-wrap; margin: 10px 0; }
     .ad-link { background: none; border: 0; color: var(--ad-accent); cursor: pointer; font-size: 13px; padding: 0; text-decoration: underline; }
-    .ad-spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid #cfd8df; border-top-color: var(--ad-accent); border-radius: 50%; animation: adspin 0.8s linear infinite; vertical-align: -2px; margin-right: 6px; }
-    @keyframes adspin { to { transform: rotate(360deg); } }
     @media (max-width: 720px) { .ad-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -85,7 +82,6 @@
         <ol style="font-size:13px;color:var(--ad-muted);margin:0 0 12px 18px;padding:0">
           <li>Click below — a verification link is emailed to <span id="ad-setup-email">your address</span>.</li>
           <li>Click the link in that email (returns here), then press "I verified".</li>
-          <li>Save the recovery codes you'll receive.</li>
         </ol>
         <div class="ad-msg" id="ad-setup-msg"></div>
         <button class="ad-btn secondary" id="ad-setup-send" type="button">Email me the verification link</button>
@@ -108,27 +104,6 @@
         <button class="ad-btn" type="submit" id="ad-mfa-btn">Verify code</button>
         <button class="ad-link" id="ad-mfa-resend" type="button" style="margin-left:10px">Resend code</button>
       </form>
-      <details style="margin-top:20px">
-        <summary style="font-size:13px;color:var(--ad-muted);cursor:pointer">Use a recovery code instead</summary>
-        <form id="ad-recovery-form" style="margin-top:12px">
-          <div class="ad-field">
-            <label for="ad-recovery-code">Recovery code</label>
-            <input type="text" id="ad-recovery-code" required />
-          </div>
-          <button class="ad-btn secondary" type="submit">Verify recovery code</button>
-        </form>
-      </details>
-    </div>
-  </div>
-
-  <!-- Recovery codes display (one-time) -->
-  <div class="ad-wrap ad-visor" id="ad-recovery-view">
-    <div class="ad-card ad-login">
-      <h1>Save your recovery codes</h1>
-      <p>Each code works once if you lose access to your email. They are shown <strong>only this once</strong>.</p>
-      <div class="ad-codes" id="ad-codes-box"></div>
-      <div class="ad-msg" id="ad-recovery-msg"></div>
-      <button class="ad-btn" id="ad-codes-done" type="button">I saved them — continue</button>
     </div>
   </div>
 
@@ -137,10 +112,7 @@
     <div class="ad-card">
       <div class="ad-head">
         <h1>Services cards</h1>
-        <div>
-          <button class="ad-link" id="ad-regen-codes" type="button">Regenerate recovery codes</button>
-          <button class="ad-btn" id="ad-new" type="button" style="margin-left:12px">+ New service</button>
-        </div>
+        <button class="ad-btn" id="ad-new" type="button">+ New service</button>
       </div>
       <div class="ad-msg" id="ad-panel-msg"></div>
       <table class="ad-table">

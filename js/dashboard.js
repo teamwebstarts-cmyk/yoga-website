@@ -4,16 +4,14 @@
  * Auth: two-step login with Appwrite's EMAIL MFA factor.
  *   Step 1: email + password  -> session (restricted until 2nd factor)
  *   Step 2: 6-digit code mailed to the account's (verified) email
- * Recovery codes (one-time shown at enrollment) can replace the code.
  *
  * Server-side enforcement is independent of this UI: the services
  * table only allows create/update/delete for label:admin, and panel
  * data requires a fully-authenticated (MFA-completed) session.
  *
  * Enrollment (first-time setup): verify email via emailed link ->
- * enable MFA -> show recovery codes once. The emailed verification
- * link redirects back to THIS page; the secret in the URL is
- * auto-completed here.
+ * enable MFA -> done. The emailed verification link redirects back
+ * to THIS page; the secret in the URL is auto-completed here.
  */
 (function () {
   'use strict';
@@ -34,7 +32,6 @@
     login: el('ad-login-view'),
     setup: el('ad-setup-wrap'),
     mfa: el('ad-mfa-view'),
-    recovery: el('ad-recovery-view'),
     panel: el('ad-panel-view'),
     userbox: el('ad-userbox'),
   };
@@ -46,7 +43,6 @@
     mfaEnabled: false,
     sessionActive: false, // password step done (possibly awaiting MFA)
     challengeId: null,
-    recoveryCodes: null,
   };
 
   function showMsg(target, text, ok) {
@@ -58,7 +54,6 @@
   function hideAll() {
     V.login.style.display = 'none';
     V.mfa.classList.remove('visible');
-    V.recovery.classList.remove('visible');
     V.panel.classList.remove('visible');
     V.userbox.classList.remove('visible');
     V.setup.classList.remove('visible');
@@ -77,12 +72,6 @@
     el('ad-otp').focus();
   }
 
-  function showRecoveryCodes() {
-    hideAll();
-    el('ad-codes-box').textContent = (state.recoveryCodes || []).join('\n');
-    V.recovery.classList.add('visible');
-  }
-
   function showPanel(user) {
     hideAll();
     V.login.style.display = 'none';
@@ -94,23 +83,6 @@
 
   function isAdmin(user) {
     return !!(user && user.labels && user.labels.indexOf('admin') !== -1);
-  }
-
-  // One-time recovery codes: try to show existing set; generate if none.
-  // NOTE: codes are returned exactly once ever — if they were created
-  // before but never saved, use "Regenerate recovery codes" (requires
-  // a recent MFA challenge, i.e. do it right after signing in).
-  function ensureRecoveryCodes() {
-    return services.account.createMfaRecoveryCodes()
-      .then(function (res) { state.recoveryCodes = res.recoveryCodes; })
-      .catch(function () {
-        state.recoveryCodes = null; // already exist but unreadable
-      });
-  }
-
-  function areCodesGenerated() {
-    return services.account.listMfaRecoveryCodes()
-      .then(function (res) { return !!(res.recoveryCodes && res.recoveryCodes.length); });
   }
 
   /* ---------- MFA challenge (email factor) ---------- */
@@ -142,23 +114,11 @@
       // Not enrolled yet: allow in (testing mode) with a nudge, or
       // if the email is verified, finish enrollment automatically.
       if (state.emailVerified && state.sessionActive) {
-        areCodesGenerated()
-          .then(function (already) {
-            if (!already) { return ensureRecoveryCodes(); }
-            state.recoveryCodes = null;
-          })
-          .then(function () {
-            return services.account.updateMFA({ mfa: true });
-          })
+        services.account.updateMFA({ mfa: true })
           .then(function () {
             state.mfaEnabled = true;
-            if (state.recoveryCodes) {
-              showRecoveryCodes();
-            } else {
-              // Codes already exist but can only be displayed once —
-              // enter the panel; use "Regenerate recovery codes".
-              showPanel(user);
-            }
+            showMsg(el('ad-panel-msg'), 'Email MFA is now enabled for this account.', true);
+            showPanel(user);
           })
           .catch(function (err) {
             showPanel(user); // don't block on enrollment hiccups
@@ -254,44 +214,6 @@
       });
   });
 
-  // Recovery-code path: create a recoverycode challenge + complete it.
-  el('ad-recovery-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var code = el('ad-recovery-code').value.trim();
-    services.account.createMfaChallenge({ factor: 'recoverycode' })
-      .then(function (ch) {
-        return services.account.updateMfaChallenge({ challengeId: ch.$id, otp: code });
-      })
-      .then(function () { return services.account.get(); })
-      .then(function (user) {
-        el('ad-recovery-code').value = '';
-        route(user);
-      })
-      .catch(function () {
-        showMsg(el('ad-mfa-msg'), 'Invalid recovery code.', false);
-      });
-  });
-
-  el('ad-codes-done').addEventListener('click', gate);
-
-  // Regenerate recovery codes — possible only shortly after a fresh
-  // MFA challenge (i.e., right after signing in with the emailed code).
-  el('ad-regen-codes').addEventListener('click', function () {
-    var y = services;
-    var msg = el('ad-panel-msg');
-    y.account.updateMfaRecoveryCodes()
-      .then(function (res) {
-        state.recoveryCodes = res.recoveryCodes;
-        showRecoveryCodes();
-      })
-      .catch(function (err) {
-        showMsg(msg,
-          'Cannot regenerate right now — this works only shortly after ' +
-          'signing in with your emailed code. Sign out and back in, then try again. ' +
-          '(' + ((err && err.message) || err) + ')', false);
-      });
-  });
-
   /* ---------- logout ---------- */
 
   el('ad-logout').addEventListener('click', function () {
@@ -342,16 +264,10 @@
           showMsg(msg, 'Not verified yet — click the link in the email first.', false);
           return null;
         }
-        return areCodesGenerated()
-          .then(function (already) {
-            if (!already) { return ensureRecoveryCodes(); }
-            state.recoveryCodes = null;
-          })
-          .then(function () { return services.account.updateMFA({ mfa: true }); })
+        return services.account.updateMFA({ mfa: true })
           .then(function () {
             state.mfaEnabled = true;
-            if (!state.recoveryCodes) { return services.account.get().then(function (u2) { route(u2); }); }
-            showRecoveryCodes();
+            showLogin('Email MFA is enabled. Sign in — we\'ll email you a 6-digit code each time.', true);
           });
       })
       .catch(function () { showLogin('Session expired — sign in again.', false); });
