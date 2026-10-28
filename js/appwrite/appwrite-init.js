@@ -28,7 +28,7 @@
   if (!cfg || !cfg.endpoint || !cfg.projectId) {
     console.error(
       '[Appwrite] Missing config — run: python _tools/sync-appwrite-env.py ' +
-      '(generates js/appwrite-config.js from .env)'
+      '(generates js/appwrite/appwrite-config.js from .env)'
     );
     return;
   }

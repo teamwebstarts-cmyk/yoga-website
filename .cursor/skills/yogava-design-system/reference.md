@@ -164,7 +164,7 @@ boxes[2] && boxes[2].classList.add('active');
 })();
 ```
 
-Lines up the same as `js/services-data.js`.
+Lines up the same as `js/appwrite/services-data.js`.
 
 ## Icon feature block
 

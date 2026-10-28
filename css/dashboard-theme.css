@@ -8,7 +8,7 @@
  *
  * JS contract untouched: all #ad-* / #f-* ids, .ad-msg(+ .ok/.error),
  * .ad-visor(.visible), .ad-btn(.secondary/.danger), .ad-actions,
- * .ad-preview keep their exact names — see js/dashboard.js.
+ * .ad-preview keep their exact names — see js/appwrite/dashboard.js.
  *
  * No animations (admin page): hover/focus transitions only.
  */

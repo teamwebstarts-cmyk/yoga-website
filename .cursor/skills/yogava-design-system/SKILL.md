@@ -5,14 +5,16 @@ description: Yogava yoga/wellness site design system - theme tokens, layout skel
 
 # Yogava Design System
 
-Pixel-faithful recreation of the "Yogava" yoga template (ThemeMascot; jQuery namespace `THEMEMASCOT` in `js/script.js`). Stack: static HTML + jQuery 3.7 + Bootstrap 5 grid utilities + GSAP (ScrollTrigger, SplitText, Lenis smooth scroll) + Swiper + Wow/AOS + Fancybox + Appwrite Cloud Web SDK for dynamic content. **Fidelity to the original is the top priority** (see README).
+Pixel-faithful recreation of the "Yogava" yoga template (ThemeMascot; jQuery namespace `THEMEMASCOT` in `js/theme/script.js`). Stack: static HTML + jQuery 3.7 + Bootstrap 5 grid utilities + GSAP (ScrollTrigger, SplitText, Lenis smooth scroll) + Swiper + Wow/AOS + Fancybox + Appwrite Cloud Web SDK for dynamic content. **Fidelity to the original is the top priority** (see README).
+
+JS layout: `js/vendor/` (third-party), `js/theme/` (template code, never edit), `js/appwrite/` (project integration code).
 
 ## Golden rules
 
 1. **Never edit vendor/template files** (`css/style.css`, `bootstrap.min.css`, any `js/*.js` that ships with the template). Extend instead.
 2. **Reuse existing classes before writing CSS.** If a hook exists (`sec-title`, `theme-btn btn-style-one`, `gsap-fade-up`, `section-padding`, `auto-container`, `fix`), use it in the HTML.
 3. New CSS goes in a **small dedicated stylesheet loaded after `style.css`** (pattern: `css/appwrite-services.css`), tightly scoped to the new section/component, with `-webkit-`-prefixed flexbox like the template, and a short "why" comment.
-4. New JS goes in a separate file loaded last (pattern: `js/services-data.js`), never inline edits to `script.js`.
+4. New JS goes in a separate file loaded last (pattern: `js/appwrite/services-data.js`), never inline edits to `js/theme/script.js`.
 5. Colors **only** via the CSS variables below — no raw hex in new code.
 6. Manual `<br>` inside titles is intentional (line breaks in display type); CSS hides all `<br>` below 1199.98px.
 
@@ -85,7 +87,7 @@ Pill radius 50px, Gotu 16px capitalize. Styles: `one` = teal → dark wipe (defa
 
 Global: Lenis smooth scroll (duration 1.5) synced to ScrollTrigger; custom cursor (inner 10px teal dot + lagging outer ring, scales 1.5 `back.out(1.7)` over `button, a, .cursor-pointer, .gsap-interactive-img`).
 
-Scroll-trigger classes — add via HTML only, tuning lives in `js/script.js`:
+Scroll-trigger classes — add via HTML only, tuning lives in `js/theme/script.js`:
 
 | Class | Effect |
 |---|---|
@@ -105,8 +107,8 @@ Other movement: `.float-horizontal` drifting shapes, `.animate-circle` rotating 
 
 - jQuery namespace `THEMEMASCOT` in `script.js`; feature blocks are `if ( $('.selector').length )` guards.
 - Swiper pattern: `speed: 1500`, `loop: true`, mostly autoplay, breakpoints `400/768/1200/1400` → `1/2/3/4` slides; dots `el: '.{name}-slider-dots'` or arrows.
-- **Dynamic content**: render into the existing static-fallback markup only on success, escape ALL data text, mirror template class names exactly (CSS hooks), then destroy + re-create the Swiper (`el.swiper.destroy(true, true)` → same options as `script.js`). See `js/services-data.js` for the canonical implementation.
-- Appwrite: config is generated from `.env` by `_tools/sync-appwrite-env.py` into `js/appwrite-config.js`; runtime handle is `window.yogavaAppwrite` (`client`, `account`, `tablesDB`). No secrets in frontend code.
+- **Dynamic content**: render into the existing static-fallback markup only on success, escape ALL data text, mirror template class names exactly (CSS hooks), then destroy + re-create the Swiper (`el.swiper.destroy(true, true)` → same options as `js/theme/script.js`). See `js/appwrite/services-data.js` for the canonical implementation.
+- Appwrite: config is generated from `.env` by `_tools/sync-appwrite-env.py` into `js/appwrite/appwrite-config.js`; runtime handle is `window.yogavaAppwrite` (`client`, `account`, `tablesDB`). No secrets in frontend code.
 
 ## Pre-flight checklist for any new section/component
 

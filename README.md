@@ -14,7 +14,7 @@ Works from any static server (must be served over HTTP, not `file://`, because t
 ## Admin dashboard
 
 `dashboard.html` — create/update/delete the home page's services slider cards
-(backed by the Appwrite `services` table; see `js/services-data.js`).
+(backed by the Appwrite `services` table; see `js/appwrite/services-data.js`).
 
 - Sign in with the admin account (`admin@yogava.com` — change the password after
   first login; manage users in the Appwrite Console).
@@ -30,11 +30,17 @@ css/                        bootstrap.min.css + style.css + 13 @import dependenc
                             (animate, aos, swiper, fancybox, jquery-ui, linear, select2,
                              fontawesome, flaticons-common, flaticon-set-medical,
                              flaticon-set-yoga, tm-bs-mp, tm-utility-classes)
-js/                         All 21 scripts used by the page:
-                            jQuery 3.7.1, popper, bootstrap, fancybox 3.2.10, jquery-ui,
-                            wow, select2, appear, lenis, bxslider, knob, swiper, aos,
-                            GSAP + ScrollTrigger + SplitText + scroll-smoother/scroll-to,
-                            splitType, custom-gsap (template GSAP helpers), script.js (main)
+js/                         All 25 scripts in three groups:
+  vendor/                     Third-party libraries (do not edit):
+                              jQuery 3.7.1, popper, bootstrap, fancybox 3.2.10,
+                              jquery-ui, wow, select2, appear, lenis, bxslider,
+                              knob, swiper, aos, GSAP + ScrollTrigger + SplitText
+                              + scroll-smoother/scroll-to, splitType
+  theme/                      Template theme code (do not edit):
+                              custom-gsap (template GSAP helpers), script.js (main)
+  appwrite/                   Project backend integration:
+                              appwrite-config (generated from .env), appwrite-init,
+                              services-data, dashboard
 images/                     All images referenced by index.html + CSS url() refs
                             (icons/, banner/, resource/, background/)
 fonts/                      Gallient (TF) + FontAwesome (6 weights) + flaticon yoga/medical/common
