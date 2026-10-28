@@ -1,7 +1,7 @@
 /**
  * Admin dashboard theme — Yogava design system
  * --------------------------------------------
- * Loaded AFTER css/style.css (so every token/font below is defined).
+ * Loaded AFTER css/theme/style.css (so every token/font below is defined).
  * Restyles the admin chrome (.ad-* prefixed) with the site's design
  * system: teal #417572 primary, #F2F0EC warm surface, off-white cards,
  * Gallient display headings, Gotu accents.

@@ -32,17 +32,17 @@ License: copyright commercial
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gotu&display=swap");
-@import url("animate.css");
-@import url("aos.css");
-@import url("swiper.min.css");
-@import url("jquery.fancybox.min.css");
-@import url("jquery-ui.css");
-@import url("linear.css");
-@import url("select2.min.css");
-@import url("fontawesome.css");
-@import url("flaticons-common.css");
-@import url("flaticon-set-medical.css");
-@import url("flaticon-set-yoga.css");
+@import url("../vendor/animate.css");
+@import url("../vendor/aos.css");
+@import url("../vendor/swiper.min.css");
+@import url("../vendor/jquery.fancybox.min.css");
+@import url("../vendor/jquery-ui.css");
+@import url("../vendor/linear.css");
+@import url("../vendor/select2.min.css");
+@import url("../vendor/fontawesome.css");
+@import url("../vendor/flaticons-common.css");
+@import url("../vendor/flaticon-set-medical.css");
+@import url("../vendor/flaticon-set-yoga.css");
 @import url("tm-bs-mp.css");
 @import url("tm-utility-classes.css");
 @property --gradient-angle {
@@ -135,28 +135,28 @@ License: copyright commercial
 
 @font-face {
   font-family: "Gallient";
-  src: url("../fonts/gallient/GallientRegular-eZoMp.ttf");
+  src: url("../../fonts/gallient/GallientRegular-eZoMp.ttf");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Gallient";
-  src: url("../fonts/gallient/GallientRegular-eZoMp.ttf");
+  src: url("../../fonts/gallient/GallientRegular-eZoMp.ttf");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Gallient";
-  src: url("../fonts/gallient/GallientRegular-eZoMp.ttf");
+  src: url("../../fonts/gallient/GallientRegular-eZoMp.ttf");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Gallient";
-  src: url("../fonts/gallient/GallientRegular-eZoMp.ttf");
+  src: url("../../fonts/gallient/GallientRegular-eZoMp.ttf");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -488,7 +488,7 @@ textarea.form-control {
   background-color: var(--theme-color-dark);
 }
 .dark-layout .preloader:after {
-  background-image: url(../images/logo.png);
+  background-image: url(../../images/logo.png);
 }
 .dark-layout .sticky-header {
   background-color: var(--theme-color-dark);
@@ -762,7 +762,7 @@ li {
   background-repeat: no-repeat;
   -webkit-animation: pulse 1s infinite linear;
   animation: pulse 1s infinite linear;
-  background-image: url(../images/icons/preloader.png);
+  background-image: url(../../images/icons/preloader.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -865,7 +865,7 @@ li {
   background-repeat: no-repeat;
   -webkit-animation: pulse 1s infinite linear;
   animation: pulse 1s infinite linear;
-  background-image: url(../images/icons/preloader.png);
+  background-image: url(../../images/icons/preloader.png);
   content: "";
 }
 .preloader-loaded .text-preloader-outer .text-preloading .text-split {
@@ -1105,27 +1105,27 @@ Scroll To Top style
 }
 
 .bg-pattern-1 {
-  background-image: url(../images/icons/pattern-1.png);
+  background-image: url(../../images/icons/pattern-1.png);
 }
 
 .bg-pattern-2 {
-  background-image: url(../images/icons/pattern-2.png);
+  background-image: url(../../images/icons/pattern-2.png);
 }
 
 .bg-pattern-3 {
-  background-image: url(../images/icons/pattern-3.png);
+  background-image: url(../../images/icons/pattern-3.png);
 }
 
 .bg-pattern-4 {
-  background-image: url(../images/icons/pattern-4.png);
+  background-image: url(../../images/icons/pattern-4.png);
 }
 
 .bg-pattern-5 {
-  background-image: url(../images/icons/pattern-5.png);
+  background-image: url(../../images/icons/pattern-5.png);
 }
 
 .bg-pattern-6 {
-  background-image: url(../images/icons/pattern-6.png);
+  background-image: url(../../images/icons/pattern-6.png);
 }
 
 .devider {
@@ -2447,337 +2447,337 @@ btn-style-two
 .icon-wheel-1 {
   width: 144px;
   height: 163px;
-  background-image: url(../images/icons/icon-wheel-1.png);
+  background-image: url(../../images/icons/icon-wheel-1.png);
 }
 
 .icon-wheel-2 {
   width: 144px;
   height: 163px;
-  background-image: url(../images/icons/icon-wheel-2.png);
+  background-image: url(../../images/icons/icon-wheel-2.png);
 }
 
 .icon-wheel-3 {
   width: 149px;
   height: 147px;
-  background-image: url(../images/icons/icon-wheel-3.png);
+  background-image: url(../../images/icons/icon-wheel-3.png);
 }
 
 .icon-wheel-5 {
   width: 144px;
   height: 163px;
-  background-image: url(../images/icons/icon-wheel-5.png);
+  background-image: url(../../images/icons/icon-wheel-5.png);
 }
 
 .icon-wheel-compass-1 {
   width: 171px;
   height: 176px;
-  background-image: url(../images/icons/icon-wheel-compass-1.png);
+  background-image: url(../../images/icons/icon-wheel-compass-1.png);
 }
 
 .icon-wheel-compass-2 {
   width: 97px;
   height: 99px;
-  background-image: url(../images/icons/icon-wheel-compass-2.png);
+  background-image: url(../../images/icons/icon-wheel-compass-2.png);
 }
 
 .icon-wheel-compass-3 {
   width: 103px;
   height: 106px;
-  background-image: url(../images/icons/icon-wheel-compass-3.png);
+  background-image: url(../../images/icons/icon-wheel-compass-3.png);
 }
 
 .icon-anchor-1 {
   width: 138px;
   height: 136px;
-  background-image: url(../images/icons/icon-anchor-1.png);
+  background-image: url(../../images/icons/icon-anchor-1.png);
 }
 
 .icon-sailboat-line-1 {
   width: 431px;
   height: 705px;
-  background-image: url(../images/icons/icon-sailboat-line-1.png);
+  background-image: url(../../images/icons/icon-sailboat-line-1.png);
 }
 
 .icon-sailboat-line-3 {
   width: 242px;
   height: 250px;
-  background-image: url(../images/icons/icon-sailboat-line-3.png);
+  background-image: url(../../images/icons/icon-sailboat-line-3.png);
 }
 
 .icon-sailboat-line-4 {
   width: 369px;
   height: 728px;
-  background-image: url(../images/icons/icon-sailboat-line-4.png);
+  background-image: url(../../images/icons/icon-sailboat-line-4.png);
 }
 
 .icon-big-boat-1 {
   width: 800px;
   height: 464px;
-  background-image: url(../images/icons/icon-big-boat-1.png);
+  background-image: url(../../images/icons/icon-big-boat-1.png);
 }
 
 .icon-big-boat-2 {
   width: 229px;
   height: 739px;
-  background-image: url(../images/icons/icon-big-boat-2.png);
+  background-image: url(../../images/icons/icon-big-boat-2.png);
 }
 
 .icon-big-boat-3 {
   width: 373px;
   height: 126px;
-  background-image: url(../images/icons/icon-big-boat-3.png);
+  background-image: url(../../images/icons/icon-big-boat-3.png);
 }
 
 .icon-big-boat-5 {
   width: 229px;
   height: 739px;
-  background-image: url(../images/icons/icon-big-boat-5.png);
+  background-image: url(../../images/icons/icon-big-boat-5.png);
 }
 
 .icon-pattern1 {
   width: 494px;
   height: 465px;
-  background-image: url(../images/background/footer1-pattern1.png);
+  background-image: url(../../images/background/footer1-pattern1.png);
 }
 
 .icon-pattern2 {
   width: 247px;
   height: 477px;
-  background-image: url(../images/background/footer1-pattern2.png);
+  background-image: url(../../images/background/footer1-pattern2.png);
 }
 
 .icon-plane-1 {
   width: 350px;
   height: 349px;
-  background-image: url(../images/icons/icon-plane-1.png);
+  background-image: url(../../images/icons/icon-plane-1.png);
 }
 
 .icon-plane-2 {
   width: 106px;
   height: 640px;
-  background-image: url(../images/icons/icon-plane-2.png);
+  background-image: url(../../images/icons/icon-plane-2.png);
 }
 
 .icon-plane-3 {
   width: 455px;
   height: 420px;
-  background-image: url(../images/icons/icon-plane-3.png);
+  background-image: url(../../images/icons/icon-plane-3.png);
 }
 
 .icon-plane-4 {
   width: 301px;
   height: 336px;
-  background-image: url(../images/icons/icon-plane-4.png);
+  background-image: url(../../images/icons/icon-plane-4.png);
 }
 
 .icon-plane-5 {
   width: 313px;
   height: 253px;
-  background-image: url(../images/icons/icon-plane-5.png);
+  background-image: url(../../images/icons/icon-plane-5.png);
 }
 
 .icon-plane-6 {
   width: 188px;
   height: 110px;
-  background-image: url(../images/icons/icon-plane-6.png);
+  background-image: url(../../images/icons/icon-plane-6.png);
 }
 
 .icon-plane-7 {
   width: 256px;
   height: 255px;
-  background-image: url(../images/icons/icon-plane-7.png);
+  background-image: url(../../images/icons/icon-plane-7.png);
 }
 
 .icon-plane-8 {
   width: 374px;
   height: 194px;
-  background-image: url(../images/icons/icon-plane-8.png);
+  background-image: url(../../images/icons/icon-plane-8.png);
 }
 
 .icon-plane-9 {
   width: 313px;
   height: 253px;
-  background-image: url(../images/icons/icon-plane-9.png);
+  background-image: url(../../images/icons/icon-plane-9.png);
 }
 
 .icon-big-arrow {
   width: 1279px;
   height: 250px;
-  background-image: url(../images/banner/icon-big-arrow.png);
+  background-image: url(../../images/banner/icon-big-arrow.png);
 }
 
 .icon-arrow {
   width: 42px;
   height: 64px;
-  background-image: url(../images/icons/icon-arrow.png);
+  background-image: url(../../images/icons/icon-arrow.png);
 }
 
 .icon-arrow-2 {
   width: 92px;
   height: 35px;
-  background-image: url(../images/icons/icon-arrow-2.png);
+  background-image: url(../../images/icons/icon-arrow-2.png);
 }
 
 .icon-big-bus {
   width: 807px;
   height: 621px;
-  background-image: url(../images/icons/icon-big-bus.png);
+  background-image: url(../../images/icons/icon-big-bus.png);
 }
 
 .icon-bus {
   width: 623px;
   height: 432px;
-  background-image: url(../images/icons/icon-bus.png);
+  background-image: url(../../images/icons/icon-bus.png);
 }
 
 .icon-bus-2 {
   width: 218px;
   height: 198px;
-  background-image: url(../images/icons/icon-bus-2.png);
+  background-image: url(../../images/icons/icon-bus-2.png);
 }
 
 .icon-bus-3 {
   width: 800px;
   height: 502px;
-  background-image: url(../images/icons/icon-bus-3.png);
+  background-image: url(../../images/icons/icon-bus-3.png);
 }
 
 .overlay-1 {
   width: 200px;
   height: 204px;
-  background-image: url(../images/icons/overlay-1.png);
+  background-image: url(../../images/icons/overlay-1.png);
 }
 
 .overlay-2 {
   width: 860px;
   height: 621px;
-  background-image: url(../images/icons/overlay-2.png);
+  background-image: url(../../images/icons/overlay-2.png);
 }
 
 .overlay-3 {
   width: 491px;
   height: 500px;
-  background-image: url(../images/icons/overlay-3.png);
+  background-image: url(../../images/icons/overlay-3.png);
 }
 
 .overlay-4 {
   width: 1078px;
   height: 621px;
-  background-image: url(../images/icons/overlay-4.png);
+  background-image: url(../../images/icons/overlay-4.png);
 }
 
 .overlay-5 {
   width: 379px;
   height: 297px;
-  background-image: url(../images/icons/overlay-5.png);
+  background-image: url(../../images/icons/overlay-5.png);
 }
 
 .overlay-6 {
   width: 1706px;
   height: 780px;
-  background-image: url(../images/icons/overlay-6.png);
+  background-image: url(../../images/icons/overlay-6.png);
 }
 
 .icon-shapes {
   width: 92px;
   height: 144px;
-  background-image: url(../images/icons/icon-box.png);
+  background-image: url(../../images/icons/icon-box.png);
 }
 
 .icon-box-2 {
   width: 233px;
   height: 194px;
-  background-image: url(../images/icons/icon-box-2.png);
+  background-image: url(../../images/icons/icon-box-2.png);
 }
 
 .icon-border-3 {
   width: 137px;
   height: 18px;
-  background-image: url(../images/icons/icon-border-3.png);
+  background-image: url(../../images/icons/icon-border-3.png);
 }
 
 .icon-quote {
   width: 92px;
   height: 66px;
-  background-image: url(../images/icons/icon-quote.png);
+  background-image: url(../../images/icons/icon-quote.png);
 }
 
 .icon-quote-2 {
   width: 137px;
   height: 99px;
-  background-image: url(../images/icons/icon-quote-2.png);
+  background-image: url(../../images/icons/icon-quote-2.png);
 }
 
 .icon-container {
   width: 615px;
   height: 396px;
-  background-image: url(../images/icons/icon-container.png);
+  background-image: url(../../images/icons/icon-container.png);
 }
 
 .icon-dots {
   width: 730px;
   height: 565px;
-  background-image: url(../images/icons/icon-dots.png);
+  background-image: url(../../images/icons/icon-dots.png);
 }
 
 .icon-dots-2 {
   width: 679px;
   height: 676px;
-  background-image: url(../images/icons/icon-dots-2.png);
+  background-image: url(../../images/icons/icon-dots-2.png);
 }
 
 .icon-dots-3 {
   width: 611px;
   height: 547px;
-  background-image: url(../images/icons/icon-dots-3.png);
+  background-image: url(../../images/icons/icon-dots-3.png);
 }
 
 .icon-dots-4 {
   width: 810px;
   height: 666px;
-  background-image: url(../images/icons/icon-dots-4.png);
+  background-image: url(../../images/icons/icon-dots-4.png);
 }
 
 .icon-dots-5 {
   width: 580px;
   height: 376px;
-  background-image: url(../images/icons/icon-dots-5.png);
+  background-image: url(../../images/icons/icon-dots-5.png);
 }
 
 .icon-dotted-map {
   width: 987px;
   height: 478px;
-  background-image: url(../images/icons/icon-dotted-map.png);
+  background-image: url(../../images/icons/icon-dotted-map.png);
 }
 
 .icon-dotted-map-2 {
   width: 987px;
   height: 478px;
-  background-image: url(../images/icons/icon-dotted-map-2.png);
+  background-image: url(../../images/icons/icon-dotted-map-2.png);
 }
 
 .icon-city {
   width: 919px;
   height: 348px;
-  background-image: url(../images/icons/icon-city.png);
+  background-image: url(../../images/icons/icon-city.png);
 }
 
 .icon-city-2 {
   width: 541px;
   height: 205px;
-  background-image: url(../images/icons/icon-city-2.png);
+  background-image: url(../../images/icons/icon-city-2.png);
 }
 
 .bg-lines {
   width: 1532px;
   height: 100%;
-  background-image: url(../images/icons/bg-lines.jpg);
+  background-image: url(../../images/icons/bg-lines.jpg);
 }
 
 .icon-city-3 {
   width: 541px;
   height: 205px;
-  background-image: url(../images/icons/icon-city-3.png);
+  background-image: url(../../images/icons/icon-city-3.png);
 }
 
 .bounce-y {
@@ -4928,7 +4928,7 @@ Main Header
 .gallary-section .outer-box .image.one {
   width: 100%;
   max-width: 374px;
-  -webkit-mask-image: url("../images/resource/gallary1-4-mask.png");
+  -webkit-mask-image: url("../../images/resource/gallary1-4-mask.png");
   -webkit-mask-size: contain;
   -webkit-mask-position: center center;
   -webkit-mask-repeat: no-repeat;
@@ -4949,7 +4949,7 @@ Main Header
   position: relative;
   height: 414px;
   width: 414px;
-  background-image: url("../images/resource/gallary1-1mask.png");
+  background-image: url("../../images/resource/gallary1-1mask.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -5124,7 +5124,7 @@ Section Title
 }
 .banner-section .outer-box .info-two .image {
   position: relative;
-  -webkit-mask-image: url(../images/banner/banner1-3-mask.png);
+  -webkit-mask-image: url(../../images/banner/banner1-3-mask.png);
   -webkit-mask-size: contain;
   -webkit-mask-position: center center;
   -webkit-mask-repeat: no-repeat;
@@ -5441,7 +5441,7 @@ Section Title
   position: relative;
   width: 270px;
   height: 270px;
-  -webkit-mask-image: url(../images/banner/banner2-1-mask.png);
+  -webkit-mask-image: url(../../images/banner/banner2-1-mask.png);
   -webkit-mask-size: cover;
   -webkit-mask-position: center center;
   -webkit-mask-repeat: no-repeat;
@@ -6838,7 +6838,7 @@ Section Title
   max-width: 532px;
   margin-left: auto;
   height: 552px;
-  -webkit-mask-image: url(../images/resource/about1-1-mask.png);
+  -webkit-mask-image: url(../../images/resource/about1-1-mask.png);
   -webkit-mask-size: contain;
   -webkit-mask-position: center center;
   -webkit-mask-repeat: no-repeat;
@@ -6945,7 +6945,7 @@ Section Title
   width: 100%;
   height: 100%;
   z-index: 1;
-  -webkit-mask-image: url(../images/resource/about2-1-mask.png);
+  -webkit-mask-image: url(../../images/resource/about2-1-mask.png);
   -webkit-mask-size: cover;
   -webkit-mask-position: center center;
   -webkit-mask-repeat: no-repeat;
@@ -7599,7 +7599,7 @@ Section Title
   position: absolute;
   content: "";
   background-color: transparent;
-  background-image: url(../images/resource/service2-2-bg.png);
+  background-image: url(../../images/resource/service2-2-bg.png);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -8697,7 +8697,7 @@ Section Title
 .cta-section .outer-box .left-column .inner-column .bg-image:before {
   position: absolute;
   content: "";
-  background-image: url(../images/resource/cta1-1.png);
+  background-image: url(../../images/resource/cta1-1.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -10346,7 +10346,7 @@ Process Section
   -webkit-transition: all 0.5s;
   -webkit-transform: rotate(-5deg) translateX(0px);
   transform: rotate(-5deg) translateX(0px);
-  -webkit-mask-image: url(../images/icons/team-masking.png);
+  -webkit-mask-image: url(../../images/icons/team-masking.png);
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: cover;
   max-width: 448px;
@@ -10626,7 +10626,7 @@ Process Section
 .why-choose-us-section .image-column .inner-column .image {
   width: 100%;
   height: 100%;
-  -webkit-mask-image: url(../images/resource/wcu1-1-mask.png);
+  -webkit-mask-image: url(../../images/resource/wcu1-1-mask.png);
   -webkit-mask-size: contain;
   -webkit-mask-position: center center;
   -webkit-mask-repeat: no-repeat;
@@ -11096,7 +11096,7 @@ Process Section
   position: absolute;
   right: -20px;
   top: -20px;
-  background-image: url(../images/icons/shape-15.png);
+  background-image: url(../../images/icons/shape-15.png);
   width: 102px;
   height: 86px;
   -webkit-transition: all 300ms ease;
@@ -12567,7 +12567,7 @@ Process Section
   width: 100%;
   height: 100%;
   content: "";
-  background-image: url(../images/icons/pattern-7.png);
+  background-image: url(../../images/icons/pattern-7.png);
   background-repeat: no-repeat;
   background-position: left top;
   z-index: -1;
@@ -12590,7 +12590,7 @@ Process Section
   width: 100%;
   z-index: 2;
   content: "";
-  background-image: url(../images/icons/pattern-3.png);
+  background-image: url(../../images/icons/pattern-3.png);
   background-repeat: no-repeat;
   background-position: center bottom;
 }
@@ -12632,16 +12632,16 @@ Process Section
   transform: rotate(10deg) scale(1.2);
 }
 .category-block .inner-box.cat-bg-1:before {
-  background-image: url(../images/icons/cat-1-bg.png);
+  background-image: url(../../images/icons/cat-1-bg.png);
 }
 .category-block .inner-box.cat-bg-2:before {
-  background-image: url(../images/icons/cat-2-bg.png);
+  background-image: url(../../images/icons/cat-2-bg.png);
 }
 .category-block .inner-box.cat-bg-3:before {
-  background-image: url(../images/icons/cat-3-bg.png);
+  background-image: url(../../images/icons/cat-3-bg.png);
 }
 .category-block .inner-box.cat-bg-4:before {
-  background-image: url(../images/icons/cat-4-bg.png);
+  background-image: url(../../images/icons/cat-4-bg.png);
 }
 .category-block .image {
   position: relative;
@@ -12891,7 +12891,7 @@ Process Section
   bottom: 0;
   height: 50px;
   width: 100%;
-  background-image: url(../images/icons/pattern-8.png);
+  background-image: url(../../images/icons/pattern-8.png);
   background-position: center bottom;
   content: "";
 }
@@ -12920,7 +12920,7 @@ Process Section
   bottom: 0;
   height: 70%;
   width: 100%;
-  background: url(../images/icons/shape-7.png) top left no-repeat;
+  background: url(../../images/icons/shape-7.png) top left no-repeat;
   content: "";
 }
 
@@ -13159,7 +13159,7 @@ Process Section
   top: 0;
   height: 100%;
   width: 100%;
-  background: url(../images/icons/pattern-7.png) left bottom no-repeat;
+  background: url(../../images/icons/pattern-7.png) left bottom no-repeat;
   background-size: 700px;
 }
 

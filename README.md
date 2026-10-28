@@ -26,10 +26,15 @@ Works from any static server (must be served over HTTP, not `file://`, because t
 
 ```
 index.html                  Page entry point (original markup, Cloudflare artifacts cleaned)
-css/                        bootstrap.min.css + style.css + 13 @import dependencies
-                            (animate, aos, swiper, fancybox, jquery-ui, linear, select2,
-                             fontawesome, flaticons-common, flaticon-set-medical,
-                             flaticon-set-yoga, tm-bs-mp, tm-utility-classes)
+css/                        Grouped stylesheets:
+  vendor/                     Third-party + template @import dependencies (do not edit):
+                              bootstrap, animate, aos, swiper, fancybox, jquery-ui,
+                              linear, select2, fontawesome, flaticons (3 sets)
+  theme/                      Template theme code (do not edit):
+                              style.css (design tokens/components, @imports vendor/),
+                              tm-bs-mp, tm-utility-classes
+  custom/                     Project stylesheets (loaded after theme/style.css):
+                              appwrite-services.css, dashboard-theme.css
 js/                         All 25 scripts in three groups:
   vendor/                     Third-party libraries (do not edit):
                               jQuery 3.7.1, popper, bootstrap, fancybox 3.2.10,

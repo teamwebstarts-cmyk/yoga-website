@@ -7,18 +7,18 @@ description: Yogava yoga/wellness site design system - theme tokens, layout skel
 
 Pixel-faithful recreation of the "Yogava" yoga template (ThemeMascot; jQuery namespace `THEMEMASCOT` in `js/theme/script.js`). Stack: static HTML + jQuery 3.7 + Bootstrap 5 grid utilities + GSAP (ScrollTrigger, SplitText, Lenis smooth scroll) + Swiper + Wow/AOS + Fancybox + Appwrite Cloud Web SDK for dynamic content. **Fidelity to the original is the top priority** (see README).
 
-JS layout: `js/vendor/` (third-party), `js/theme/` (template code, never edit), `js/appwrite/` (project integration code).
+JS layout: `js/vendor/` (third-party), `js/theme/` (template code, never edit), `js/appwrite/` (project integration code). CSS layout: `css/vendor/` (third-party + template imports), `css/theme/` (template code, never edit), `css/custom/` (project stylesheets).
 
 ## Golden rules
 
-1. **Never edit vendor/template files** (`css/style.css`, `bootstrap.min.css`, any `js/*.js` that ships with the template). Extend instead.
-2. **Reuse existing classes before writing CSS.** If a hook exists (`sec-title`, `theme-btn btn-style-one`, `gsap-fade-up`, `section-padding`, `auto-container`, `fix`), use it in the HTML.
-3. New CSS goes in a **small dedicated stylesheet loaded after `style.css`** (pattern: `css/appwrite-services.css`), tightly scoped to the new section/component, with `-webkit-`-prefixed flexbox like the template, and a short "why" comment.
+1. **Never edit vendor/template files** (`css/vendor/*`, `css/theme/*`, `js/vendor/*`, `js/theme/*` — anything that ships with the template). Extend instead.
+2. **Reuse existing classes before writing CSS.** If a hook exists (`sec-title`, `theme-btn btn-style-one`, `gsap-fade-up`, `section-padding`, `auto-container`, `fix`), use it in the HTML — it lives in `css/theme/style.css`.
+3. New CSS goes in a **small dedicated stylesheet loaded after the theme** (pattern: `css/custom/appwrite-services.css`), tightly scoped to the new section/component, with `-webkit-`-prefixed flexbox like the template, and a short "why" comment.
 4. New JS goes in a separate file loaded last (pattern: `js/appwrite/services-data.js`), never inline edits to `js/theme/script.js`.
 5. Colors **only** via the CSS variables below — no raw hex in new code.
 6. Manual `<br>` inside titles is intentional (line breaks in display type); CSS hides all `<br>` below 1199.98px.
 
-## Design tokens (css/style.css `:root`, lines 45–130)
+## Design tokens (`css/theme/style.css` `:root`, lines 45–130)
 
 ### Colors
 

@@ -178,7 +178,7 @@ Lines up the same as `js/appwrite/services-data.js`.
 </div>
 ```
 
-Icon chip: 65px circle (88px in two-col variants), 1px `rgba(var(--theme-color2-rgb), 0.1)` border, ~36px font-size; hover fills `--theme-color1`. Flaticon classes see `css/flaticon-set-yoga.css`, `flaticon-set-medical.css`, `flaticons-common.css`; FA for social `fa-brands fa-...`.
+Icon chip: 65px circle (88px in two-col variants), 1px `rgba(var(--theme-color2-rgb), 0.1)` border, ~36px font-size; hover fills `--theme-color1`. Flaticon classes see `css/vendor/flaticon-set-yoga.css`, `flaticon-set-medical.css`, `flaticons-common.css`; FA for social `fa-brands fa-...`.
 
 ## Counter stat
 

@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'FlaticonCommon';
-  src:  url('../fonts/flaticons-common.eot?wmnaxx');
-  src:  url('../fonts/flaticons-common.eot?wmnaxx#iefix') format('embedded-opentype'),
-    url('../fonts/flaticons-common.ttf?wmnaxx') format('truetype'),
-    url('../fonts/flaticons-common.woff?wmnaxx') format('woff'),
-    url('../fonts/flaticons-common.svg?wmnaxx#FlaticonCommon') format('svg');
+  src:  url('../../fonts/flaticons-common.eot?wmnaxx');
+  src:  url('../../fonts/flaticons-common.eot?wmnaxx#iefix') format('embedded-opentype'),
+    url('../../fonts/flaticons-common.ttf?wmnaxx') format('truetype'),
+    url('../../fonts/flaticons-common.woff?wmnaxx') format('woff'),
+    url('../../fonts/flaticons-common.svg?wmnaxx#FlaticonCommon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
