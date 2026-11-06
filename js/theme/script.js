@@ -183,19 +183,13 @@ var THEMEMASCOT = {};
 		});
 	}
 
-	/* Service card hover.
-	 * Delegated on the document instead of bound to the five static
-	 * cards, because js/appwrite/services-data.js replaces those nodes
-	 * after it loads rows — bound listeners died with the old DOM
-	 * (audit finding F1). Same behaviour as before: hovering a card
-	 * makes it the only active one; there was never a mouseleave reset. */
-	document.addEventListener('mouseover', function (event) {
-	  const block = event.target.closest && event.target.closest('.service-block-two .inner-block');
-	  if (!block || block.classList.contains('active')) return;
-	  document.querySelectorAll('.service-block-two .inner-block').forEach(function (item) {
-	    item.classList.remove('active');
+	const boxes = document.querySelectorAll('.service-block-two .inner-block');
+
+	boxes.forEach(box => {
+	  box.addEventListener('mouseenter', () => {
+	    boxes.forEach(item => item.classList.remove('active')); // অন্যসব থেকে active remove
+	    box.classList.add('active'); // hover করা box active হবে
 	  });
-	  block.classList.add('active');
 	});
 
 	document.addEventListener('DOMContentLoaded', () => {
@@ -289,11 +283,10 @@ var THEMEMASCOT = {};
         trigger: splitTextLine,
         start: 'top 90%',
         end: 'bottom 10%',
-        /* Reveal once and stay revealed. The template used
-           'play reverse play reverse', which hid a title again as soon as
-           its section scrolled past — and left it hidden for good if the
-           page was opened straight at #anchor. */
-        toggleActions: 'play none none none',
+        /* toggleActions parameters: 
+           onEnter, onLeave, onEnterBack, onLeaveBack
+        */
+        toggleActions: 'play reverse play reverse', 
         markers: false,
       }
     });
@@ -382,33 +375,24 @@ var THEMEMASCOT = {};
 	gsap animation
 	================================ */
 
-/* Smooth scrolling.
- * - gsap.ticker passes time in SECONDS; Lenis expects milliseconds, so
- *   the old `time * 500` ran the scroll at half speed (finding F12).
- * - `smoothHover` is not a Lenis option and did nothing (F13).
- * - lagSmoothing(500,16) was set and then immediately overridden by
- *   lagSmoothing(0); only one call now (F14).
- * - Users who ask for reduced motion get native scrolling (C5). */
-const prefersReducedMotion = window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+gsap.ticker.lagSmoothing(500, 16);
 
-if (!prefersReducedMotion) {
-    const lenis = new Lenis({
-        duration: 1.5,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smoothWheel: true,
-    });
+const lenis = new Lenis({
+    duration: 1.5,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: 'vertical', 
+    gestureDirection: 'vertical',
+    smoothHover: true,
+    smoothWheel: true,
+});
 
-    lenis.on('scroll', ScrollTrigger.update);
+lenis.on('scroll', ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-    });
+gsap.ticker.add((time) => {
+    lenis.raf(time * 500);
+});
 
-    gsap.ticker.lagSmoothing(0);
-}
+gsap.ticker.lagSmoothing(0);
 
 
 const fadeInUp = document.querySelectorAll('.gsap-fade-up');
@@ -423,7 +407,7 @@ fadeInUp.forEach((el) => {
             trigger: el,
             start: 'top 90%',
 		        end: 'bottom 10%',
-            toggleActions: 'play none none none',
+            toggleActions: 'play reverse play reverse',
         }
     });
 });
@@ -441,7 +425,7 @@ fadeInLeft.forEach((el) => {
             trigger: el,
             start: 'top 90%',
 		        end: 'bottom 10%',
-            toggleActions: 'play none none none',
+            toggleActions: 'play reverse play reverse',
         }
     });
 });
@@ -459,7 +443,7 @@ fadeInRight.forEach((el) => {
             trigger: el,
             start: 'top 90%',
             end: 'bottom 10%',
-            toggleActions: 'play none none none',
+            toggleActions: 'play reverse play reverse',
         }
     });
 });
@@ -471,14 +455,14 @@ staggerWrappers.forEach((wrapper) => {
     gsap.from(children, {
         y: 100,
         opacity: 0,
-        duration: 0.9,
-        stagger: 0.09, 
+        duration: 1.5,
+        stagger: 0.5, 
         ease: "power2.out",
         scrollTrigger: {
             trigger: wrapper,
             start: 'top 90%',
 		        end: 'bottom 10%',
-            toggleActions: 'play none none none',
+            toggleActions: 'play reverse play reverse',
         }
     });
 });
@@ -502,7 +486,7 @@ reveals.forEach((el) => {
             trigger: el,
             start: 'top 90%',
             end: 'bottom 10%',
-            toggleActions: 'play none none none',
+            toggleActions: 'play reverse play reverse',
         }
     });
 });
@@ -545,7 +529,7 @@ if (pointers.length > 0) {
             trigger: ".image-map-container",
 		        start: "top 80%",
 		        end: 'bottom 10%',
-		        toggleActions: 'play none none none',
+		        toggleActions: 'play reverse play reverse',
         },
         onComplete: () => {
             gsap.set(pointers, { clearProps: "all" });
@@ -615,9 +599,36 @@ if (pointers.length > 0) {
 	service-slider Js Start
 	================================ */
 
-	/* Service slider is initialised in js/appwrite/services-data.js, which
-	 * also owns the re-render after data loads. Initialising it here too
-	 * caused a destroy/recreate cycle and a visible jump (finding F2). */
+	if($('.service-slider').length > 0) {
+		const projectSlider = new Swiper(".service-slider", {
+			spaceBetween: 30,
+			speed: 1500,
+			loop: true,
+			autoplay: {
+				delay: 1000,
+				disableOnInteraction: false,
+			},
+			// pagination
+			pagination: {
+				el: ".service-slider-dots",
+				clickable:true,
+			},
+			breakpoints: {
+				1400: {
+					slidesPerView: 4,
+				},
+				1200: {
+					slidesPerView: 3,
+				},
+				768: {
+					slidesPerView: 2,
+				},
+				400: {
+					slidesPerView: 1,
+				},
+			},
+		});
+	}
 
 
 
@@ -1127,55 +1138,3 @@ if (pointers.length > 0) {
 	});
 
 })(window.jQuery);
-/* ==========================================================================
-   Content visibility guard
-   --------------------------------------------------------------------------
-   Every reveal animation on this page starts its elements at opacity 0.
-   If a ScrollTrigger never fires — a link that lands mid-page, the mobile
-   menu jump, a fast scroll, a browser that throttles the tab — that text,
-   image or button stays invisible for good.
-
-   This block is the safety net: anything that is clearly on screen and
-   still invisible once the page has settled is faded back in, so content
-   can never be permanently lost. Off-screen elements are left alone so
-   their entrance animation still plays normally.
-   ========================================================================== */
-(function () {
-  if (typeof window.gsap === 'undefined') return;
-
-  function revealStuck() {
-    var vh = window.innerHeight || document.documentElement.clientHeight;
-    var nodes = document.querySelectorAll('[style*="opacity"]');
-
-    Array.prototype.forEach.call(nodes, function (el) {
-      var shown = parseFloat(window.getComputedStyle(el).opacity);
-      if (shown > 0.05) return;
-
-      var box = el.getBoundingClientRect();
-      if (box.height < 2 || box.width < 2) return;
-      // Only what is unambiguously on screen: past the top edge and well
-      // inside the viewport, so we never pre-empt an entrance animation.
-      if (box.top > vh * 0.6 || box.bottom < 48) return;
-      if (el.closest('.mobile-menu, .search-popup, .mouseCursor, .modal, .admin-shell')) return;
-
-      window.gsap.to(el, {
-        opacity: 1,
-        duration: 0.35,
-        overwrite: 'auto',
-        onComplete: function () {
-          if (el.style.visibility === 'hidden') el.style.removeProperty('visibility');
-        },
-      });
-    });
-  }
-
-  window.addEventListener('load', function () {
-    setTimeout(revealStuck, 1600);
-  });
-
-  var timer = null;
-  window.addEventListener('scroll', function () {
-    window.clearTimeout(timer);
-    timer = window.setTimeout(revealStuck, 700);
-  }, { passive: true });
-})();
