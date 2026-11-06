@@ -10,10 +10,10 @@
  * data requires a fully-authenticated (MFA-completed) session.
  *
  * Email MFA is a BACKEND default, not a UI toggle: the admin account
- * is provisioned (label admin, verified email, mfa=true) by
- * `_tools/sync-appwrite-env.py --bootstrap-admin`, so Appwrite itself
- * forces the second factor on every sign-in. This page never enables
- * or disables it; it only answers the challenge.
+ * must be provisioned (label `admin`, verified email, MFA enabled) in
+ * the Appwrite console, so Appwrite itself forces the second factor on
+ * every sign-in. This page never enables or disables it; it only answers
+ * the challenge.
  */
 (function () {
   'use strict';
@@ -21,7 +21,7 @@
   var services = window.yogavaAppwrite;
   if (!services || !services.tablesDB || !services.tables || !services.tables.services) {
     var m0 = document.getElementById('ad-login-msg');
-    m0.textContent = 'Appwrite is not configured — set APPWRITE_DATABASE_ID / APPWRITE_TABLES in .env and re-run _tools/sync-appwrite-env.py.';
+    m0.textContent = 'Appwrite is not configured — check databaseId and tables.services in js/appwrite/appwrite-config.js.';
     m0.className = 'ad-msg error';
     return;
   }
@@ -30,6 +30,44 @@
   var TABLE = services.tables.services;
 
   var el = function (id) { return document.getElementById(id); };
+
+  /**
+   * Turns raw Appwrite failures into something actionable. The most
+   * important case is 402: the whole project can be in read-only mode,
+   * in which case every save and delete fails no matter what the user
+   * types (audit finding B2/A1).
+   */
+  function describeError(err) {
+    var code = err && (err.code || (err.response && err.response.code));
+    var type = err && err.type;
+    if (code === 402 || type === 'team_read_only') {
+      return 'The Appwrite project is in read-only mode, so nothing can be saved. ' +
+        'An organisation admin must resolve the billing/plan state in the Appwrite console.';
+    }
+    if (code === 401) {
+      return 'Your session has expired. Please sign in again — your typed changes are still in the form.';
+    }
+    if (code === 403) {
+      return 'Your account is signed in but is not allowed to change this table. ' +
+        'Check that your user has the admin label and that table permissions allow it.';
+    }
+    if (code === 404) {
+      return 'The services table was not found. Run the setup script (tools/setup-appwrite.mjs).';
+    }
+    if (code >= 500) {
+      return 'Appwrite is having trouble right now. Please try again in a moment.';
+    }
+    return (err && err.message) || 'Something went wrong. Please try again.';
+  }
+
+  /** Sorts the text `number` field numerically: 1, 2, 10 (not 1, 10, 2). */
+  function byNumber(a, b) {
+    var na = parseFloat(String(a.number == null ? '' : a.number).replace(/[^\d.-]/g, ''));
+    var nb = parseFloat(String(b.number == null ? '' : b.number).replace(/[^\d.-]/g, ''));
+    if (isNaN(na)) na = Number.MAX_SAFE_INTEGER;
+    if (isNaN(nb)) nb = Number.MAX_SAFE_INTEGER;
+    return na - nb;
+  }
   var V = {
     login: el('ad-login-view'),
     mfa: el('ad-mfa-view'),
@@ -207,14 +245,22 @@
   /* ---------- rows / CRUD (unchanged) ---------- */
 
   function loadRows() {
+    var tbody = el('ad-rows');
+    if (tbody) {
+      tbody.innerHTML = '<tr class="ad-loading"><td colspan="5">Loading services…</td></tr>';
+    }
+
     services.tablesDB.listRows({
       databaseId: DB,
       tableId: TABLE,
-      queries: [window.Appwrite.Query.orderAsc('number')],
+      queries: [window.Appwrite.Query.limit(100)],
     }).then(function (res) {
-      renderRows(res.rows || []);
+      // Sorting in the browser because `number` is a text column:
+      // orderAsc('number') would put "10" before "2" (finding A4).
+      renderRows((res.rows || []).slice().sort(byNumber));
     }).catch(function (err) {
-      showMsg(el('ad-panel-msg'), 'Could not load services: ' + ((err && err.message) || err), false);
+      if (tbody) tbody.innerHTML = '';
+      showMsg(el('ad-panel-msg'), 'Could not load services: ' + describeError(err), false);
     });
   }
 
@@ -295,7 +341,8 @@
         loadRows();
       })
       .catch(function (err) {
-        showMsg(el('ad-panel-msg'), 'Delete failed: ' + ((err && err.message) || err), false);
+        showMsg(el('ad-panel-msg'), 'Delete failed: ' + describeError(err), false);
+        if (err && err.code === 401) gate();
       });
   }
 
@@ -325,7 +372,10 @@
       resetForm();
       loadRows();
     }).catch(function (err) {
-      showMsg(el('ad-panel-msg'), 'Save failed: ' + ((err && err.message) || err), false);
+      // Do NOT reset the form here: the typed values are the user's work
+      // and a failed save should never discard them (finding D3).
+      showMsg(el('ad-panel-msg'), 'Save failed: ' + describeError(err), false);
+      if (err && err.code === 401) gate();
     }).finally(function () {
       btn.disabled = false;
     });
@@ -336,10 +386,22 @@
     resetForm();
     el('f-number').focus();
   });
-  el('f-image').addEventListener('change', function () {
+  function updatePreview() {
     var pv = el('f-preview');
-    pv.src = el('f-image').value.trim();
-    pv.style.display = el('f-image').value.trim() ? 'block' : 'none';
+    var value = el('f-image').value.trim();
+    pv.src = value;
+    pv.style.display = value ? 'block' : 'none';
+  }
+
+  // `input` as well as `change`, so the preview follows typing instead of
+  // waiting for the field to blur (finding D10).
+  el('f-image').addEventListener('input', updatePreview);
+  el('f-image').addEventListener('change', updatePreview);
+  el('f-image').addEventListener('error', function () {
+    var pv = el('f-preview');
+    if (el('f-image').value.trim()) {
+      pv.style.display = 'none';
+    }
   });
 
   gate();

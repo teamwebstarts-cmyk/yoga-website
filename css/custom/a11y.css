@@ -1,0 +1,153 @@
+/**
+ * Accessibility & semantics layer
+ * -------------------------------
+ * Loaded last, after style.css, so it can override the theme without
+ * touching the template files. Every rule here is either invisible
+ * (screen-reader only, focus ring) or a value correction — no layout,
+ * spacing, sizing or typography changes.
+ *
+ * Audit references: C1 (headings), C3 (contrast), C4 (focus), C5
+ * (reduced motion), C11 (skip link), plus the contact-form additions.
+ */
+
+/* ------------------------------------------------------------------
+   1. Real headings
+   ------------------------------------------------------------------
+   The template styles `h1, .h1` etc. together, so swapping the banner
+   and section titles from <div class="h2"> to <h2 class="h2"> produces
+   identical rendering — except for the browser's default top margin,
+   which the div never had. Neutralise exactly that. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+/* ------------------------------------------------------------------
+   2. Contrast (finding C3)
+   ------------------------------------------------------------------
+   Original --text-color was #787880: 3.85:1 on the beige background and
+   4.38:1 on white — both below the 4.5:1 WCAG AA minimum for body text.
+   #6b6b74 measures 4.64:1 on #F2F0EC and 5.28:1 on white.
+   To revert to the exact original colour, delete this single rule. */
+:root {
+  --text-color: #6b6b74;
+}
+
+/* ------------------------------------------------------------------
+   3. Visible keyboard focus (finding C4)
+   ------------------------------------------------------------------
+   style.css sets `outline: none !important` globally, which makes the
+   site unusable by keyboard. :focus-visible only appears for keyboard
+   users, so mouse/touch visuals are untouched. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--theme-color1);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ------------------------------------------------------------------
+   4. Skip link (finding C11)
+   ------------------------------------------------------------------ */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100000;
+  padding: 12px 20px;
+  background: var(--theme-color1);
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.skip-link:focus-visible {
+  left: 12px;
+  top: 12px;
+  color: #fff;
+}
+
+/* ------------------------------------------------------------------
+   5. Screen-reader-only text (real form labels, finding C8)
+   ------------------------------------------------------------------ */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ------------------------------------------------------------------
+   6. Contact form: consent note + submission status
+   ------------------------------------------------------------------
+   Both are appended below the existing submit button. The consent line
+   is required by the privacy notice finding (L1); the status line is
+   the only feedback channel for the form. Small and muted so the
+   section's composition is unchanged. */
+.form-consent {
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+.form-consent a {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.form-status {
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.form-status[data-state="success"] {
+  color: var(--theme-color3);
+}
+
+.form-status[data-state="error"] {
+  color: #a3251c;
+}
+
+.form-status[hidden] {
+  display: none !important;
+}
+
+/* ------------------------------------------------------------------
+   7. Reduced motion (finding C5)
+   ------------------------------------------------------------------
+   Neutralises CSS-driven animation only (marquee, floating shapes,
+   hover transitions). GSAP reveals still run — they are scroll-driven
+   and end in the visible state, so content is never lost. The Lenis
+   smooth-scroll hijack is disabled in js/theme/script.js. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Custom cursor is decorative and confusing without motion. */
+  .mouseCursor {
+    display: none !important;
+  }
+}

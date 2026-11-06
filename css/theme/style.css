@@ -29,22 +29,14 @@ License: copyright commercial
 22. News Section
 23. Main Footer
 **********************************************/
-@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Gotu&display=swap");
-@import url("../vendor/animate.css");
-@import url("../vendor/aos.css");
-@import url("../vendor/swiper.min.css");
-@import url("../vendor/jquery.fancybox.min.css");
-@import url("../vendor/jquery-ui.css");
-@import url("../vendor/linear.css");
-@import url("../vendor/select2.min.css");
-@import url("../vendor/fontawesome.css");
-@import url("../vendor/flaticons-common.css");
-@import url("../vendor/flaticon-set-medical.css");
-@import url("../vendor/flaticon-set-yoga.css");
-@import url("tm-bs-mp.css");
-@import url("tm-utility-classes.css");
+/* 1. Fonts + vendor styles
+   ------------------------------------------------------------------
+   These 16 sheets used to be @import-ed here, which forced the browser
+   to download this file before it could even discover them (a chained,
+   render-blocking waterfall). They are now declared as <link> elements
+   in index.html at this exact cascade position, so the computed styles
+   are unchanged and the requests go out in parallel.
+   See audit finding P1. Do not re-add @import. */
 @property --gradient-angle {
   syntax: "<angle>";
   initial-value: 90deg;

@@ -107,8 +107,8 @@ Other movement: `.float-horizontal` drifting shapes, `.animate-circle` rotating 
 
 - jQuery namespace `THEMEMASCOT` in `script.js`; feature blocks are `if ( $('.selector').length )` guards.
 - Swiper pattern: `speed: 1500`, `loop: true`, mostly autoplay, breakpoints `400/768/1200/1400` → `1/2/3/4` slides; dots `el: '.{name}-slider-dots'` or arrows.
-- **Dynamic content**: render into the existing static-fallback markup only on success, escape ALL data text, mirror template class names exactly (CSS hooks), then destroy + re-create the Swiper (`el.swiper.destroy(true, true)` → same options as `js/theme/script.js`). See `js/appwrite/services-data.js` for the canonical implementation.
-- Appwrite: config is generated from `.env` by `_tools/sync-appwrite-env.py` into `js/appwrite/appwrite-config.js`; runtime handle is `window.yogavaAppwrite` (`client`, `account`, `tablesDB`). No secrets in frontend code.
+- **Dynamic content**: render into the existing static-fallback markup only on success, escape ALL data text, validate URLs and image paths, mirror template class names exactly (CSS hooks), then destroy + re-create the Swiper. `js/appwrite/services-data.js` is the **only** owner of the `.service-slider` instance — do not re-add an init in `js/theme/script.js`, or you get a destroy/recreate jump.
+- Appwrite: public identifiers live in `js/appwrite/appwrite-config.js` (hand-maintained; no API key there). The dashboard exposes `window.yogavaAppwrite` (`client`, `account`, `tablesDB`) via `appwrite-init.js`. The public homepage deliberately does **not** load the SDK — `services-data.js` uses the REST endpoint directly. No secrets in frontend code.
 
 ## Pre-flight checklist for any new section/component
 

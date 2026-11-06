@@ -2,22 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Yogava - Yoga Fitness HTML Template | Home Page 01</title>
-  <!-- Stylesheets -->
-  <link href="css/vendor/bootstrap.min.css" rel="stylesheet" />
-  <link href="css/theme/style.css" rel="stylesheet" />
-  <link href="css/custom/appwrite-services.css" rel="stylesheet" />
-
-  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
-  <link rel="icon" href="images/favicon.png" type="image/x-icon" />
-
-  <!-- Responsive -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- ============================================================
+       Primary metadata
+       TODO(domain): once the domain is confirmed, uncomment the
+       canonical + og:url + twitter:url lines and update sitemap.xml.
+       ============================================================ -->
+  <title>Lotus U Yoga | Yoga &amp; Wellness Studio</title>
+  <meta name="description" content="Lotus U Yoga is a yoga and wellness studio offering guided classes, breathwork and meditation in a calm, welcoming space. Move, breathe and reconnect with yourself." />
+  <meta name="theme-color" content="#417572" />
+  <!-- <link rel="canonical" href="https://example.com/" /> -->
+
+  <!-- Social sharing (Open Graph / Twitter) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lotus U Yoga" />
+  <meta property="og:title" content="Lotus U Yoga | Yoga &amp; Wellness Studio" />
+  <meta property="og:description" content="Guided classes, breathwork and meditation in a calm, welcoming space." />
+  <meta property="og:image" content="images/banner/banner1-1.jpg" />
+  <meta property="og:image:alt" content="Lotus U Yoga studio" />
+  <!-- <meta property="og:url" content="https://example.com/" /> -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lotus U Yoga | Yoga &amp; Wellness Studio" />
+  <meta name="twitter:description" content="Guided classes, breathwork and meditation in a calm, welcoming space." />
+  <meta name="twitter:image" content="images/banner/banner1-1.jpg" />
+
+  <!-- Structured data: only verified facts. Add address, geo, phone and
+       openingHours once the business details are confirmed. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "additionalType": "https://schema.org/YogaStudio",
+    "name": "Lotus U Yoga",
+    "description": "Yoga and wellness studio offering guided classes, breathwork and meditation.",
+    "image": "images/banner/banner1-1.jpg"
+  }
+  </script>
+
+  <!-- Stylesheets.
+       Load order matters: these are the same 16 sheets style.css used to
+       pull in with @import, but as parallel requests at the same cascade
+       position (after Bootstrap, before style.css). Do not reorder. -->
+  <link href="css/vendor/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Web fonts. TODO(privacy): self-host these woff2 files (GDPR + LCP). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet" />
+
+  <link href="css/vendor/animate.css" rel="stylesheet" />
+  <link href="css/vendor/aos.css" rel="stylesheet" />
+  <link href="css/vendor/swiper.min.css" rel="stylesheet" />
+  <link href="css/vendor/jquery.fancybox.min.css" rel="stylesheet" />
+  <link href="css/vendor/jquery-ui.css" rel="stylesheet" />
+  <link href="css/vendor/linear.css" rel="stylesheet" />
+  <link href="css/vendor/select2.min.css" rel="stylesheet" />
+  <link href="css/vendor/fontawesome.css" rel="stylesheet" />
+  <link href="css/vendor/flaticons-common.css" rel="stylesheet" />
+  <link href="css/vendor/flaticon-set-medical.css" rel="stylesheet" />
+  <link href="css/vendor/flaticon-set-yoga.css" rel="stylesheet" />
+  <link href="css/theme/tm-bs-mp.css" rel="stylesheet" />
+  <link href="css/theme/tm-utility-classes.css" rel="stylesheet" />
+
+  <link href="css/theme/style.css" rel="stylesheet" />
+  <link href="css/custom/appwrite-services.css" rel="stylesheet" />
+  <link href="css/custom/a11y.css" rel="stylesheet" />
+
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+  <link rel="icon" href="images/favicon.png" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="images/favicon.png" />
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <noscript>
+    <style>.preloader{display:none!important}.mouseCursor{display:none!important}</style>
+  </noscript>
+
   <div class="page-wrapper">
 
     <div class="preloader"></div>
@@ -45,7 +111,7 @@
             <div class="main-box">
               <div class="logo-box">
                 <div class="logo">
-                  <a href="index.html"><img src="images/logo.png" alt="Logo" /></a>
+                  <a href="index.html"><img src="images/logo.png" alt="Lotus U Yoga — home" /></a>
                 </div>
               </div>
 
@@ -128,7 +194,7 @@
         <nav class="menu-box">
           <div class="upper-box">
             <div class="nav-logo">
-              <a href="index.html"><img src="images/logo2.png" alt=""></a>
+              <a href="index.html"><img src="images/logo2.png" alt="Lotus U Yoga — home"></a>
             </div>
             <div class="close-btn"><i class="icon fa fa-times"></i></div>
           </div>
@@ -163,10 +229,10 @@
             </li>
           </ul>
           <ul class="social-links">
-            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#" aria-label="Lotus U Yoga on X"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="Lotus U Yoga on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="Lotus U Yoga on Pinterest"><i class="fab fa-pinterest" aria-hidden="true"></i></a></li>
+            <li><a href="#" aria-label="Lotus U Yoga on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
           </ul>
         </nav>
       </div>
@@ -194,7 +260,7 @@
           <div class="inner-container">
             <!--Logo-->
             <div class="logo">
-              <a href="index.html"><img src="images/logo2.png" alt=""></a>
+              <a href="index.html"><img src="images/logo2.png" alt="Lotus U Yoga — home"></a>
             </div>
 
             <!--Right Col-->
@@ -232,17 +298,17 @@
     <!--End Main Header -->
 
     <!-- start banner-section -->
-    <section class="banner-section">
+    <section class="banner-section" id="main-content">
       <div class="outer-box">
-        <div class="anim-icon gsap-fade-left float-horizontal"><img src="images/icons/shape-2.png" alt=""></div>
-        <div class="shape-image gsap-fade-right"><img src="images/banner/banner1-2.jpg" alt=""></div>
+        <div class="anim-icon gsap-fade-left float-horizontal"><img src="images/icons/shape-2.png" alt="" loading="lazy" decoding="async" /></div>
+        <div class="shape-image gsap-fade-right"><img src="images/banner/banner1-2.jpg" alt="" loading="lazy" decoding="async" /></div>
         <div class="info-one gsap-fade-right">
-          <img src="images/icons/soft-star.png" alt="">
+          <img src="images/icons/soft-star.png" alt="" loading="lazy" decoding="async" />
           <div class="h5 title">Breath, Balance, Beyond</div>
         </div>
         <div class="info-two gsap-fade-left">
-          <div class="image "><img src="images/banner/banner1-3.jpg" alt=""></div>
-          <div class="shape-1 animate-circle"><img src="images/icons/shape-1.png" alt=""></div>
+          <div class="image "><img src="images/banner/banner1-3.jpg" alt="" loading="lazy" decoding="async" /></div>
+          <div class="shape-1 animate-circle"><img src="images/icons/shape-1.png" alt="" loading="lazy" decoding="async" /></div>
           <div class="content">
             <div class="h4 title">3,842,946+</div>
             <div class="text">Viewed my video on YouTube</div>
@@ -252,16 +318,16 @@
           <div class="row">
             <div class="image-column col-lg-4">
               <div class="inner-column">
-                <div class="image gsap-fade-up"><img src="images/banner/banner1-1.png" alt=""></div>
-                <div class="image-bg"><img src="images/banner/banner1-1.jpg" alt=""></div>
+                <div class="image gsap-fade-up"><img src="images/banner/banner1-1.png" alt="Yoga instructor holding a standing balance pose" loading="lazy" decoding="async" /></div>
+                <div class="image-bg"><img src="images/banner/banner1-1.jpg" alt="" loading="lazy" decoding="async" /></div>
               </div>
             </div>
             <div class="content-column col-lg-8">
               <div class="inner-column gsap-stagger-parent">
-                <div class="h1 banner-title char-animation">Yoga Designed for Modern Living</div>
+                <h1 class="h1 banner-title char-animation">Yoga Designed for Modern Living</h1>
                 <div class="content-box gsap-stagger-item">
                   <div class="h5 text">We believe yoga is more than exercise—it’s a lifestyle. <br>help you reconnect with your  breath in a supportive <br>and peaceful environment.</div>
-                  <a href="#" class="theme-btn btn-style-one">Get Appointment <span><img src="images/icons/arrow.png" alt=""></span></a>
+                  <a href="#" class="theme-btn btn-style-one">Get Appointment <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                 </div>
               </div>
             </div>
@@ -277,45 +343,45 @@
         <div class="marquee-group">
           <div class="text" data-text="Beginner to Advanced Classes">Beginner to Advanced Classes</div>
           <span class="text divider ">
-            <img src="images/icons/marquee1-1.png" alt="">
+            <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
           <div class="text" data-text="Online & In-Studio Sessions">Online & In-Studio Sessions</div>
           <span class="text divider ">
-            <img src="images/icons/marquee1-1.png" alt="">
+            <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
           <div class="text" data-text="Personalized Guidance">Personalized Guidance</div>
           <span class="text divider ">
-            <img src="images/icons/marquee1-1.png" alt="">
+            <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
           <div class="text" data-text="Beginner to Advanced Classes">Beginner to Advanced Classes</div>
           <span class="text divider ">
-            <img src="images/icons/marquee1-1.png" alt="">
+            <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
           <div class="text" data-text="Online & In-Studio Sessions">Online & In-Studio Sessions</div>
           <span class="text divider ">
-            <img src="images/icons/marquee1-1.png" alt="">
+            <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
         </div>
         <div class="marquee-group">
           <div class="text" data-text="Beginner to Advanced Classes">Beginner to Advanced Classes</div>
           <span class="text divider ">
-            <img src="images/icons/marquee1-1.png" alt="">
+            <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
           <div class="text" data-text="Online & In-Studio Sessions">Online & In-Studio Sessions</div>
           <span class="text divider ">
-            <img src="images/icons/marquee1-1.png" alt="">
+            <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
           <div class="text" data-text="Personalized Guidance">Personalized Guidance</div>
           <span class="text divider ">
-            <img src="images/icons/marquee1-1.png" alt="">
+            <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
           <div class="text" data-text="Beginner to Advanced Classes">Beginner to Advanced Classes</div>
           <span class="text divider ">
-            <img src="images/icons/marquee1-1.png" alt="">
+            <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
           <div class="text" data-text="Online & In-Studio Sessions">Online & In-Studio Sessions</div>
           <span class="text divider ">
-            <img src="images/icons/marquee1-1.png" alt="">
+            <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
         </div>
       </div>
@@ -324,27 +390,27 @@
 
     <!-- About Section Start -->
     <section class="about-section fix section-padding pt-90">
-      <div class="shape-1 gsap-fade-left float-horizontal"><img src="images/icons/shape-3.png" alt=""></div>
+      <div class="shape-1 gsap-fade-left float-horizontal"><img src="images/icons/shape-3.png" alt="" loading="lazy" decoding="async" /></div>
       <div class="auto-container">
           <div class="row g-4">
             <div class="col-xl-7 col-lg-6">
               <div class="about-block-items-1">
                   <div class="sec-title mb-0">
-                    <div class="h2 title char-animation">
+                    <h2 class="h2 title char-animation">
                     Rooted in Harmony, <br>Growing in Wellness
-                    </div>
+                    </h2>
                   </div>
                   <div class="about-wrap gsap-stagger-parent">
                     <div class="about-counter gsap-stagger-item">
-                      <div class="h3 count-box"><span class="count-text" data-speed="3000" data-stop="25">5</span>+</div>
+                      <div class="h3 count-box"><span class="count-text" data-speed="3000" data-stop="25">25</span>+</div>
                       <p>Years of Work <br> Experience</p>
-                      <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt=""></span></a>
+                      <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                     </div>
                      <div class="about-right-items">
                         <div class="about-text gsap-stagger-item">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum</div>
                         <div class="about-icon-items gsap-stagger-item">
                             <div class="icon-items">
-                              <div class="icon"><i aria-hidden="true" class=" flaticon-set-yoga-2"></i></i>
+                              <div class="icon"><i aria-hidden="true" class=" flaticon-set-yoga-2"></i>
                               </div>
                               <div class="content">
                                 <div class="h5 title">Nature & Balance</div>
@@ -352,7 +418,7 @@
                               </div>
                             </div>
                              <div class="icon-items">
-                              <div class="icon"><i aria-hidden="true" class=" flaticon-set-yoga"></i></i>
+                              <div class="icon"><i aria-hidden="true" class=" flaticon-set-yoga"></i>
                               </div>
                               <div class="content">
                                 <div class="h5 title">Modern & Inclusive</div>
@@ -366,7 +432,7 @@
             </div>
             <div class="col-xl-5 col-lg-6">
               <div class="about-image-1 fix gsap-fade-right">
-                <img data-speed=".8" src="images/resource/about1-1.jpg" alt="">
+                <img data-speed=".8" src="images/resource/about1-1.jpg" alt="Students practising yoga together in the studio" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
@@ -376,14 +442,14 @@
     <!-- start services-section -->
     <section class="services-section">
       <div class="outer-box section-padding">
-        <div class="shape-1 float-horizontal"><img src="images/icons/shape-4.png" alt=""></div>
-        <div class="shape-2 float-horizontal"><img src="images/icons/shape-5.png" alt=""></div>
-        <div class="shape-3 float-horizontal"><img src="images/icons/shape-6.png" alt=""></div>
-        <div class="bg bg-image"><img src="images/resource/service-bg1-1.png" alt=""></div>
+        <div class="shape-1 float-horizontal"><img src="images/icons/shape-4.png" alt="" loading="lazy" decoding="async" /></div>
+        <div class="shape-2 float-horizontal"><img src="images/icons/shape-5.png" alt="" loading="lazy" decoding="async" /></div>
+        <div class="shape-3 float-horizontal"><img src="images/icons/shape-6.png" alt="" loading="lazy" decoding="async" /></div>
+        <div class="bg bg-image"><img src="images/resource/service-bg1-1.png" alt="" loading="lazy" decoding="async" /></div>
         <div class="auto-container">
           <div class="row justify-content-center">
             <div class="sec-title col-md-10 text-center">
-              <div class="h2 title char-animation">Mindful Practices <br>for Complete <img src="images/resource/service1-2.jpg" alt=""> Wellbeing</div>
+              <h2 class="h2 title char-animation">Mindful Practices <br>for Complete <img src="images/resource/service1-2.jpg" alt="" loading="lazy" decoding="async" /> Wellbeing</h2>
             </div>
           </div>
 
@@ -424,10 +490,10 @@
                     <div class="tab-inner-content">
                       <div class="content-box">
                         <div class="inner-box">
-                          <div class="image gsap-reveal" data-origin="top"><img src="images/resource/service1-1.jpg" alt=""></div>
-                          <div class="h3 title">Daily Morning Flow</div>
+                          <div class="image gsap-reveal" data-origin="top"><img src="images/resource/service1-1.jpg" alt="Daily morning flow class" loading="lazy" decoding="async" /></div>
+                          <h3 class="h3 title">Daily Morning Flow</h3>
                           <div class="text">Our retreats weave together time-honored techniques and mindful experiences to restore balance, deepen self-awareness, and reconnect you with the rhythms of nature. Each practice is guided by experienced facilitators and designed to support your journey toward lasting well-being.</div>
-                          <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt=""></span></a>
+                          <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                         </div>
                       </div>
                     </div>
@@ -438,10 +504,10 @@
                     <div class="tab-inner-content">
                       <div class="content-box">
                         <div class="inner-box">
-                          <div class="image"><img src="images/resource/service1-1.jpg" alt=""></div>
-                          <div class="h3 title">Meditation in Stillness</div>
+                          <div class="image"><img src="images/resource/service1-1.jpg" alt="Guided yoga class" loading="lazy" decoding="async" /></div>
+                          <h3 class="h3 title">Meditation in Stillness</h3>
                           <div class="text">Our retreats weave together time-honored techniques and mindful experiences to restore balance, deepen self-awareness, and reconnect you with the rhythms of nature. Each practice is guided by experienced facilitators and designed to support your journey toward lasting well-being.</div>
-                          <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt=""></span></a>
+                          <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                         </div>
                       </div>
                     </div>
@@ -452,10 +518,10 @@
                     <div class="tab-inner-content">
                       <div class="content-box">
                         <div class="inner-box">
-                          <div class="image"><img src="images/resource/service1-1.jpg" alt=""></div>
-                          <div class="h3 title">Nature Walk Sessions</div>
+                          <div class="image"><img src="images/resource/service1-1.jpg" alt="Guided yoga class" loading="lazy" decoding="async" /></div>
+                          <h3 class="h3 title">Nature Walk Sessions</h3>
                           <div class="text">Our retreats weave together time-honored techniques and mindful experiences to restore balance, deepen self-awareness, and reconnect you with the rhythms of nature. Each practice is guided by experienced facilitators and designed to support your journey toward lasting well-being.</div>
-                          <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt=""></span></a>
+                          <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                         </div>
                       </div>
                     </div>
@@ -466,10 +532,10 @@
                     <div class="tab-inner-content">
                       <div class="content-box">
                         <div class="inner-box">
-                          <div class="image"><img src="images/resource/service1-1.jpg" alt=""></div>
-                          <div class="h3 title">Creative Art Therapy</div>
+                          <div class="image"><img src="images/resource/service1-1.jpg" alt="Guided yoga class" loading="lazy" decoding="async" /></div>
+                          <h3 class="h3 title">Creative Art Therapy</h3>
                           <div class="text">Our retreats weave together time-honored techniques and mindful experiences to restore balance, deepen self-awareness, and reconnect you with the rhythms of nature. Each practice is guided by experienced facilitators and designed to support your journey toward lasting well-being.</div>
-                          <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt=""></span></a>
+                          <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                         </div>
                       </div>
                     </div>
@@ -480,10 +546,10 @@
                     <div class="tab-inner-content">
                       <div class="content-box">
                         <div class="inner-box">
-                          <div class="image"><img src="images/resource/service1-1.jpg" alt=""></div>
-                          <div class="h3 title">Guided Breathwork</div>
+                          <div class="image"><img src="images/resource/service1-1.jpg" alt="Guided yoga class" loading="lazy" decoding="async" /></div>
+                          <h3 class="h3 title">Guided Breathwork</h3>
                           <div class="text">Our retreats weave together time-honored techniques and mindful experiences to restore balance, deepen self-awareness, and reconnect you with the rhythms of nature. Each practice is guided by experienced facilitators and designed to support your journey toward lasting well-being.</div>
-                          <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt=""></span></a>
+                          <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                         </div>
                       </div>
                     </div>
@@ -500,19 +566,19 @@
 
     <!-- start why-choose-us-section -->
     <section class="why-choose-us-section fix section-padding">
-      <div class="shape-1 gsap-fade-right"><img src="images/icons/shape-7.png" alt=""></div>
-      <div class="shape-2 float-horizontal"><img src="images/icons/shape-8.png" alt=""></div>
+      <div class="shape-1 gsap-fade-right"><img src="images/icons/shape-7.png" alt="" loading="lazy" decoding="async" /></div>
+      <div class="shape-2 float-horizontal"><img src="images/icons/shape-8.png" alt="" loading="lazy" decoding="async" /></div>
       <div class="auto-container">
         <div class="row gx-3">
           <div class="image-column col-xl-6 col-lg-5">
             <div class="inner-column">
-              <div class="image gsap-reveal" data-origin="left"><img src="images/resource/wcu1-1.jpg" alt=""></div>
+              <div class="image gsap-reveal" data-origin="left"><img src="images/resource/wcu1-1.jpg" alt="Calm studio space prepared for a class" loading="lazy" decoding="async" /></div>
             </div>
           </div>
           <div class="content-column col-xl-6 col-lg-7">
             <div class="inner-column">
               <div class="sec-title mb-30 mt-20">
-                <div class="h2 title char-animation">Why Choose a Screen- Free Retreat</div>
+                <h2 class="h2 title char-animation">Why Choose a Screen- Free Retreat</h2>
               </div>
               <div class="row gsap-stagger-parent">
                 <div class="wcu-block col-md-6 gsap-stagger-item">
@@ -552,7 +618,7 @@
                   </div>
                 </div>
               </div>
-              <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt=""></span></a>
+              <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
             </div>
           </div>
         </div>
@@ -563,10 +629,10 @@
     <!-- start services-section-two -->
     <section class="services-section-two">
       <div class="outer-box fix section-padding">
-        <div class="bg bg-image"><img src="images/resource/service2-1-bg.png" alt=""></div>
+        <div class="bg bg-image"><img src="images/resource/service2-1-bg.png" alt="" loading="lazy" decoding="async" /></div>
         <div class="auto-container">
           <div class="sec-title text-center light mb-50">
-            <div class="h2 title char-animation">Integrated Healing for Body <br>& Soul</div>
+            <h2 class="h2 title char-animation">Integrated Healing for Body <br>& Soul</h2>
           </div>
         </div>
         <div class="service-outer">
@@ -580,12 +646,12 @@
                       <div class="h4 title">Awaken with <br>Ritual Flow</div>
                     </div>
                     <div class="image">
-                      <img src="images/resource/service2-1.jpg" alt="">
-                      <img src="images/resource/service2-1.jpg" alt="">
+                      <img src="images/resource/service2-1.jpg" alt="" loading="lazy" decoding="async" />
+                      <img src="images/resource/service2-1.jpg" alt="" loading="lazy" decoding="async" />
                     </div>
                   </div>
                   <div class="text">We believe in delivering top-tier technology solutions </div>
-                  <a href="#" class="theme-btn btn-style-one">Read More <span><img src="images/icons/arrow.png" alt=""></span></a>
+                  <a href="#" class="theme-btn btn-style-one">Read More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                 </div>
               </div>
               <div class="service-block-two swiper-slide">
@@ -596,12 +662,12 @@
                       <div class="h4 title">Yin Yoga for <br>Deep Rest</div>
                     </div>
                     <div class="image">
-                      <img src="images/resource/service2-2.jpg" alt="">
-                      <img src="images/resource/service2-2.jpg" alt="">
+                      <img src="images/resource/service2-2.jpg" alt="" loading="lazy" decoding="async" />
+                      <img src="images/resource/service2-2.jpg" alt="" loading="lazy" decoding="async" />
                     </div>
                   </div>
                   <div class="text">We believe in delivering top-tier technology solutions </div>
-                  <a href="#" class="theme-btn btn-style-one">Read More <span><img src="images/icons/arrow.png" alt=""></span></a>
+                  <a href="#" class="theme-btn btn-style-one">Read More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                 </div>
               </div>
               <div class="service-block-two swiper-slide">
@@ -612,12 +678,12 @@
                       <div class="h4 title">Activate Inner <br>Energy</div>
                     </div>
                     <div class="image">
-                      <img src="images/resource/service2-3.jpg" alt="">
-                      <img src="images/resource/service2-3.jpg" alt="">
+                      <img src="images/resource/service2-3.jpg" alt="" loading="lazy" decoding="async" />
+                      <img src="images/resource/service2-3.jpg" alt="" loading="lazy" decoding="async" />
                     </div>
                   </div>
                   <div class="text">We believe in delivering top-tier technology solutions </div>
-                  <a href="#" class="theme-btn btn-style-one">Read More <span><img src="images/icons/arrow.png" alt=""></span></a>
+                  <a href="#" class="theme-btn btn-style-one">Read More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                 </div>
               </div>
               <div class="service-block-two swiper-slide">
@@ -628,12 +694,12 @@
                       <div class="h4 title">Activate Inner <br>Energy</div>
                     </div>
                     <div class="image">
-                      <img src="images/resource/service2-4.jpg" alt="">
-                      <img src="images/resource/service2-4.jpg" alt="">
+                      <img src="images/resource/service2-4.jpg" alt="" loading="lazy" decoding="async" />
+                      <img src="images/resource/service2-4.jpg" alt="" loading="lazy" decoding="async" />
                     </div>
                   </div>
                   <div class="text">We believe in delivering top-tier technology solutions </div>
-                  <a href="#" class="theme-btn btn-style-one">Read More <span><img src="images/icons/arrow.png" alt=""></span></a>
+                  <a href="#" class="theme-btn btn-style-one">Read More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                 </div>
               </div>
               <div class="service-block-two swiper-slide">
@@ -644,12 +710,12 @@
                       <div class="h4 title">Sleep for <br>Deep Rest</div>
                     </div>
                     <div class="image">
-                      <img src="images/resource/service2-5.jpg" alt="">
-                      <img src="images/resource/service2-5.jpg" alt="">
+                      <img src="images/resource/service2-5.jpg" alt="" loading="lazy" decoding="async" />
+                      <img src="images/resource/service2-5.jpg" alt="" loading="lazy" decoding="async" />
                     </div>
                   </div>
                   <div class="text">We believe in delivering top-tier technology solutions </div>
-                  <a href="#" class="theme-btn btn-style-one">Read More <span><img src="images/icons/arrow.png" alt=""></span></a>
+                  <a href="#" class="theme-btn btn-style-one">Read More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                 </div>
               </div>
             </div>
@@ -664,13 +730,13 @@
     <section class="pricing-section fix section-padding">
       <div class="auto-container">
         <div class="sec-title mb-50">
-          <div class="h2 title char-animation">Special Offer! choose your pack</div>
-          <a href="#" class="theme-btn btn-style-one">View all Packages <span><img src="images/icons/arrow.png" alt=""></span></a>
+          <h2 class="h2 title char-animation">Special Offer! choose your pack</h2>
+          <a href="#" class="theme-btn btn-style-one">View all Packages <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
         </div>
         <div class="row gx-4 gsap-stagger-parent">
           <div class="pricing-block col-xl-4 col-md-6 gsap-stagger-item">
             <div class="inner-block">
-              <div class="shape"><img src="images/icons/shape-9.png" alt=""></div>
+              <div class="shape"><img src="images/icons/shape-9.png" alt="" loading="lazy" decoding="async" /></div>
               <div class="upper-box">
                 <div class="h6 cat">Basic</div>
                 <div class="h5 title">Step away weekend & return renewed</div>
@@ -680,23 +746,23 @@
                 <div class="h5 title">Includes</div>
                 <ul class="feature">
                   <li class="active">
-                    <img src="images/icons/check.png" alt="">
+                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
                     <span>Time That Works for You</span>
                   </li>
                   <li class="active">
-                    <img src="images/icons/check.png" alt="">
+                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
                     <span>Personal Movement Coach</span>
                   </li>
                   <li>
-                    <img src="images/icons/check.png" alt="">
+                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
                     <span>Welcome Pack Included</span>
                   </li>
                   <li>
-                    <img src="images/icons/check.png" alt="">
+                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
                     <span>Certified Personal Trainer</span>
                   </li>
                   <li>
-                    <img src="images/icons/check.png" alt="">
+                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
                     <span>Schedule That Fits You</span>
                   </li>
                 </ul>
@@ -706,7 +772,7 @@
           </div>
           <div class="pricing-block col-xl-4 col-md-6 gsap-stagger-item">
             <div class="inner-block active">
-              <div class="shape"><img src="images/icons/shape-9.png" alt=""></div>
+              <div class="shape"><img src="images/icons/shape-9.png" alt="" loading="lazy" decoding="async" /></div>
               <div class="upper-box">
                 <div class="h6 cat">Standard</div>
                 <div class="h5 title">A week of stillness, care, & restoration</div>
@@ -716,23 +782,23 @@
                 <div class="h5 title">Includes</div>
                 <ul class="feature">
                   <li class="active">
-                    <img src="images/icons/check.png" alt="">
+                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
                     <span>Time That Works for You</span>
                   </li>
                   <li class="active">
-                    <img src="images/icons/check.png" alt="">
+                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
                     <span>Personal Movement Coach</span>
                   </li>
                   <li class="active">
-                    <img src="images/icons/check.png" alt="">
+                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
                     <span>Welcome Pack Included</span>
                   </li>
                   <li>
-                    <img src="images/icons/check.png" alt="">
+                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
                     <span>Certified Personal Trainer</span>
                   </li>
                   <li>
-                    <img src="images/icons/check.png" alt="">
+                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
                     <span>Schedule That Fits You</span>
                   </li>
                 </ul>
@@ -742,7 +808,7 @@
           </div>
           <div class="pricing-block col-xl-4 col-md-6 gsap-stagger-item">
             <div class="inner-block">
-              <div class="shape"><img src="images/icons/shape-9.png" alt=""></div>
+              <div class="shape"><img src="images/icons/shape-9.png" alt="" loading="lazy" decoding="async" /></div>
               <div class="upper-box">
                 <div class="h6 cat">advanced</div>
                 <div class="h5 title">shared lodging & full access for two</div>
@@ -752,23 +818,23 @@
                 <div class="h5 title">Includes</div>
                 <ul class="feature">
                   <li class="active">
-                    <img src="images/icons/check.png" alt="">
+                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
                     <span>Time That Works for You</span>
                   </li>
                   <li class="active">
-                    <img src="images/icons/check.png" alt="">
+                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
                     <span>Personal Movement Coach</span>
                   </li>
                   <li class="active">
-                    <img src="images/icons/check.png" alt="">
+                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
                     <span>Welcome Pack Included</span>
                   </li>
                   <li class="active">
-                    <img src="images/icons/check.png" alt="">
+                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
                     <span>Certified Personal Trainer</span>
                   </li>
                   <li class="active">
-                    <img src="images/icons/check.png" alt="">
+                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
                     <span>Schedule That Fits You</span>
                   </li>
                 </ul>
@@ -787,44 +853,44 @@
         <div class="gallary-outer">
           <div class="image gsap-fade-up">
             <a href="images/resource/gallary1-1.jpg" class="lightbox-image" data-fancybox="gallery">
-              <img src="images/resource/gallary1-1.jpg" alt="GallerImg">
+              <img src="images/resource/gallary1-1.jpg" alt="Yoga class photo 1" loading="lazy" decoding="async" />
             </a>
           </div>
           <div class="content-box gsap-fade-up">
             <div class="inner-box">
-              <div class="h2 title char-animation">Where Body <br>& <br>Soul Heal</div>
+              <h2 class="h2 title char-animation">Where Body <br>& <br>Soul Heal</h2>
             </div>
           </div>
           <div class="image gsap-fade-up">
             <a href="images/resource/gallary1-2.jpg" class="lightbox-image" data-fancybox="gallery">
-              <img src="images/resource/gallary1-2.jpg" alt="GallerImg">
+              <img src="images/resource/gallary1-2.jpg" alt="Yoga class photo 2" loading="lazy" decoding="async" />
             </a>
           </div>
           <div class="image gsap-fade-up">
             <a href="images/resource/gallary1-3.jpg" class="lightbox-image" data-fancybox="gallery">
-              <img src="images/resource/gallary1-3.jpg" alt="GallerImg">
+              <img src="images/resource/gallary1-3.jpg" alt="Yoga class photo 3" loading="lazy" decoding="async" />
             </a>
           </div>
         </div>
         <div class="gallary-outer">
           <div class="image one gsap-fade-up">
             <a href="images/resource/gallary1-4.jpg" class="lightbox-image" data-fancybox="gallery">
-              <img src="images/resource/gallary1-4.jpg" alt="GallerImg">
+              <img src="images/resource/gallary1-4.jpg" alt="Yoga class photo 4" loading="lazy" decoding="async" />
             </a>
           </div>
           <div class="image gsap-fade-up">
             <a href="images/resource/gallary1-5.jpg" class="lightbox-image" data-fancybox="gallery">
-              <img src="images/resource/gallary1-5.jpg" alt="GallerImg">
+              <img src="images/resource/gallary1-5.jpg" alt="Yoga class photo 5" loading="lazy" decoding="async" />
             </a>
           </div>
           <div class="image gsap-fade-up">
             <a href="images/resource/gallary1-6.jpg" class="lightbox-image" data-fancybox="gallery">
-              <img src="images/resource/gallary1-6.jpg" alt="GallerImg">
+              <img src="images/resource/gallary1-6.jpg" alt="Yoga class photo 6" loading="lazy" decoding="async" />
             </a>
           </div>
           <div class="image gsap-fade-up">
             <a href="images/resource/gallary1-7.jpg" class="lightbox-image" data-fancybox="gallery">
-              <img src="images/resource/gallary1-7.jpg" alt="GallerImg">
+              <img src="images/resource/gallary1-7.jpg" alt="Yoga class photo 7" loading="lazy" decoding="async" />
             </a>
           </div>
         </div>
@@ -834,22 +900,22 @@
 
     <!-- start testimonial-section -->
     <section class="testimonial-section section-padding fix">
-      <div class="shape-1 float-horizontal"><img src="images/icons/shape-11.png" alt=""></div>
+      <div class="shape-1 float-horizontal"><img src="images/icons/shape-11.png" alt="" loading="lazy" decoding="async" /></div>
       <div class="auto-container">
         <div class="row ">
           <div class="image-column col-xl-6 col-lg-5">
             <div class="inner-column">
-              <div class="image gsap-reveal" data-origin="left"><img src="images/resource/testi1-1.jpg" alt=""></div>
+              <div class="image gsap-reveal" data-origin="left"><img src="images/resource/testi1-1.jpg" alt="Portrait of a Lotus U Yoga student" loading="lazy" decoding="async" /></div>
             </div>
           </div>
           <div class="content-column col-xl-6 col-lg-7">
             <div class="inner-column">
               <div class="sec-title mb-15">
-                <div class="h2 title char-animation">Real People. Real Results</div>
+                <h2 class="h2 title char-animation">Real People. Real Results</h2>
               </div>
               <div class="testimonial-block">
                 <div class="inner-block gsap-stagger-parent">
-                  <div class="qute-icon"><img src="images/icons/shape-10.png" alt=""></div>
+                  <div class="qute-icon"><img src="images/icons/shape-10.png" alt="" loading="lazy" decoding="async" /></div>
                   <div class="swiper testi-slider  pb-0">
                     <div class="swiper-wrapper">
                       <div class="swiper-slide">
@@ -869,7 +935,7 @@
                     </div>
                   </div>
                   <div class="rating-info">
-                    <div class="h2 count-box"><span class="count-text" data-speed="3000" data-stop="4.9">0</span></div>
+                    <div class="h2 count-box"><span class="count-text" data-speed="3000" data-stop="4.9">4.9</span></div>
                     <div class="rating-box">
                       <div class="rating">
                         <i class="fa-solid fa-star"></i>
@@ -882,8 +948,8 @@
                     </div>
                   </div>
                   <div class="aroow-box">
-                    <div class="testi-slider-prev"><img src="images/icons/arrow-left.png" alt=""></div>
-                    <div class="testi-slider-next"><img src="images/icons/arrow-right.png" alt=""></div>
+                    <div class="testi-slider-prev"><img src="images/icons/arrow-left.png" alt="" loading="lazy" decoding="async" /></div>
+                    <div class="testi-slider-next"><img src="images/icons/arrow-right.png" alt="" loading="lazy" decoding="async" /></div>
                   </div>
                 </div>
               </div>
@@ -897,16 +963,16 @@
     <!-- start contact-section -->
     <section class="contact-section">
       <div class="outer-box section-padding">
-        <div class="bg bg-image"><img src="images/resource/contact1-1-bg.png" alt=""></div>
-        <div class="shape-1 float-horizontal"><img src="images/icons/shape-12.png" alt=""></div>
-        <div class="shape-2 bounce-y"><img src="images/icons/shape-13.png" alt=""></div>
-        <div class="shape-3 float-horizontal"><img src="images/icons/shape-14.png" alt=""></div>
+        <div class="bg bg-image"><img src="images/resource/contact1-1-bg.png" alt="" loading="lazy" decoding="async" /></div>
+        <div class="shape-1 float-horizontal"><img src="images/icons/shape-12.png" alt="" loading="lazy" decoding="async" /></div>
+        <div class="shape-2 bounce-y"><img src="images/icons/shape-13.png" alt="" loading="lazy" decoding="async" /></div>
+        <div class="shape-3 float-horizontal"><img src="images/icons/shape-14.png" alt="" loading="lazy" decoding="async" /></div>
         <div class="auto-container">
           <div class="row">
             <div class="content-column col-lg-6">
               <div class="inner-column">
                 <div class="sec-title">
-                  <div class="h2 title char-animation">Claim Your Place</div>
+                  <h2 class="h2 title char-animation">Claim Your Place</h2>
                   <div class="text">Approach to relieving chronic pain, offering a range of safe and effective treatment <br>options delivered</div>
                 </div>
                 <!-- Form Column -->
@@ -915,35 +981,47 @@
                     <!-- Contact Form -->
                     <div class="contact-form">
                       <!--Contact Form-->
-                      <form action="#">
+                      <!-- Wired to Appwrite by js/appwrite/contact-form.js.
+                           If the `contact` table is not configured the form
+                           falls back to a mailto: draft so no lead is lost. -->
+                      <form action="#" id="contact-form" method="post" data-contact-form>
                         <div class="row gx-2 gsap-stagger-parent">
                           <div class="col-sm-6 gsap-stagger-item">
                             <div class="form-clt">
-                              <input type="text" name="name" placeholder="Your Name" required="">
+                              <label class="sr-only" for="contact-name">Your name</label>
+                              <input type="text" id="contact-name" name="name" placeholder="Your Name" autocomplete="name" maxlength="80" required="">
                             </div>
                           </div>
                           <div class="col-sm-6 gsap-stagger-item">
                             <div class="form-clt">
-                              <input type="text" name="number" id="number" placeholder="Your Phone">
+                              <label class="sr-only" for="contact-phone">Your phone number</label>
+                              <input type="tel" name="phone" id="contact-phone" placeholder="Your Phone" autocomplete="tel" maxlength="30">
                             </div>
                           </div>
                           <div class="col-sm-6 gsap-stagger-item">
                             <div class="form-clt">
-                              <input type="email" name="email" id="email" placeholder="Your Email">
+                              <label class="sr-only" for="contact-email">Your email address</label>
+                              <input type="email" name="email" id="contact-email" placeholder="Your Email" autocomplete="email" maxlength="120" required="">
                             </div>
                           </div>
                           <div class="col-sm-6 gsap-stagger-item">
                             <div class="form-clt">
-                              <input type="text" name="name" placeholder="Choose Date">
+                              <label class="sr-only" for="contact-date">Preferred date</label>
+                              <input type="text" name="date" id="contact-date" placeholder="Choose Date" autocomplete="off" maxlength="40">
                             </div>
                           </div>
                           <div class="col-sm-12 gsap-stagger-item">
                             <div class="form-clt">
-                              <input type="text" name="name" placeholder="Choose a Retreat">
+                              <label class="sr-only" for="contact-retreat">Choose a retreat</label>
+                              <input type="text" name="retreat" id="contact-retreat" placeholder="Choose a Retreat" autocomplete="off" maxlength="80">
                             </div>
                           </div>
                           <div class="col-sm-12 gsap-stagger-item">
-                            <button href="#" class="theme-btn btn-style-one" type="submit">Send message <span><img src="images/icons/arrow.png" alt=""></span></button>
+                            <button href="#" class="theme-btn btn-style-one" type="submit">Send message <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></button>
+                          </div>
+                          <div class="col-sm-12">
+                            <p class="form-consent">By sending this message you agree that we may contact you about your enquiry. See our <a href="privacy.html">Privacy Policy</a>.</p>
+                            <p class="form-status" role="status" aria-live="polite" hidden></p>
                           </div>
                         </div>
                       </form>
@@ -955,7 +1033,7 @@
             </div>
             <div class="image-column col-lg-6">
               <div class="inner-column">
-                <div class="image gsap-interactive-img"><img src="images/resource/contact1-1.jpg" alt=""></div>
+                <div class="image gsap-interactive-img"><img src="images/resource/contact1-1.jpg" alt="Yoga session in progress at the studio" loading="lazy" decoding="async" /></div>
               </div>
             </div>
           </div>
@@ -968,8 +1046,8 @@
     <section class="blog-section fix section-padding">
       <div class="auto-container">
         <div class="sec-title mb-50">
-          <div class="h2 title char-animation">Success Stories <br>from Our Valued Clients</div>
-          <a href="#" class="theme-btn btn-style-one">See All Blog <span><img src="images/icons/arrow.png" alt=""></span></a>
+          <h2 class="h2 title char-animation">Success Stories <br>from Our Valued Clients</h2>
+          <a href="#" class="theme-btn btn-style-one">See All Blog <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
         </div>
         <div class="row gx-4 gsap-stagger-parent">
           <div class="blog-block col-xl-4 col-md-6 gsap-stagger-item">
@@ -983,8 +1061,8 @@
                 <div class="h4 title"><a href="#">Finding Life Balance Through <br>Yoga and Meditation </a></div>
               </div>
               <div class="image">
-                <img src="images/resource/blog1-1.jpg" alt="">
-                <img src="images/resource/blog1-1.jpg" alt="">
+                <img src="images/resource/blog1-1.jpg" alt="Woman meditating at sunrise" loading="lazy" decoding="async" />
+                <img src="images/resource/blog1-1.jpg" alt="Woman meditating at sunrise" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
@@ -999,8 +1077,8 @@
                 <div class="h4 title"><a href="#">Healing the Body and Soul <br>Through Retreats </a></div>
               </div>
               <div class="image">
-                <img src="images/resource/blog1-2.jpg" alt="">
-                <img src="images/resource/blog1-2.jpg" alt="">
+                <img src="images/resource/blog1-2.jpg" alt="Group yoga retreat outdoors" loading="lazy" decoding="async" />
+                <img src="images/resource/blog1-2.jpg" alt="Group yoga retreat outdoors" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
@@ -1015,8 +1093,8 @@
                 <div class="h4 title"><a href="#">Why Luxury Wellness Retreats <br>Captivate the Soul </a></div>
               </div>
               <div class="image">
-                <img src="images/resource/blog1-3.jpg" alt="">
-                <img src="images/resource/blog1-3.jpg" alt="">
+                <img src="images/resource/blog1-3.jpg" alt="Relaxing wellness retreat setting" loading="lazy" decoding="async" />
+                <img src="images/resource/blog1-3.jpg" alt="Relaxing wellness retreat setting" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
@@ -1026,79 +1104,79 @@
     <!-- end blog-section -->
 
     <!-- start gallary-section-two -->
-    <seciton class="gallary-section-two fix">
+    <section class="gallary-section-two fix">
       <div class="gallary-outer">
         <div class="swiper gallary-slider-outer gsap-fade-up pb-0">
           <div class="swiper-wrapper">
             <div class="image swiper-slide">
               <a href="images/resource/gallary2-1.jpg" class="lightbox-image" data-fancybox="gallery">
-                <img src="images/resource/gallary2-1.jpg" alt="GallerImg">
+                <img src="images/resource/gallary2-1.jpg" alt="Yoga class photo 1" loading="lazy" decoding="async" />
               </a>
             </div>
             <div class="image swiper-slide">
               <a href="images/resource/gallary2-2.jpg" class="lightbox-image" data-fancybox="gallery">
-                <img src="images/resource/gallary2-2.jpg" alt="GallerImg">
+                <img src="images/resource/gallary2-2.jpg" alt="Yoga class photo 2" loading="lazy" decoding="async" />
               </a>
             </div>
             <div class="image swiper-slide">
               <a href="images/resource/gallary2-3.jpg" class="lightbox-image" data-fancybox="gallery">
-                <img src="images/resource/gallary2-3.jpg" alt="GallerImg">
+                <img src="images/resource/gallary2-3.jpg" alt="Yoga class photo 3" loading="lazy" decoding="async" />
               </a>
             </div>
             <div class="image swiper-slide">
               <a href="images/resource/gallary2-4.jpg" class="lightbox-image" data-fancybox="gallery">
-                <img src="images/resource/gallary2-4.jpg" alt="GallerImg">
+                <img src="images/resource/gallary2-4.jpg" alt="Yoga class photo 4" loading="lazy" decoding="async" />
               </a>
             </div>
             <div class="image swiper-slide">
               <a href="images/resource/gallary2-5.jpg" class="lightbox-image" data-fancybox="gallery">
-                <img src="images/resource/gallary2-5.jpg" alt="GallerImg">
+                <img src="images/resource/gallary2-5.jpg" alt="Yoga class photo 5" loading="lazy" decoding="async" />
               </a>
             </div>
             <div class="image swiper-slide">
               <a href="images/resource/gallary2-6.jpg" class="lightbox-image" data-fancybox="gallery">
-                <img src="images/resource/gallary2-6.jpg" alt="GallerImg">
+                <img src="images/resource/gallary2-6.jpg" alt="Yoga class photo 6" loading="lazy" decoding="async" />
               </a>
             </div>
             <div class="image swiper-slide">
               <a href="images/resource/gallary2-1.jpg" class="lightbox-image" data-fancybox="gallery">
-                <img src="images/resource/gallary2-1.jpg" alt="GallerImg">
+                <img src="images/resource/gallary2-1.jpg" alt="Yoga class photo 1" loading="lazy" decoding="async" />
               </a>
             </div>
             <div class="image swiper-slide">
               <a href="images/resource/gallary2-2.jpg" class="lightbox-image" data-fancybox="gallery">
-                <img src="images/resource/gallary2-2.jpg" alt="GallerImg">
+                <img src="images/resource/gallary2-2.jpg" alt="Yoga class photo 2" loading="lazy" decoding="async" />
               </a>
             </div>
             <div class="image swiper-slide">
               <a href="images/resource/gallary2-3.jpg" class="lightbox-image" data-fancybox="gallery">
-                <img src="images/resource/gallary2-3.jpg" alt="GallerImg">
+                <img src="images/resource/gallary2-3.jpg" alt="Yoga class photo 3" loading="lazy" decoding="async" />
               </a>
             </div>
             <div class="image swiper-slide">
               <a href="images/resource/gallary2-4.jpg" class="lightbox-image" data-fancybox="gallery">
-                <img src="images/resource/gallary2-4.jpg" alt="GallerImg">
+                <img src="images/resource/gallary2-4.jpg" alt="Yoga class photo 4" loading="lazy" decoding="async" />
               </a>
             </div>
             <div class="image swiper-slide">
               <a href="images/resource/gallary2-5.jpg" class="lightbox-image" data-fancybox="gallery">
-                <img src="images/resource/gallary2-5.jpg" alt="GallerImg">
+                <img src="images/resource/gallary2-5.jpg" alt="Yoga class photo 5" loading="lazy" decoding="async" />
               </a>
             </div>
             <div class="image swiper-slide">
               <a href="images/resource/gallary2-6.jpg" class="lightbox-image" data-fancybox="gallery">
-                <img src="images/resource/gallary2-6.jpg" alt="GallerImg">
+                <img src="images/resource/gallary2-6.jpg" alt="Yoga class photo 6" loading="lazy" decoding="async" />
               </a>
             </div>
           </div>
         </div>
       </div>
-    </seciton>
+    </section>
     <!-- end gallary-section-two -->
 
     <!-- Main Footer -->
     <footer class="main-footer footer-style-one">
-      <div class="shape-1 gsap-fade-left"><img src="images/icons/shape-15.png" alt=""></div>
+      <div class="shape-1 gsap-fade-left"><img src="images/icons/shape-15.png" alt="" loading="lazy" decoding="async" /></div>
       <div class="outer-box">
         <!-- Widgets Section -->
         <div class="widgets-section">
@@ -1106,7 +1184,7 @@
             <!-- Footer Column -->
             <div class="footer-column col-xl-3 col-lg-3 col-md-6">
               <div class="footer-widget about-widget gsap-stagger-item">
-                <div class="logo"><a href="index.html"><img src="images/logo3.png" alt=""></a></div>
+                <div class="logo"><a href="index.html"><img src="images/logo3.png" alt="Lotus U Yoga — home" loading="lazy" decoding="async" /></a></div>
               </div>
             </div>
             <!-- Footer Column -->
@@ -1149,20 +1227,23 @@
                       <a href="mailto:info@example.com">info@example.com</a>
                     </span>
                   </div>
-                  <div class="social-icon-two">
-                    <li>
-                      <a href="#">
-                        <i class="fa-brands fa-facebook-f"></i>
+                  <!-- The template nests <li> in a div. Keeping the <li>
+                       elements (the CSS targets `.social-icon-two li`) and
+                       supplying list semantics via ARIA instead. -->
+                  <div class="social-icon-two" role="list">
+                    <li role="listitem">
+                      <a href="#" aria-label="Lotus U Yoga on Facebook">
+                        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
                       </a>
                     </li>
-                    <li>
-                      <a href="#">
-                        <i class="fa-brands fa-instagram"></i>
+                    <li role="listitem">
+                      <a href="#" aria-label="Lotus U Yoga on Instagram">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
                       </a>
                     </li>
-                    <li>
-                      <a href="#">
-                        <i class="fa-brands fa-twitter"></i>
+                    <li role="listitem">
+                      <a href="#" aria-label="Lotus U Yoga on X">
+                        <i class="fa-brands fa-twitter" aria-hidden="true"></i>
                       </a>
                     </li>
                   </div>
@@ -1214,11 +1295,14 @@
 <script src="js/theme/custom-gsap.js"></script>
 <script src="js/theme/script.js"></script>
 
-<!-- Appwrite Web SDK (global `Appwrite`) + config + init -->
-<script src="https://cdn.jsdelivr.net/npm/appwrite@29.1.0"></script>
+<!-- Appwrite integration.
+     The 655 KB Web SDK is deliberately NOT loaded here: the public page
+     only needs to read one table, so js/appwrite/services-data.js talks to
+     the REST endpoint directly (audit finding P2). The SDK is still used
+     on dashboard.html, which is the only page that writes. -->
 <script src="js/appwrite/appwrite-config.js"></script>
-<script src="js/appwrite/appwrite-init.js"></script>
 <script src="js/appwrite/services-data.js"></script>
+<script src="js/appwrite/contact-form.js"></script>
 
 </body>
 </html>

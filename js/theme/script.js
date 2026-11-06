@@ -183,13 +183,19 @@ var THEMEMASCOT = {};
 		});
 	}
 
-	const boxes = document.querySelectorAll('.service-block-two .inner-block');
-
-	boxes.forEach(box => {
-	  box.addEventListener('mouseenter', () => {
-	    boxes.forEach(item => item.classList.remove('active')); // অন্যসব থেকে active remove
-	    box.classList.add('active'); // hover করা box active হবে
+	/* Service card hover.
+	 * Delegated on the document instead of bound to the five static
+	 * cards, because js/appwrite/services-data.js replaces those nodes
+	 * after it loads rows — bound listeners died with the old DOM
+	 * (audit finding F1). Same behaviour as before: hovering a card
+	 * makes it the only active one; there was never a mouseleave reset. */
+	document.addEventListener('mouseover', function (event) {
+	  const block = event.target.closest && event.target.closest('.service-block-two .inner-block');
+	  if (!block || block.classList.contains('active')) return;
+	  document.querySelectorAll('.service-block-two .inner-block').forEach(function (item) {
+	    item.classList.remove('active');
 	  });
+	  block.classList.add('active');
 	});
 
 	document.addEventListener('DOMContentLoaded', () => {
@@ -375,24 +381,33 @@ var THEMEMASCOT = {};
 	gsap animation
 	================================ */
 
-gsap.ticker.lagSmoothing(500, 16);
+/* Smooth scrolling.
+ * - gsap.ticker passes time in SECONDS; Lenis expects milliseconds, so
+ *   the old `time * 500` ran the scroll at half speed (finding F12).
+ * - `smoothHover` is not a Lenis option and did nothing (F13).
+ * - lagSmoothing(500,16) was set and then immediately overridden by
+ *   lagSmoothing(0); only one call now (F14).
+ * - Users who ask for reduced motion get native scrolling (C5). */
+const prefersReducedMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const lenis = new Lenis({
-    duration: 1.5,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    direction: 'vertical', 
-    gestureDirection: 'vertical',
-    smoothHover: true,
-    smoothWheel: true,
-});
+if (!prefersReducedMotion) {
+    const lenis = new Lenis({
+        duration: 1.5,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smoothWheel: true,
+    });
 
-lenis.on('scroll', ScrollTrigger.update);
+    lenis.on('scroll', ScrollTrigger.update);
 
-gsap.ticker.add((time) => {
-    lenis.raf(time * 500);
-});
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
 
-gsap.ticker.lagSmoothing(0);
+    gsap.ticker.lagSmoothing(0);
+}
 
 
 const fadeInUp = document.querySelectorAll('.gsap-fade-up');
@@ -599,36 +614,9 @@ if (pointers.length > 0) {
 	service-slider Js Start
 	================================ */
 
-	if($('.service-slider').length > 0) {
-		const projectSlider = new Swiper(".service-slider", {
-			spaceBetween: 30,
-			speed: 1500,
-			loop: true,
-			autoplay: {
-				delay: 1000,
-				disableOnInteraction: false,
-			},
-			// pagination
-			pagination: {
-				el: ".service-slider-dots",
-				clickable:true,
-			},
-			breakpoints: {
-				1400: {
-					slidesPerView: 4,
-				},
-				1200: {
-					slidesPerView: 3,
-				},
-				768: {
-					slidesPerView: 2,
-				},
-				400: {
-					slidesPerView: 1,
-				},
-			},
-		});
-	}
+	/* Service slider is initialised in js/appwrite/services-data.js, which
+	 * also owns the re-render after data loads. Initialising it here too
+	 * caused a destroy/recreate cycle and a visible jump (finding F2). */
 
 
 

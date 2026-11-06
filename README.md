@@ -1,94 +1,91 @@
-# Yogava — Single-Page Clone
+# Lotus U Yoga — website
 
-Exact recreation of `https://html.kodesolution.com/2026/yogava-html/index.html` (index page only), rebuilt from the original site's own HTML, CSS, JS, images, and fonts.
-
-## Run locally
-
-```powershell
-python -m http.server 8765
-# open http://127.0.0.1:8765/index.html
-```
-
-Works from any static server (must be served over HTTP, not `file://`, because the CSS uses `@import` and fonts).
-
-## Admin dashboard
-
-`dashboard.html` — create/update/delete the home page's services slider cards
-(backed by the Appwrite `services` table; see `js/appwrite/services-data.js`).
-
-- Sign in with the admin account (`admin@yogava.com` — change the password after
-  first login; manage users in the Appwrite Console).
-- Access is enforced twice: the page checks for the `admin` user label, and the
-  `services` table only allows `create/update/delete` for `label:admin`
-  server-side. The public site reads anonymously (`read("any")`).
-
-## Structure
+A single-page yoga studio site (`index.html`) with a small Appwrite-backed
+admin dashboard (`dashboard.html`). The visual design comes from a
+commercial template and is **not yet licensed for production** — see
+"Before launch" below.
 
 ```
-index.html                  Page entry point (original markup, Cloudflare artifacts cleaned)
-css/                        Grouped stylesheets:
-  vendor/                     Third-party + template @import dependencies (do not edit):
-                              bootstrap, animate, aos, swiper, fancybox, jquery-ui,
-                              linear, select2, fontawesome, flaticons (3 sets)
-  theme/                      Template theme code (do not edit):
-                              style.css (design tokens/components, @imports vendor/),
-                              tm-bs-mp, tm-utility-classes
-  custom/                     Project stylesheets (loaded after theme/style.css):
-                              appwrite-services.css, dashboard-theme.css
-js/                         All 25 scripts in three groups:
-  vendor/                     Third-party libraries (do not edit):
-                              jQuery 3.7.1, popper, bootstrap, fancybox 3.2.10,
-                              jquery-ui, wow, select2, appear, lenis, bxslider,
-                              knob, swiper, aos, GSAP + ScrollTrigger + SplitText
-                              + scroll-smoother/scroll-to, splitType
-  theme/                      Template theme code (do not edit):
-                              custom-gsap (template GSAP helpers), script.js (main)
-  appwrite/                   Project backend integration:
-                              appwrite-config (generated from .env), appwrite-init,
-                              services-data, dashboard
-images/                     All images referenced by index.html + CSS url() refs
-                            (icons/, banner/, resource/, background/)
-fonts/                      Gallient (TF) + FontAwesome (6 weights) + flaticon yoga/medical/common
-                            + linearicons (woff2/woff/ttf/svg/eot)
-_original.html              Unmodified source snapshot used for recovery reference
-_tools/                     Recovery scripts (downloader, verifier, screenshot diff)
-_screenshots/               Validation captures (local vs original, desktop/mobile/lightbox)
+index.html            Landing page (one page, many sections)
+privacy.html          Privacy policy — placeholders must be filled in
+404.html              Not-found page
+dashboard.html        Admin: sign in, MFA, edit the service cards
+css/
+  theme/              Template styles (style.css, tm-*.css)
+  vendor/             Third-party styles (Bootstrap, Swiper, FA, Flaticon…)
+  custom/             Project overrides — appwrite-services.css, a11y.css
+js/
+  theme/              Template scripts (script.js, custom-gsap.js)
+  vendor/             Third-party scripts
+  appwrite/           Project code: config, init, services renderer,
+                      contact form, dashboard
+images/               Logos, icons, photography
+fonts/                Gallient (personal-use only — see below)
+tools/
+  setup-appwrite.mjs  Creates the Appwrite tables/bucket (idempotent)
 ```
 
-## Fidelity verification (Chrome, CDP-measured)
+## Run it locally
 
-| Viewport | Original height | Clone height | Overflow |
-|---|---|---|---|
-| 1440×900 | 10842 px | **10842 px** | none |
-| 1280×800 | 10595 px | **10595 px** | none |
-| 768×1024 | 14738 px | **14738 px** | none |
-| 390×844 | 18687 px | **18687 px** | none |
+The site is static; any static server works. Do not open `index.html` from
+`file://` — the Appwrite calls need an `http` origin and CORS will fail.
 
-- All 11 section boxes (header→footer) match the original in size and Y-offset exactly.
-- Full-page pixel diff (original vs clone, same viewport): mean abs diff 1.98/255, 0.73% pixels >30 — residual differences are time-varying slider/marquee positions.
-- Working: dropdown menus, mobile menu + contact list, service tabs, service/gallery/testimonial Swipers (+ dots/arrows/autoplay), progress counters, char-split animations, scroll-reveal/parallax (GSAP + Lenis smooth scroll), sticky header, custom cursor, preloader, back-to-top, Fancybox lightbox galleries, image hover zooms.
-
-## Intentionally changed
-
-- Cloudflare email obfuscation decoded to plain mailto links (`help@company.com`, `info@example.com` — decoded from the site's own `data-cfemail` payloads) and Cloudflare scripts removed.
-- Google Fonts (@import in style.css) still load from fonts.googleapis.com as on the original; everything else is local.
-
-## Known limitation
-
-- The contact form (`action="#"`) has **no backend** — same as the original template, which ships no handler either. Front-end validation (`required` on the name field) works, but submissions go nowhere until an integration (e.g. Formspree/mail handler) is configured. Nav links to other template pages (`page-about.html` etc.) intentionally 404 locally since only `index.html` is in scope.
-- `jquery-ui.css` references six jQuery UI sprite images (`images/ui-icons_*.png`) that are **missing on the origin server as well** (verified 404 upstream). They are fetched only when a jQuery UI widget (e.g. datepicker) renders — none exist on this page — so the original and this clone behave identically.
-
-## Layout
-
-```
-index.html          entry point
-css/                all stylesheets (bootstrap, style.css, 13 @import deps)
-js/                 all 21 scripts
-images/             icons/, banner/, resource/ + jquery-ui sprites (upstream-missing)
-fonts/              Gallient, FontAwesome, flaticon sets, linearicons
-_original.html      untouched source snapshot (recovery reference)
-_tools/             recovery & verification scripts (not needed at runtime)
-_screenshots/       validation captures (original vs clone)
+```bash
+python3 -m http.server 8080
+# http://localhost:8080/index.html
 ```
 
-> Dev tooling, validation screenshots and the original page snapshot live on the `archive/tooling` branch.
+## Appwrite
+
+Public identifiers live in `js/appwrite/appwrite-config.js`. The API key
+lives **only** in `.env` (git-ignored) and is read by the setup script.
+
+| Table     | Used by        | Permissions                          |
+|-----------|----------------|--------------------------------------|
+| `services`| homepage slider| read: any · write: `label:admin`     |
+| `contact` | enquiry form   | create: any · read: `label:admin`    |
+
+Create/repair both tables (and the `media` bucket) with:
+
+```bash
+node tools/setup-appwrite.mjs --dry-run   # preview
+node tools/setup-appwrite.mjs             # apply
+```
+
+> **The project is currently in read-only mode.** Every API call —
+> including authenticated ones — returns `402 team_read_only`. Restore
+> normal billing in the Appwrite console (Organisation → Billing) before
+> the dashboard or setup script can work.
+
+## What the dashboard can edit
+
+Only the service slider (number, title, image path, text, link). Everything
+else — hero, about, pricing, gallery, testimonials, blog, contact details,
+footer — is hardcoded in `index.html`.
+
+Images are referenced by **path**, not uploaded: put the file in `images/`
+and type its path (`images/resource/service2-1.jpg`). The `media` bucket
+exists for a future upload UI.
+
+## How the homepage talks to Appwrite
+
+`js/appwrite/services-data.js` fetches the `services` table over the REST
+API (no SDK on the public page), then replaces the five static cards. If
+the request fails for any reason, the static cards simply stay — the
+section never renders empty.
+
+## Before launch
+
+1. **Licensing.** `css/theme/style.css` is ThemeMascot's commercial
+   template; the Gallient font is personal-use only; the Flaticon sets
+   need attribution or a Premium licence; the photography is preview-only
+   stock. None of it may ship commercially as-is.
+2. **Content.** Every string and image is still the template's demo
+   content.
+3. **Appwrite access.** See the read-only note above, and confirm table
+   permissions in the console (the repo cannot verify them).
+4. Fill in `privacy.html` placeholders and the `TODO(domain)` markers
+   (`index.html` head, `sitemap.xml`, `robots.txt`).
+
+See `PROJECT-AUDIT.md` for the full scored assessment and
+`PROJECT-STATUS.md` for what has been fixed and what is still open.

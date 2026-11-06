@@ -1,8 +1,8 @@
 /**
  * Appwrite SDK initialization — Yogava landing page
  * --------------------------------------------------
- * Consumes the .env-driven values in appwrite-config.js (generated
- * by _tools/sync-appwrite-env.py), initializes the Appwrite Web SDK
+ * Consumes the public identifiers in appwrite-config.js, initializes
+ * the Appwrite Web SDK
  * (loaded globally via CDN as `Appwrite`), and exposes everything
  * future feature code needs on `window.yogavaAppwrite`:
  *
@@ -26,10 +26,7 @@
   var cfg = window.APPWRITE_CONFIG;
 
   if (!cfg || !cfg.endpoint || !cfg.projectId) {
-    console.error(
-      '[Appwrite] Missing config — run: python _tools/sync-appwrite-env.py ' +
-      '(generates js/appwrite/appwrite-config.js from .env)'
-    );
+    console.error('[Appwrite] Missing config in js/appwrite/appwrite-config.js.');
     return;
   }
 
@@ -55,6 +52,13 @@
   // TablesDB service — guarded so older SDK builds fail gracefully.
   if (typeof window.Appwrite.TablesDB !== 'undefined') {
     services.tablesDB = new window.Appwrite.TablesDB(client);
+  } else if (window.console && console.error) {
+    // The dashboard is unusable without this service, so make it loud
+    // instead of failing later with an obscure error (finding A11).
+    console.error(
+      '[Appwrite] This SDK build has no TablesDB service. The dashboard ' +
+      'cannot read or write rows until the SDK is updated.'
+    );
   }
 
   // Database identifiers consumed from .env via the generated config.

@@ -1,0 +1,13 @@
+# Lotus U Yoga
+# TODO(domain): once the production domain is known, add a Sitemap line:
+#   Sitemap: https://<domain>/sitemap.xml
+
+User-agent: *
+Allow: /
+
+# Admin area — never index.
+Disallow: /dashboard.html
+Disallow: /dashboard
+
+# Placeholder pages from the template should not be indexed either.
+Disallow: /404.html
