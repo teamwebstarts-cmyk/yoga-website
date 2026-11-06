@@ -52,6 +52,7 @@
     "makesOffer": [
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Yoga Sessions" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Yoga Therapy" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sound Healing" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Weight Management" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Zumba Sessions" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Yoga Retreats" } },
@@ -421,29 +422,33 @@
             <div class="row">
               <div class="col-lg-4">
                 <!-- Tab Btns -->
-                <div class="tab-btns tab-buttons ">
-                  <button data-tab="#prod-morning" class="tab-btn active-btn wow fadeInUp" data-wow-delay="200ms">
-                    <i aria-hidden="true" class=" flaticon-set-yoga-pose-1"></i>
+                <div class="tab-btns tab-buttons" role="tablist">
+                  <button data-tab="#prod-morning" class="tab-btn active-btn wow fadeInUp" data-wow-delay="100ms" role="tab" aria-selected="true">
+                    <i aria-hidden="true" class="flaticon-set-yoga-pose-1"></i>
                     <span>Yoga Sessions</span>
                   </button>
-                  <button data-tab="#prod-meditation" class="tab-btn wow fadeInUp" data-wow-delay="300ms">
-                    <i aria-hidden="true" class=" flaticon-set-exercise"></i>
+                  <button data-tab="#prod-meditation" class="tab-btn wow fadeInUp" data-wow-delay="200ms" role="tab" aria-selected="false">
+                    <i aria-hidden="true" class="flaticon-set-exercise"></i>
                     <span>Yoga Therapy</span>
                   </button>
-                  <button data-tab="#prod-walk" class="tab-btn wow fadeInUp" data-wow-delay="400ms">
-                    <i aria-hidden="true" class=" flaticon-set-treadmill"></i>
-                    <span>Weight Management</span>
+                  <button data-tab="#prod-sound" class="tab-btn wow fadeInUp" data-wow-delay="300ms" role="tab" aria-selected="false">
+                    <i aria-hidden="true" class="flaticon-set-soul"></i>
+                    <span>Sound Healing</span>
                   </button>
-                  <button data-tab="#prod-art" class="tab-btn wow fadeInUp" data-wow-delay="500ms">
-                    <i aria-hidden="true" class=" flaticon-set-calendar"></i>
+                  <button data-tab="#prod-art" class="tab-btn wow fadeInUp" data-wow-delay="400ms" role="tab" aria-selected="false">
+                    <i aria-hidden="true" class="flaticon-set-workout"></i>
                     <span>Zumba Sessions</span>
                   </button>
-                  <button data-tab="#prod-breathwork" class="tab-btn wow fadeInUp" data-wow-delay="600ms">
-                    <i aria-hidden="true" class=" flaticon-set-mat"></i>
+                  <button data-tab="#prod-breathwork" class="tab-btn wow fadeInUp" data-wow-delay="500ms" role="tab" aria-selected="false">
+                    <i aria-hidden="true" class="flaticon-set-mat"></i>
                     <span>Yoga Retreats</span>
                   </button>
-                  <button data-tab="#prod-fitness" class="tab-btn wow fadeInUp" data-wow-delay="700ms">
-                    <i aria-hidden="true" class=" flaticon-set-meditation"></i>
+                  <button data-tab="#prod-walk" class="tab-btn wow fadeInUp" data-wow-delay="600ms" role="tab" aria-selected="false">
+                    <i aria-hidden="true" class="flaticon-set-treadmill"></i>
+                    <span>Weight Management</span>
+                  </button>
+                  <button data-tab="#prod-fitness" class="tab-btn wow fadeInUp" data-wow-delay="700ms" role="tab" aria-selected="false">
+                    <i aria-hidden="true" class="flaticon-set-dumbbell"></i>
                     <span>Fitness Training</span>
                   </button>
                 </div>
@@ -453,85 +458,134 @@
                 <!-- Tabs Container -->
                 <div class="tabs-content">
 
-                  <!-- Tab -->
-                  <div class="tab active-tab" id="prod-morning">
+                  <!-- Tab 1: Yoga Sessions -->
+                  <div class="tab active-tab" id="prod-morning" role="tabpanel">
                     <div class="tab-inner-content">
                       <div class="content-box">
                         <div class="inner-box">
-                          <div class="image gsap-reveal" data-origin="top"><img src="images/resource/service1-1.jpg" alt="Daily morning flow class" loading="lazy" decoding="async" /></div>
+                          <div class="image gsap-reveal" data-origin="top">
+                            <img src="images/resource/svc-yoga-sessions.jpg" alt="Students practicing Warrior II pose during a guided Hatha yoga class at Lotus Yoga studio" loading="lazy" decoding="async" />
+                          </div>
                           <h3 class="h3 title">Yoga Sessions</h3>
                           <div class="text">Group classes in Hatha, Vinyasa and Yin — sixty minutes of movement, breath and a long, honest stretch. Every class offers a beginner option, and the teacher actually watches your alignment. Studio sessions in Indore, live sessions online.</div>
-                          <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                          <div class="service-actions-row">
+                            <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                            <a href="https://wa.me/917067700613?text=Hi%20Varsha%2C%20I%20am%20interested%20in%20joining%20Yoga%20Sessions" target="_blank" rel="noopener noreferrer" class="service-wa-btn"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <!-- Tab -->
-                  <div class="tab" id="prod-meditation">
+                  <!-- Tab 2: Yoga Therapy -->
+                  <div class="tab" id="prod-meditation" role="tabpanel">
                     <div class="tab-inner-content">
                       <div class="content-box">
                         <div class="inner-box">
-                          <div class="image"><img src="images/resource/service1-1.jpg" alt="Guided yoga class" loading="lazy" decoding="async" /></div>
+                          <div class="image">
+                            <img src="images/resource/svc-yoga-therapy.jpg" alt="Instructor providing gentle therapeutic lower back alignment adjustment for a student" loading="lazy" decoding="async" />
+                          </div>
                           <h3 class="h3 title">Yoga Therapy</h3>
                           <div class="text">One-to-one therapeutic yoga for back and neck pain, posture, PCOS, disturbed sleep and everyday stress. We begin with an assessment, then build a short daily practice you can genuinely keep — with progress checks as your body changes.</div>
-                          <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                          <div class="service-actions-row">
+                            <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                            <a href="https://wa.me/917067700613?text=Hi%20Varsha%2C%20I%20would%20like%20to%20consult%20for%20Yoga%20Therapy" target="_blank" rel="noopener noreferrer" class="service-wa-btn"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <!-- Tab -->
-                  <div class="tab" id="prod-walk">
+                  <!-- Tab 3: Sound Healing -->
+                  <div class="tab" id="prod-sound" role="tabpanel">
                     <div class="tab-inner-content">
                       <div class="content-box">
                         <div class="inner-box">
-                          <div class="image"><img src="images/resource/service1-1.jpg" alt="Guided yoga class" loading="lazy" decoding="async" /></div>
-                          <h3 class="h3 title">Weight Management</h3>
-                          <div class="text">A steady blend of yoga, functional movement and practical nutrition guidance — built for real Indian kitchens and real schedules. No crash diets: weekly structure, measurable progress and a practice you will not want to quit.</div>
-                          <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                          <div class="image">
+                            <img src="images/resource/svc-sound-healing.jpg" alt="Student immersed in peaceful meditation with authentic Tibetan singing bowls and candlelight" loading="lazy" decoding="async" />
+                          </div>
+                          <h3 class="h3 title">Sound Healing</h3>
+                          <div class="text">An acoustic sanctuary designed to silence mental noise and restore nervous system balance. Handcrafted Tibetan singing bowls and harmonic vibrational therapy gently release deep-seated physical stress, quiet restless thoughts, and guide your body into profound restorative rest.</div>
+                          <div class="service-actions-row">
+                            <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                            <a href="https://wa.me/917067700613?text=Hi%20Varsha%2C%20I%20would%20like%20to%20book%20a%20Sound%20Healing%20session" target="_blank" rel="noopener noreferrer" class="service-wa-btn"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <!-- Tab -->
-                  <div class="tab" id="prod-art">
+                  <!-- Tab 4: Zumba Sessions -->
+                  <div class="tab" id="prod-art" role="tabpanel">
                     <div class="tab-inner-content">
                       <div class="content-box">
                         <div class="inner-box">
-                          <div class="image"><img src="images/resource/service1-1.jpg" alt="Guided yoga class" loading="lazy" decoding="async" /></div>
+                          <div class="image">
+                            <img src="images/resource/svc-zumba.jpg" alt="Joyful group of Indian women dancing energetically during a Zumba cardio workout in a studio" loading="lazy" decoding="async" />
+                          </div>
                           <h3 class="h3 title">Zumba Sessions</h3>
                           <div class="text">High-energy dance fitness in a room that does not take itself too seriously. Burn calories, build stamina and leave grinning — no dance background required. Choreography is layered, so first-timers and regulars can share the same floor.</div>
-                          <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                          <div class="service-actions-row">
+                            <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                            <a href="https://wa.me/917067700613?text=Hi%20Varsha%2C%20I%20want%20to%20join%20Zumba%20Sessions" target="_blank" rel="noopener noreferrer" class="service-wa-btn"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <!-- Tab -->
-                  <div class="tab" id="prod-breathwork">
+                  <!-- Tab 5: Yoga Retreats -->
+                  <div class="tab" id="prod-breathwork" role="tabpanel">
                     <div class="tab-inner-content">
                       <div class="content-box">
                         <div class="inner-box">
-                          <div class="image"><img src="images/resource/service1-1.jpg" alt="Guided yoga class" loading="lazy" decoding="async" /></div>
+                          <div class="image">
+                            <img src="images/resource/svc-retreat.jpg" alt="Small retreat group practicing morning sunrise yoga on the sacred Ganges riverbanks in Rishikesh" loading="lazy" decoding="async" />
+                          </div>
                           <h3 class="h3 title">Yoga Retreats</h3>
                           <div class="text">Four days and three nights in Rishikesh: yoga as the sun comes up, sound healing in the evening, Ganga Aarti and a great deal of Himalayan silence. Small groups, all levels welcome, registration opens ahead of every departure.</div>
-                          <a href="#contact" class="theme-btn btn-style-one">Ask About Retreats <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                          <div class="service-actions-row">
+                            <a href="#contact" class="theme-btn btn-style-one">Ask About Retreats <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                            <a href="https://wa.me/917067700613?text=Hi%20Varsha%2C%20I%20want%20details%20for%20the%20Rishikesh%20Retreat%20(RETREAT)" target="_blank" rel="noopener noreferrer" class="service-wa-btn"><i class="fab fa-whatsapp"></i> WhatsApp: DM "RETREAT"</a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <!-- Tab -->
-                  <div class="tab" id="prod-fitness">
+                  <!-- Tab 6: Weight Management -->
+                  <div class="tab" id="prod-walk" role="tabpanel">
                     <div class="tab-inner-content">
                       <div class="content-box">
                         <div class="inner-box">
-                          <div class="image"><img src="images/resource/service1-1.jpg" alt="Fitness training session with weights" loading="lazy" decoding="async" /></div>
+                          <div class="image">
+                            <img src="images/resource/svc-weight-management.jpg" alt="Woman performing resistance band squats and functional core conditioning in a sunlit home studio" loading="lazy" decoding="async" />
+                          </div>
+                          <h3 class="h3 title">Weight Management</h3>
+                          <div class="text">A steady blend of yoga, functional movement and practical nutrition guidance — built for real Indian kitchens and real schedules. No crash diets: weekly structure, measurable progress and a practice you will not want to quit.</div>
+                          <div class="service-actions-row">
+                            <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                            <a href="https://wa.me/917067700613?text=Hi%20Varsha%2C%20I%20am%20interested%20in%20Weight%20Management%20program" target="_blank" rel="noopener noreferrer" class="service-wa-btn"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Tab 7: Fitness Training -->
+                  <div class="tab" id="prod-fitness" role="tabpanel">
+                    <div class="tab-inner-content">
+                      <div class="content-box">
+                        <div class="inner-box">
+                          <div class="image">
+                            <img src="images/resource/svc-fitness.jpg" alt="Personal trainer coaching a student on correct knee and hip alignment during a lunge workout" loading="lazy" decoding="async" />
+                          </div>
                           <h3 class="h3 title">Fitness Training</h3>
                           <div class="text">Personal training shaped around your goal — strength, stamina, mobility or a careful return after injury. Programmes are built for the equipment you actually have at home or in the studio, with form checks on every session.</div>
-                          <a href="#contact" class="theme-btn btn-style-one">Start Training <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                          <div class="service-actions-row">
+                            <a href="#contact" class="theme-btn btn-style-one">Start Training <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                            <a href="https://wa.me/917067700613?text=Hi%20Varsha%2C%20I%20am%20interested%20in%20Personal%20Fitness%20Training" target="_blank" rel="noopener noreferrer" class="service-wa-btn"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                          </div>
                         </div>
                       </div>
                     </div>

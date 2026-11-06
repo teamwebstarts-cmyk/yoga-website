@@ -52,3 +52,160 @@
   }
 }
 
+/* ─── Services Section — Real Activity Cards & Responsive Polish ──────── */
+.services-section .outer-box .tabs-box .tab-btns .tab-btn {
+  padding: 13px 18px;
+  margin-bottom: 9px;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid rgba(125, 160, 101, 0.22);
+}
+
+.services-section .outer-box .tabs-box .tab-btns .tab-btn i {
+  max-width: 50px;
+  height: 50px;
+  line-height: 52px;
+  font-size: 26px;
+  margin-right: 18px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.services-section .outer-box .tabs-box .tab-btns .tab-btn span {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+@media (max-width: 991.98px) {
+  .services-section .outer-box .tabs-box .tab-btns {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 10px;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .services-section .outer-box .tabs-box .tab-btns::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .services-section .outer-box .tabs-box .tab-btns::-webkit-scrollbar-thumb {
+    background: rgba(125, 160, 101, 0.4);
+    border-radius: 4px;
+  }
+
+  .services-section .outer-box .tabs-box .tab-btns .tab-btn {
+    width: auto;
+    flex-shrink: 0;
+    margin-bottom: 0;
+    padding: 10px 18px;
+    white-space: nowrap;
+  }
+
+  .services-section .outer-box .tabs-box .tab-btns .tab-btn i {
+    max-width: 38px;
+    height: 38px;
+    line-height: 40px;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  .services-section .outer-box .tabs-box .tab-btns .tab-btn span {
+    font-size: 16px;
+  }
+}
+
+/* Service Card Image — Real photography container */
+.services-section .outer-box .content-box .inner-box .image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(26, 43, 30, 0.09);
+  margin-bottom: 22px;
+}
+
+@media (max-width: 767.98px) {
+  .services-section .outer-box .content-box .inner-box .image,
+  .services-section .outer-box .content-box .inner-box .image img {
+    min-height: auto !important;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+.services-section .outer-box .content-box .inner-box .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.services-section .outer-box .content-box .inner-box:hover .image img {
+  transform: scale(1.025);
+}
+
+/* Service Actions Row — Matching height & clean alignment */
+.service-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.service-actions-row .theme-btn.btn-style-one {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  line-height: 52px;
+  padding: 0 8px 0 28px;
+  margin: 0;
+  vertical-align: middle;
+  border-radius: 50px;
+}
+
+.service-actions-row .theme-btn.btn-style-one span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  margin-left: 14px;
+}
+
+.service-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  height: 52px;
+  line-height: 52px;
+  padding: 0 24px;
+  border-radius: 50px;
+  background: #25d366;
+  color: #ffffff !important;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.22);
+}
+
+.service-wa-btn:hover {
+  background: #20bd5a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.32);
+  color: #ffffff !important;
+}
+
+.service-wa-btn i {
+  font-size: 19px;
+}
+
