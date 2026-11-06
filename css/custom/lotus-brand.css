@@ -1,0 +1,35 @@
+/* ============================================================
+   Lotus U Yoga — content-level overrides
+   Loaded last. Small, deliberate corrections only; no layout,
+   spacing or component changes live here.
+   ============================================================ */
+
+/* The template capitalises every word inside several prose blocks, which
+   is fine for a one-word label and wrong for a sentence:
+   "Group Classes In Hatha, Vinyasa And Yin". The selectors below mirror
+   the template's own chains exactly, so only these blocks change; the
+   rest of the design system is untouched. */
+.banner-section .outer-box .content-column .inner-column .content-box .text,
+.banner-section .outer-box .info-two .text,
+.services-section .outer-box .content-box .inner-box .text,
+.why-choose-us-section .content-column .inner-column .wcu-block .inner-block .text,
+.why-choose-us-section .content-column .inner-column .wcu-block .inner-block .title,
+.pricing-block .inner-block .upper-box .title {
+  text-transform: none;
+}
+
+/* Pricing intro line — sits between the section title and the cards. */
+.pricing-note {
+  max-width: 58ch;
+  margin: -18px 0 34px;
+  color: var(--text-color, #6b6b74);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+@media (max-width: 767px) {
+  .pricing-note {
+    margin-top: -6px;
+    margin-bottom: 26px;
+  }
+}

@@ -9,11 +9,12 @@ commercial template and is **not yet licensed for production** — see
 index.html            Landing page (one page, many sections)
 privacy.html          Privacy policy — placeholders must be filled in
 404.html              Not-found page
-dashboard.html        Admin: sign in, MFA, edit the service cards
+dashboard.html        Admin workspace: workshops, retreats, service cards
 css/
   theme/              Template styles (style.css, tm-*.css)
   vendor/             Third-party styles (Bootstrap, Swiper, FA, Flaticon…)
-  custom/             Project overrides — appwrite-services.css, a11y.css
+  custom/             Project overrides — appwrite-services.css, a11y.css,
+                      lotus-brand.css, dashboard-theme.css
 js/
   theme/              Template scripts (script.js, custom-gsap.js)
   vendor/             Third-party scripts
@@ -40,10 +41,11 @@ python3 -m http.server 8080
 Public identifiers live in `js/appwrite/appwrite-config.js`. The API key
 lives **only** in `.env` (git-ignored) and is read by the setup script.
 
-| Table     | Used by        | Permissions                          |
-|-----------|----------------|--------------------------------------|
-| `services`| homepage slider| read: any · write: `label:admin`     |
-| `contact` | enquiry form   | create: any · read: `label:admin`    |
+| Table      | Used by         | Permissions                        |
+|------------|-----------------|------------------------------------|
+| `services` | homepage slider | read: any · write: `label:admin`   |
+| `workshops`| dashboard only  | all: `label:admin`                 |
+| `contact`  | enquiry form    | create: any · read: `label:admin`  |
 
 Create/repair both tables (and the `media` bucket) with:
 
@@ -57,15 +59,32 @@ node tools/setup-appwrite.mjs             # apply
 > normal billing in the Appwrite console (Organisation → Billing) before
 > the dashboard or setup script can work.
 
-## What the dashboard can edit
+## The dashboard workspace (`dashboard.html`)
 
-Only the service slider (number, title, image path, text, link). Everything
-else — hero, about, pricing, gallery, testimonials, blog, contact details,
-footer — is hardcoded in `index.html`.
+A self-contained admin console — sidebar, overview stats, filterable card
+grid, modal editor. It does **not** load the marketing theme, so a change to
+`css/theme/style.css` can never break it.
+
+| View | What it does |
+|---|---|
+| **Overview** | Counts (total / upcoming / ongoing / completed) plus the next workshops as cards. |
+| **Workshops** | Full CRUD for retreats, workshops, trainings and events. Filter by status, search, add, edit in a modal, delete with confirmation. |
+| **Services** | Full CRUD for the homepage slider cards (order, title, image, text, link, visibility). |
+
+Workshop fields: title, type, status (`upcoming` / `ongoing` / `completed`),
+start date, end date, mode (offline / online / hybrid), location, price,
+seats, image path, short description, published.
+
+Cards sort running work first, then what is coming, then the archive
+(soonest first; most recent first inside the archive).
 
 Images are referenced by **path**, not uploaded: put the file in `images/`
 and type its path (`images/resource/service2-1.jpg`). The `media` bucket
-exists for a future upload UI.
+exists for a future upload UI. Paths outside `images/` are rejected by both
+the dashboard and the public page.
+
+Everything else — hero, about, pricing copy, gallery, testimonials, journal,
+contact details, footer — is hardcoded in `index.html`.
 
 ## How the homepage talks to Appwrite
 

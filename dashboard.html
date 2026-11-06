@@ -2,116 +2,170 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Yogava Admin — Services Dashboard</title>
+  <title>Lotus U Yoga — Admin Workspace</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <!-- Theme: site design system (tokens, fonts, components) + admin overrides -->
-  <link href="css/vendor/bootstrap.min.css" rel="stylesheet" />
-  <link href="css/theme/style.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
   <link href="css/custom/dashboard-theme.css" rel="stylesheet" />
 </head>
-<body>
-  <div class="ad-topbar">
-    <div class="brand">Yogava<small>services dashboard</small></div>
-    <div id="ad-userbox" class="ad-visor">
-      <span class="ad-user" id="ad-user-email"></span>
-      <button class="ad-btn secondary" id="ad-logout" type="button">Log out</button>
-    </div>
-  </div>
+<body class="luy-admin">
 
-  <!-- Login gate -->
-  <div class="ad-wrap" id="ad-login-view">
-    <div class="ad-card ad-login">
-      <div class="sec-title mb-0">
-        <div class="sub-title">Admin access</div>
-      </div>
-      <h1>Admin sign in</h1>
-      <p>Only accounts with the <code>admin</code> label can manage services.</p>
-      <div class="ad-msg" id="ad-login-msg"></div>
-      <form id="ad-login-form" autocomplete="on">
-        <div class="ad-field">
+  <!-- ================= Sign in ================= -->
+  <div class="auth-wrap" id="auth-view">
+    <div class="auth-card">
+      <div class="mark" aria-hidden="true">LU</div>
+      <h1 id="auth-title">Lotus U Yoga admin</h1>
+      <p id="auth-sub">Sign in to manage workshops, retreats and service cards.</p>
+
+      <div id="auth-msg" class="banner" hidden></div>
+
+      <!-- Step 1 -->
+      <form id="login-form">
+        <div class="field">
           <label for="ad-email">Email</label>
           <input type="email" id="ad-email" required autocomplete="username" />
         </div>
-        <div class="ad-field">
+        <div class="field">
           <label for="ad-password">Password</label>
           <input type="password" id="ad-password" required autocomplete="current-password" />
         </div>
-        <button class="ad-btn" type="submit" id="ad-login-btn">Sign in</button>
+        <button class="btn btn-primary" type="submit" id="login-btn">Sign in</button>
       </form>
-    </div>
-  </div>
 
-  <!-- MFA challenge step -->
-  <div class="ad-wrap ad-visor" id="ad-mfa-view">
-    <div class="ad-card ad-login">
-      <div class="sec-title mb-0">
-        <div class="sub-title">Secure sign-in</div>
-      </div>
-      <h1>Two-step verification</h1>
-      <p>Enter the code we just emailed to <strong id="ad-mfa-email">your address</strong>.</p>
-      <div class="ad-msg" id="ad-mfa-msg"></div>
-      <form id="ad-mfa-form">
-        <div class="ad-field">
-          <label for="ad-otp">6-digit code</label>
+      <!-- Step 2 (email MFA) -->
+      <form id="mfa-form" hidden>
+        <p class="hint" style="font-size:13px;color:#6B7263;margin:0 0 10px">
+          We emailed a 6-digit code to <strong id="mfa-email">your address</strong>.
+        </p>
+        <div class="field">
+          <label for="ad-otp">Verification code</label>
           <input type="text" id="ad-otp" inputmode="numeric" maxlength="6" required autocomplete="one-time-code" />
         </div>
-        <button class="ad-btn" type="submit" id="ad-mfa-btn">Verify code</button>
-        <button class="ad-link" id="ad-mfa-resend" type="button">Resend code</button>
+        <button class="btn btn-primary" type="submit" id="mfa-btn">Verify code</button>
+        <button class="link-btn" id="mfa-resend" type="button">Resend code</button>
       </form>
     </div>
   </div>
 
-  <!-- Dashboard -->
-  <div class="ad-wrap ad-visor" id="ad-panel-view">
-    <div class="ad-card">
-      <div class="sec-title mb-0">
-        <div class="sub-title">Dashboard</div>
-      </div>
-      <div class="ad-head">
-        <h1>Services cards</h1>
-        <button class="ad-btn" id="ad-new" type="button">+ New service</button>
-      </div>
-      <div class="ad-msg" id="ad-panel-msg"></div>
-      <div class="ad-table-wrap">
-        <table class="ad-table">
-          <thead>
-            <tr><th>#</th><th>Image</th><th>Title</th><th>Description</th><th style="width:170px">Actions</th></tr>
-          </thead>
-          <tbody id="ad-rows"></tbody>
-        </table>
+  <!-- ================= Workspace ================= -->
+  <div class="adm-shell" id="app-view" hidden>
+    <aside class="adm-sidebar">
+      <div class="adm-brand">
+        <div class="adm-brand-mark" aria-hidden="true">LU</div>
+        <div class="adm-brand-text">
+          <strong>Lotus U Yoga</strong>
+          <span>Studio workspace</span>
+        </div>
       </div>
 
-      <div class="ad-form-title" id="ad-form-title">New service</div>
-      <form id="ad-form">
-        <input type="hidden" id="f-rowid" />
-        <div class="ad-grid">
-          <div class="ad-field">
-            <label for="f-number">Number</label>
-            <input type="text" id="f-number" maxlength="4" placeholder="01" required />
+      <nav class="adm-nav" aria-label="Workspace sections">
+        <button type="button" data-view="overview" aria-current="page"><span class="dot"></span> Overview</button>
+        <button type="button" data-view="workshops"><span class="dot"></span> Workshops</button>
+        <button type="button" data-view="services"><span class="dot"></span> Services</button>
+      </nav>
+
+      <div class="adm-sidebar-foot">
+        <span class="who" id="ad-user-email"></span>
+        <button class="btn btn-ghost btn-sm" id="ad-logout" type="button">Log out</button>
+      </div>
+    </aside>
+
+    <main class="adm-main">
+      <div class="adm-topbar">
+        <div>
+          <h1 id="page-title">Overview</h1>
+          <p id="page-sub">Everything running at the studio, at a glance.</p>
+        </div>
+        <button class="btn btn-primary" id="btn-new" type="button">+ New workshop</button>
+      </div>
+
+      <div id="global-msg" class="banner" hidden></div>
+
+      <!-- Overview -->
+      <section id="view-overview" aria-labelledby="page-title">
+        <div class="stat-row" id="stats">
+          <div class="stat">
+            <div class="label">Total</div>
+            <div class="value" data-stat="total">—</div>
+            <div class="hint">workshops &amp; retreats</div>
           </div>
-          <div class="ad-field">
-            <label for="f-title">Title</label>
-            <input type="text" id="f-title" maxlength="100" placeholder="Awaken with Ritual Flow" required />
+          <div class="stat is-live">
+            <div class="label">Upcoming</div>
+            <div class="value" data-stat="upcoming">—</div>
+            <div class="hint">open for registration</div>
           </div>
-          <div class="ad-field">
-            <label for="f-link">Link (optional)</label>
-            <input type="text" id="f-link" maxlength="500" placeholder="#" />
+          <div class="stat">
+            <div class="label">Ongoing</div>
+            <div class="value" data-stat="ongoing">—</div>
+            <div class="hint">running right now</div>
           </div>
-          <div class="ad-field full">
-            <label for="f-image">Image path</label>
-            <input type="text" id="f-image" maxlength="500" placeholder="images/resource/service2-1.jpg" required />
-            <div class="hint">Site-relative path, e.g. images/resource/service2-1.jpg</div>
-            <img class="ad-preview" id="f-preview" alt="Preview" />
-          </div>
-          <div class="ad-field full">
-            <label for="f-text">Description</label>
-            <textarea id="f-text" maxlength="500" placeholder="Short card description…" required></textarea>
-            <div class="hint">Keep it one to two lines so card heights stay consistent.</div>
+          <div class="stat">
+            <div class="label">Completed</div>
+            <div class="value" data-stat="completed">—</div>
+            <div class="hint">in the archive</div>
           </div>
         </div>
-        <button class="ad-btn" type="submit" id="ad-save">Save service</button>
-        <button class="ad-btn secondary" type="button" id="ad-cancel">Cancel</button>
+
+        <div class="toolbar">
+          <div class="chips" aria-hidden="true">
+            <span class="chip" aria-pressed="true">Next up</span>
+          </div>
+        </div>
+
+        <div class="card-grid" id="overview-grid"></div>
+      </section>
+
+      <!-- Workshops -->
+      <section id="view-workshops" hidden>
+        <div class="toolbar">
+          <div class="chips" role="group" aria-label="Filter workshops by status">
+            <button class="chip" type="button" data-filter="all" aria-pressed="true">All <span class="count" data-count="all"></span></button>
+            <button class="chip" type="button" data-filter="upcoming" aria-pressed="false">Upcoming <span class="count" data-count="upcoming"></span></button>
+            <button class="chip" type="button" data-filter="ongoing" aria-pressed="false">Ongoing <span class="count" data-count="ongoing"></span></button>
+            <button class="chip" type="button" data-filter="completed" aria-pressed="false">Completed <span class="count" data-count="completed"></span></button>
+          </div>
+          <div class="search">
+            <label class="sr-only" for="ws-search">Search workshops</label>
+            <input type="search" id="ws-search" placeholder="Search title or location" autocomplete="off" />
+          </div>
+        </div>
+        <div class="card-grid" id="workshops-grid"></div>
+      </section>
+
+      <!-- Services -->
+      <section id="view-services" hidden>
+        <div class="toolbar">
+          <div class="chips">
+            <span class="chip" aria-pressed="true">Cards on the homepage</span>
+          </div>
+          <div class="search">
+            <label class="sr-only" for="sv-search">Search services</label>
+            <input type="search" id="sv-search" placeholder="Search services" autocomplete="off" />
+          </div>
+        </div>
+        <div class="card-grid" id="services-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ================= Editor ================= -->
+  <div class="adm-modal" id="editor" hidden role="dialog" aria-modal="true" aria-labelledby="editor-title">
+    <div class="adm-sheet">
+      <header>
+        <h2 id="editor-title">New workshop</h2>
+        <button class="btn btn-ghost btn-sm" id="editor-close" type="button">Close</button>
+      </header>
+      <form id="editor-form">
+        <div class="body">
+          <div class="form-grid" id="editor-fields"></div>
+          <div id="editor-msg" class="banner" hidden style="margin-top:14px"></div>
+        </div>
+        <footer>
+          <button class="btn btn-ghost" id="editor-cancel" type="button">Cancel</button>
+          <button class="btn btn-primary" id="editor-save" type="submit">Save</button>
+        </footer>
       </form>
     </div>
   </div>
@@ -119,6 +173,6 @@
   <script src="https://cdn.jsdelivr.net/npm/appwrite@29.1.0"></script>
   <script src="js/appwrite/appwrite-config.js"></script>
   <script src="js/appwrite/appwrite-init.js"></script>
-  <script src="js/appwrite/dashboard.js?v=2"></script>
+  <script src="js/appwrite/dashboard.js?v=3"></script>
 </body>
 </html>

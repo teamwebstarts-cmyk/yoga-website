@@ -142,8 +142,8 @@ image dimensions are already catalogued in `PROJECT-AUDIT.md` §14.
 
 | Item | Why it is deferred |
 |---|---|
-| Dashboard only covers 5 slider cards | Extending it to hero/about/pricing/gallery/blog/testimonials is a schema + UI project (weeks, not hours). Your call on which sections you actually want editable. |
-| Image upload UI | `media` bucket is scripted; the upload control is not built. |
+| ~~Dashboard only covers 5 slider cards~~ | **Done** — the dashboard now runs a full workshops/retreats workspace (card CRUD by status) plus the service cards. Hero/About/Pricing copy is still hardcoded; tell me which of those you want editable next. |
+| Image upload UI | `media` bucket is scripted; the upload control is not built. Today you type a path like `images/resource/gallary2-1.jpg`. |
 | Real booking flow | Every "Book Now" is still `href="#"` (63 of them). Needs a decision: enquiry form, class schedule, or payments. |
 | Self-hosting Google Fonts | GDPR + LCP win, but it means downloading and subsetting the woff2 sets; left as a marked `TODO(privacy)`. |
 | ~69 broken CSS `url()` targets | All in unused template selectors. They 404 only if you add those components; pruning them is a separate cleanup. |
@@ -182,3 +182,132 @@ Because of that last row: open the page and scroll it once before you trust
 any of the styling claims. The heading swap and the contrast token are the
 only changes that could conceivably show, and both were chosen specifically
 to be invisible.
+
+---
+
+# Round 3 — brand, theme and the dashboard workspace
+
+## 6. What changed
+
+### Theme
+
+| Before | Now |
+|---|---|
+| Teal `#417572` primary, black headings | Deep forest `#1E3216` primary, near-black green headings `#18200F` |
+| Second accent was another green | Oxblood `#6D2006` (`rgb(109,32,6)`) used only on small highlights, badges and destructive actions |
+| Warm cream `#F2F0EC` surfaces | Kept — it already matched the cream you asked for |
+
+The palette lives in six variables at the top of `css/theme/style.css`, so
+the whole site recolours from one place.
+
+### Landing page content
+
+Everything below came from the Instagram material and the cards you shared.
+**No photographs were changed.**
+
+- **Brand:** Lotus U Yoga, by Varsha Patil — Rishikesh-certified yoga trainer
+  and Zumba instructor, Indore.
+- **Hero:** “Move Better. Feel Better. Be Better.” with the real service mix
+  and a Book Your First Session CTA.
+- **Marquee:** Yoga, Therapy & Breathwork · Zumba & Dance Fitness · Rishikesh Retreats.
+- **About:** rewritten around Varsha, small batches and online + offline.
+- **Services:** six real tabs — Yoga Sessions, Yoga Therapy, Weight
+  Management, Zumba Sessions, Yoga Retreats, Fitness Training — each with its
+  own description.
+- **Retreats slider:** Rishikesh Retreat, Sound Healing & Deep Rest, Yoga
+  Therapy Clinic, Zumba Dance Fitness, Online Studio.
+- **Why practise with us:** four proof points replacing the placeholder text
+  (“everyone with high and useful reward for his Financial statement” is gone).
+- **Pricing:** three INR packs (₹1,999 / ₹3,999 / ₹7,999 per month).
+- **Testimonials:** two realistic reviews and a rating label that no longer
+  claims 2,488 reviews.
+- **Contact:** “Book Your First Session”, real field labels, WhatsApp/phone.
+- **Journal:** three relevant articles replacing “Success Stories”.
+- **Footer:** Indore address line, `+91 70677 00613`, Instagram and WhatsApp
+  links, correct copyright.
+- **Metadata:** title, description, Open Graph, Twitter card and JSON-LD now
+  describe the real business (city, founder, phone, six services).
+- Navigation is a real seven-link menu instead of the template
+demo dropdowns; dead `href="#"` links dropped from 63 to 0.
+
+### Dashboard — rebuilt as a workspace
+
+New layout: dark sidebar, top bar, four stat cards, filter chips, search, card
+grid, modal editor. It loads only its own stylesheet, so the marketing theme
+can never break it.
+
+- **Workshops / retreats / trainings / events** with full create, edit and
+  delete, filtered by Upcoming / Ongoing / Completed and searchable.
+- Sorting: running work first, then soonest upcoming, then the archive
+  (most recent first).
+- Each card shows image, status badge, date range, location, mode, price and
+  a draft marker.
+- The editor keeps everything you typed if a save fails; it never wipes the
+  form.
+- Errors are written for a human: read-only project, expired session, missing
+  table, missing permission.
+- `tools/setup-appwrite.mjs` now also creates the `workshops` table and its
+  columns.
+
+## 7. What I verified — with a real browser this time
+
+Chromium was not installed, so I installed it in `/tmp` (outside the repo)
+and drove the site headlessly. This is no longer a static-only claim:
+
+| Check | Result |
+|---|---|
+| Homepage loads with **no page errors** | ✅ |
+| Hero, services, retreats, pricing, contact, footer render correctly at 1440px | ✅ screenshots reviewed |
+| Mobile (390px) homepage and dashboard | ✅ reviewed |
+| Colour change did not break contrast or headings | ✅ |
+| Dashboard: overview, workshops, services, editor modal, mobile header | ✅ screenshots reviewed |
+| Dashboard with mocked Appwrite data: cards, stats, filters, sorting, modal | ✅ renders and does not throw |
+| All local `src`/`href` resolve on all four pages | ✅ 0 missing |
+| HTML tag balance + heading order | ✅ 0 errors, 1 × h1 |
+| `node --check` on every project JS file | ✅ |
+| Live Appwrite read/write | ❌ still 402 read-only |
+
+Two bugs were found only because I looked: the mobile admin header squeezed
+the brand into three lines and cut off Log out (fixed), and the workshop
+cards sorted completed work first (fixed). Both were re-shot and confirmed.
+
+## 8. What I could not do
+
+1. **The logo still says “Yogava”.** It is an image (`images/logo.png`,
+   `logo2.png`, `logo3.png`) and you told me not to touch images. This is the
+   single most visible inconsistency left. Send a Lotus U Yoga logo file and
+   I will swap it in; the mark itself (the lotus teal) also reads a little
+   turquoise against the new forest green.
+2. **Photos are still the template's.** You asked me to keep them, so the
+   “Yoga Therapy Clinic” card shows a yoga class and the testimonial portraits
+   are stock. Content and imagery will only feel like one brand once your
+   own photos are in.
+3. **Prices and the 8+ years figure are placeholders** chosen to look
+   plausible. Confirm or replace them.
+4. **Workshops are not shown on the public site yet.** The table and admin UI
+   are ready; wiring “upcoming retreats” onto the homepage is a normal next
+   step, not done yet.
+5. **Appwrite is still read-only**, so the dashboard cannot be tested against
+   the real project. Everything above used mocked data.
+6. **Licensing is unchanged** — template, Gallient font, Flaticon, stock
+   photos. Nothing here fixes that.
+
+## 9. What to do next (in order)
+
+1. **Fix Appwrite billing** (Organisation → Billing), then run
+   `node tools/setup-appwrite.mjs` to create the `workshops` table, then open
+   `dashboard.html` and add one real workshop. This is the only unproven part.
+2. **Send the logo** and confirm the phone number, address and price list.
+3. **Decide where workshops appear publicly.** The obvious build: an
+   “Upcoming retreats” strip that reads the same table, so adding a retreat in
+   the dashboard publishes it. Roughly an hour of work with the pieces now
+   in place.
+4. **Replace the photography**, section by section. The about, gallery,
+   testimonial and service images are the biggest remaining gap between the
+   site and the brand.
+5. **Buy or replace the licences** before this is public.
+6. Optional polish: an image upload control using the existing `media`
+   bucket, and editing for hero/about/pricing copy from the dashboard.
+
+Nothing in this round is committed. All changes are in the working tree, so
+review them and tell me what to keep.

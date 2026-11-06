@@ -10,34 +10,53 @@
        TODO(domain): once the domain is confirmed, uncomment the
        canonical + og:url + twitter:url lines and update sitemap.xml.
        ============================================================ -->
-  <title>Lotus U Yoga | Yoga &amp; Wellness Studio</title>
-  <meta name="description" content="Lotus U Yoga is a yoga and wellness studio offering guided classes, breathwork and meditation in a calm, welcoming space. Move, breathe and reconnect with yourself." />
-  <meta name="theme-color" content="#417572" />
+  <title>Lotus U Yoga | Yoga, Zumba &amp; Retreats in Indore</title>
+  <meta name="description" content="Yoga sessions, yoga therapy, weight management, Zumba and fitness training in Indore — plus live online classes and Rishikesh retreats. Small batches, certified guidance, first session easy to book." />
+  <meta name="theme-color" content="#1E3216" />
   <!-- <link rel="canonical" href="https://example.com/" /> -->
 
   <!-- Social sharing (Open Graph / Twitter) -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Lotus U Yoga" />
-  <meta property="og:title" content="Lotus U Yoga | Yoga &amp; Wellness Studio" />
-  <meta property="og:description" content="Guided classes, breathwork and meditation in a calm, welcoming space." />
+  <meta property="og:title" content="Lotus U Yoga | Yoga, Zumba &amp; Retreats in Indore" />
+  <meta property="og:description" content="Yoga, Zumba, yoga therapy and fitness training in Indore — plus online classes and Rishikesh retreats." />
   <meta property="og:image" content="images/banner/banner1-1.jpg" />
   <meta property="og:image:alt" content="Lotus U Yoga studio" />
   <!-- <meta property="og:url" content="https://example.com/" /> -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Lotus U Yoga | Yoga &amp; Wellness Studio" />
-  <meta name="twitter:description" content="Guided classes, breathwork and meditation in a calm, welcoming space." />
+  <meta name="twitter:title" content="Lotus U Yoga | Yoga, Zumba &amp; Retreats in Indore" />
+  <meta name="twitter:description" content="Yoga, Zumba, yoga therapy and fitness training in Indore — plus online classes and Rishikesh retreats." />
   <meta name="twitter:image" content="images/banner/banner1-1.jpg" />
 
-  <!-- Structured data: only verified facts. Add address, geo, phone and
-       openingHours once the business details are confirmed. -->
+  <!-- Structured data. Address/hours are still unconfirmed, so only the
+       facts supplied by the studio are declared: name, founder, city,
+       phone, social profile and service list. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "HealthAndBeautyBusiness",
     "additionalType": "https://schema.org/YogaStudio",
     "name": "Lotus U Yoga",
-    "description": "Yoga and wellness studio offering guided classes, breathwork and meditation.",
-    "image": "images/banner/banner1-1.jpg"
+    "description": "Yoga, Zumba, yoga therapy, weight management and fitness training in Indore, with live online sessions and Rishikesh retreats.",
+    "image": "images/banner/banner1-1.jpg",
+    "telephone": "+91-7067700613",
+    "founder": { "@type": "Person", "name": "Varsha Patil", "jobTitle": "Yoga & Wellness Coach" },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Indore",
+      "addressRegion": "Madhya Pradesh",
+      "addressCountry": "IN"
+    },
+    "areaServed": "Indore, Madhya Pradesh",
+    "sameAs": ["https://www.instagram.com/lotusyoga_vshu"],
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Yoga Sessions" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Yoga Therapy" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Weight Management" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Zumba Sessions" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Yoga Retreats" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fitness Training" } }
+    ]
   }
   </script>
 
@@ -71,6 +90,7 @@
   <link href="css/theme/style.css" rel="stylesheet" />
   <link href="css/custom/appwrite-services.css" rel="stylesheet" />
   <link href="css/custom/a11y.css" rel="stylesheet" />
+  <link href="css/custom/lotus-brand.css" rel="stylesheet" />
 
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
   <link rel="icon" href="images/favicon.png" type="image/x-icon" />
@@ -120,61 +140,18 @@
             <div class="nav-outer">
               <nav class="nav main-menu">
                 <ul class="navigation">
-                  <li class="current dropdown">
-                    <a href="index.html">Home</a>
-                    <ul>
-                      <li><a href="index.html">Home 01</a></li>
-                      <li><a href="#">Home 02</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown"><a href="#">Pages</a>
-                    <ul>
-                      <li><a href="#">About Us</a></li>
-                      <li class="dropdown"><a href="#">Team</a>
-                        <ul>
-                          <li><a href="#">Team Grid</a></li>
-                          <li><a href="#">Team Details</a></li>
-                        </ul>
-                      </li>
-                      <li><a href="#">Pricing Plan</a></li>
-                      <li><a href="#">Testimonials</a></li>
-                      <li><a href="#">Faq</a></li>
-                      <li class="dropdown"><a href="#">Shop</a>
-                        <ul>
-                          <li><a href="#">Products</a></li>
-                          <li><a href="#">Products with Sidebar</a></li>
-                          <li><a href="#">Product Details</a></li>
-                          <li><a href="#">Cart</a></li>
-                          <li><a href="#">Checkout</a></li>
-                        </ul>
-                      </li>
-                      <li><a href="#">404</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown"><a href="#">Service</a>
-                    <ul>
-                      <li><a href="#">Services Grid</a></li>
-                      <li><a href="#">Services Details</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown"><a href="#">Project</a>
-                    <ul>
-                      <li><a href="#">Project Grid</a></li>
-                      <li><a href="#">Project Details</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown"><a href="#">Blog</a>
-                    <ul>
-                      <li><a href="#">Blog Grid</a></li>
-                      <li><a href="#">Blog Details</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Contact</a></li>
+                  <li class="current"><a href="index.html">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#services">Services</a></li>
+                  <li><a href="#retreats">Retreats</a></li>
+                  <li><a href="#pricing">Pricing</a></li>
+                  <li><a href="#journal">Journal</a></li>
+                  <li><a href="#contact">Contact</a></li>
                 </ul>
               </nav>
             </div>
             <div class="right-box">
-              <a href="#" class="theme-btn btn-style-three">Book Now <span><img src="images/icons/arrow.png" alt=""></span></a>
+              <a href="#contact" class="theme-btn btn-style-three">Book a Session <span><img src="images/icons/arrow.png" alt=""></span></a>
               <!--Mobile Navigation Toggler-->
               <div class="mobile-nav-toggler">
                 <span></span>
@@ -208,15 +185,15 @@
               <div class="contact-info-box">
                 <i class="icon lnr-icon-phone-handset"></i>
                 <span class="title">Call Now</span>
-                <a href="tel:+92880098670">+92 (8800) - 98670</a>
+                <a href="tel:+917067700613">+91 70677 00613</a>
               </div>
             </li>
             <li>
               <!-- Contact Info Box -->
               <div class="contact-info-box">
                 <span class="icon lnr-icon-envelope1"></span>
-                <span class="title">Send Email</span>
-                <a href="mailto:help@company.com">help@company.com</a>
+                <span class="title">DM on Instagram</span>
+                <a href="https://www.instagram.com/lotusyoga_vshu" target="_blank" rel="noopener">@lotusyoga_vshu</a>
               </div>
             </li>
             <li>
@@ -229,10 +206,9 @@
             </li>
           </ul>
           <ul class="social-links">
-            <li><a href="#" aria-label="Lotus U Yoga on X"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-            <li><a href="#" aria-label="Lotus U Yoga on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-            <li><a href="#" aria-label="Lotus U Yoga on Pinterest"><i class="fab fa-pinterest" aria-hidden="true"></i></a></li>
-            <li><a href="#" aria-label="Lotus U Yoga on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.instagram.com/lotusyoga_vshu" target="_blank" rel="noopener" aria-label="Lotus U Yoga on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="https://wa.me/917067700613" target="_blank" rel="noopener" aria-label="Message Lotus U Yoga on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+            <li><a href="tel:+917067700613" aria-label="Call Lotus U Yoga"><i class="fas fa-phone" aria-hidden="true"></i></a></li>
           </ul>
         </nav>
       </div>
@@ -283,11 +259,11 @@
               </div>
             </div>
             
-            <a href="tel:+8801750050088" class="header-phone_box">
+            <a href="tel:+917067700613" class="header-phone_box">
               <span class="icon"><i aria-hidden="true" class="fas fa-phone-alt"></i></span>
               <span class="info">
-                Call Anytime
-                <strong>+8801750050088</strong>
+                Call or WhatsApp
+                <strong>+91 70677 00613</strong>
               </span>
             </a>
           </div>
@@ -310,8 +286,8 @@
           <div class="image "><img src="images/banner/banner1-3.jpg" alt="" loading="lazy" decoding="async" /></div>
           <div class="shape-1 animate-circle"><img src="images/icons/shape-1.png" alt="" loading="lazy" decoding="async" /></div>
           <div class="content">
-            <div class="h4 title">3,842,946+</div>
-            <div class="text">Viewed my video on YouTube</div>
+            <div class="h4 title">500+</div>
+            <div class="text">Sessions Guided</div>
           </div>
         </div>
         <div class="auto-container">
@@ -324,10 +300,10 @@
             </div>
             <div class="content-column col-lg-8">
               <div class="inner-column gsap-stagger-parent">
-                <h1 class="h1 banner-title char-animation">Yoga Designed for Modern Living</h1>
+                <h1 class="h1 banner-title char-animation">Move Better. Feel Better. Be Better.</h1>
                 <div class="content-box gsap-stagger-item">
-                  <div class="h5 text">We believe yoga is more than exercise—it’s a lifestyle. <br>help you reconnect with your  breath in a supportive <br>and peaceful environment.</div>
-                  <a href="#" class="theme-btn btn-style-one">Get Appointment <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                  <div class="h5 text">Yoga, Zumba, sound healing and personal training — in Indore <br>and live online. Small batches, certified guidance, and a practice <br>built around your body.</div>
+                  <a href="#contact" class="theme-btn btn-style-one">Book Your First Session <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                 </div>
               </div>
             </div>
@@ -341,45 +317,45 @@
     <section class="marquee-section fix">
       <div class="marquee">
         <div class="marquee-group">
-          <div class="text" data-text="Beginner to Advanced Classes">Beginner to Advanced Classes</div>
+          <div class="text" data-text="Yoga, Therapy &amp; Breathwork">Yoga, Therapy &amp; Breathwork</div>
           <span class="text divider ">
             <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
-          <div class="text" data-text="Online & In-Studio Sessions">Online & In-Studio Sessions</div>
+          <div class="text" data-text="Zumba &amp; Dance Fitness">Zumba &amp; Dance Fitness</div>
           <span class="text divider ">
             <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
-          <div class="text" data-text="Personalized Guidance">Personalized Guidance</div>
+          <div class="text" data-text="Rishikesh Retreats">Rishikesh Retreats</div>
           <span class="text divider ">
             <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
-          <div class="text" data-text="Beginner to Advanced Classes">Beginner to Advanced Classes</div>
+          <div class="text" data-text="Yoga, Therapy &amp; Breathwork">Yoga, Therapy &amp; Breathwork</div>
           <span class="text divider ">
             <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
-          <div class="text" data-text="Online & In-Studio Sessions">Online & In-Studio Sessions</div>
+          <div class="text" data-text="Zumba &amp; Dance Fitness">Zumba &amp; Dance Fitness</div>
           <span class="text divider ">
             <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
         </div>
         <div class="marquee-group">
-          <div class="text" data-text="Beginner to Advanced Classes">Beginner to Advanced Classes</div>
+          <div class="text" data-text="Yoga, Therapy &amp; Breathwork">Yoga, Therapy &amp; Breathwork</div>
           <span class="text divider ">
             <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
-          <div class="text" data-text="Online & In-Studio Sessions">Online & In-Studio Sessions</div>
+          <div class="text" data-text="Zumba &amp; Dance Fitness">Zumba &amp; Dance Fitness</div>
           <span class="text divider ">
             <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
-          <div class="text" data-text="Personalized Guidance">Personalized Guidance</div>
+          <div class="text" data-text="Rishikesh Retreats">Rishikesh Retreats</div>
           <span class="text divider ">
             <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
-          <div class="text" data-text="Beginner to Advanced Classes">Beginner to Advanced Classes</div>
+          <div class="text" data-text="Yoga, Therapy &amp; Breathwork">Yoga, Therapy &amp; Breathwork</div>
           <span class="text divider ">
             <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
-          <div class="text" data-text="Online & In-Studio Sessions">Online & In-Studio Sessions</div>
+          <div class="text" data-text="Zumba &amp; Dance Fitness">Zumba &amp; Dance Fitness</div>
           <span class="text divider ">
             <img src="images/icons/marquee1-1.png" alt="" loading="lazy" decoding="async" />
           </span>
@@ -389,7 +365,7 @@
     <!-- end marquee-section -->
 
     <!-- About Section Start -->
-    <section class="about-section fix section-padding pt-90">
+    <section class="about-section fix section-padding pt-90" id="about">
       <div class="shape-1 gsap-fade-left float-horizontal"><img src="images/icons/shape-3.png" alt="" loading="lazy" decoding="async" /></div>
       <div class="auto-container">
           <div class="row g-4">
@@ -397,32 +373,32 @@
               <div class="about-block-items-1">
                   <div class="sec-title mb-0">
                     <h2 class="h2 title char-animation">
-                    Rooted in Harmony, <br>Growing in Wellness
+                    Rooted in Indore, <br>Growing in Wellness
                     </h2>
                   </div>
                   <div class="about-wrap gsap-stagger-parent">
                     <div class="about-counter gsap-stagger-item">
-                      <div class="h3 count-box"><span class="count-text" data-speed="3000" data-stop="25">25</span>+</div>
-                      <p>Years of Work <br> Experience</p>
-                      <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                      <div class="h3 count-box"><span class="count-text" data-speed="3000" data-stop="8">8</span>+</div>
+                      <p>Years of Teaching <br> &amp; Practice</p>
+                      <a href="#services" class="theme-btn btn-style-one">Explore Services <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                     </div>
                      <div class="about-right-items">
-                        <div class="about-text gsap-stagger-item">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum</div>
+                        <div class="about-text gsap-stagger-item">Lotus U Yoga began with one belief: wellness should fit a real life, not the other way round. Varsha Patil — a Rishikesh-certified yoga trainer and Zumba instructor based in Indore — teaches in small batches so every posture, every breath and every adjustment actually reaches you. Come for the strength, stay for the calm.</div>
                         <div class="about-icon-items gsap-stagger-item">
                             <div class="icon-items">
                               <div class="icon"><i aria-hidden="true" class=" flaticon-set-yoga-2"></i>
                               </div>
                               <div class="content">
-                                <div class="h5 title">Nature & Balance</div>
-                                <div class="text">Through mindful movement and breath, we empower you</div>
+                                <div class="h5 title">Rooted in Nature</div>
+                                <div class="text">Movement, breath and stillness — practised the way they were meant to be, without noise.</div>
                               </div>
                             </div>
                              <div class="icon-items">
                               <div class="icon"><i aria-hidden="true" class=" flaticon-set-yoga"></i>
                               </div>
                               <div class="content">
-                                <div class="h5 title">Modern & Inclusive</div>
-                                <div class="text">We create a welcoming space where everyone </div>
+                                <div class="h5 title">Built for Real Life</div>
+                                <div class="text">Studio in Indore, classes online worldwide. Beginners, desk workers and athletes all welcome.</div>
                               </div>
                             </div>
                         </div>
@@ -440,7 +416,7 @@
     </section>
 
     <!-- start services-section -->
-    <section class="services-section">
+    <section class="services-section" id="services">
       <div class="outer-box section-padding">
         <div class="shape-1 float-horizontal"><img src="images/icons/shape-4.png" alt="" loading="lazy" decoding="async" /></div>
         <div class="shape-2 float-horizontal"><img src="images/icons/shape-5.png" alt="" loading="lazy" decoding="async" /></div>
@@ -449,7 +425,7 @@
         <div class="auto-container">
           <div class="row justify-content-center">
             <div class="sec-title col-md-10 text-center">
-              <h2 class="h2 title char-animation">Mindful Practices <br>for Complete <img src="images/resource/service1-2.jpg" alt="" loading="lazy" decoding="async" /> Wellbeing</h2>
+              <h2 class="h2 title char-animation">Every Way to <br>Move, Breathe &amp; Heal</h2>
             </div>
           </div>
 
@@ -460,23 +436,27 @@
                 <div class="tab-btns tab-buttons ">
                   <button data-tab="#prod-morning" class="tab-btn active-btn wow fadeInUp" data-wow-delay="200ms">
                     <i aria-hidden="true" class=" flaticon-set-yoga-pose-1"></i>
-                    <span>Daily Morning Flow</span>
+                    <span>Yoga Sessions</span>
                   </button>
                   <button data-tab="#prod-meditation" class="tab-btn wow fadeInUp" data-wow-delay="300ms">
                     <i aria-hidden="true" class=" flaticon-set-exercise"></i>
-                    <span>Meditation in Stillness</span>
+                    <span>Yoga Therapy</span>
                   </button>
                   <button data-tab="#prod-walk" class="tab-btn wow fadeInUp" data-wow-delay="400ms">
                     <i aria-hidden="true" class=" flaticon-set-treadmill"></i>
-                    <span>Nature Walk Sessions</span>
+                    <span>Weight Management</span>
                   </button>
                   <button data-tab="#prod-art" class="tab-btn wow fadeInUp" data-wow-delay="500ms">
                     <i aria-hidden="true" class=" flaticon-set-calendar"></i>
-                    <span>Creative Art Therapy</span>
+                    <span>Zumba Sessions</span>
                   </button>
                   <button data-tab="#prod-breathwork" class="tab-btn wow fadeInUp" data-wow-delay="600ms">
                     <i aria-hidden="true" class=" flaticon-set-mat"></i>
-                    <span>Guided Breathwork</span>
+                    <span>Yoga Retreats</span>
+                  </button>
+                  <button data-tab="#prod-fitness" class="tab-btn wow fadeInUp" data-wow-delay="700ms">
+                    <i aria-hidden="true" class=" flaticon-set-meditation"></i>
+                    <span>Fitness Training</span>
                   </button>
                 </div>
               </div>
@@ -491,9 +471,9 @@
                       <div class="content-box">
                         <div class="inner-box">
                           <div class="image gsap-reveal" data-origin="top"><img src="images/resource/service1-1.jpg" alt="Daily morning flow class" loading="lazy" decoding="async" /></div>
-                          <h3 class="h3 title">Daily Morning Flow</h3>
-                          <div class="text">Our retreats weave together time-honored techniques and mindful experiences to restore balance, deepen self-awareness, and reconnect you with the rhythms of nature. Each practice is guided by experienced facilitators and designed to support your journey toward lasting well-being.</div>
-                          <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                          <h3 class="h3 title">Yoga Sessions</h3>
+                          <div class="text">Group classes in Hatha, Vinyasa and Yin — sixty minutes of movement, breath and a long, honest stretch. Every class offers a beginner option, and the teacher actually watches your alignment. Studio sessions in Indore, live sessions online.</div>
+                          <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                         </div>
                       </div>
                     </div>
@@ -505,9 +485,9 @@
                       <div class="content-box">
                         <div class="inner-box">
                           <div class="image"><img src="images/resource/service1-1.jpg" alt="Guided yoga class" loading="lazy" decoding="async" /></div>
-                          <h3 class="h3 title">Meditation in Stillness</h3>
-                          <div class="text">Our retreats weave together time-honored techniques and mindful experiences to restore balance, deepen self-awareness, and reconnect you with the rhythms of nature. Each practice is guided by experienced facilitators and designed to support your journey toward lasting well-being.</div>
-                          <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                          <h3 class="h3 title">Yoga Therapy</h3>
+                          <div class="text">One-to-one therapeutic yoga for back and neck pain, posture, PCOS, disturbed sleep and everyday stress. We begin with an assessment, then build a short daily practice you can genuinely keep — with progress checks as your body changes.</div>
+                          <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                         </div>
                       </div>
                     </div>
@@ -519,9 +499,9 @@
                       <div class="content-box">
                         <div class="inner-box">
                           <div class="image"><img src="images/resource/service1-1.jpg" alt="Guided yoga class" loading="lazy" decoding="async" /></div>
-                          <h3 class="h3 title">Nature Walk Sessions</h3>
-                          <div class="text">Our retreats weave together time-honored techniques and mindful experiences to restore balance, deepen self-awareness, and reconnect you with the rhythms of nature. Each practice is guided by experienced facilitators and designed to support your journey toward lasting well-being.</div>
-                          <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                          <h3 class="h3 title">Weight Management</h3>
+                          <div class="text">A steady blend of yoga, functional movement and practical nutrition guidance — built for real Indian kitchens and real schedules. No crash diets: weekly structure, measurable progress and a practice you will not want to quit.</div>
+                          <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                         </div>
                       </div>
                     </div>
@@ -533,9 +513,9 @@
                       <div class="content-box">
                         <div class="inner-box">
                           <div class="image"><img src="images/resource/service1-1.jpg" alt="Guided yoga class" loading="lazy" decoding="async" /></div>
-                          <h3 class="h3 title">Creative Art Therapy</h3>
-                          <div class="text">Our retreats weave together time-honored techniques and mindful experiences to restore balance, deepen self-awareness, and reconnect you with the rhythms of nature. Each practice is guided by experienced facilitators and designed to support your journey toward lasting well-being.</div>
-                          <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                          <h3 class="h3 title">Zumba Sessions</h3>
+                          <div class="text">High-energy dance fitness in a room that does not take itself too seriously. Burn calories, build stamina and leave grinning — no dance background required. Choreography is layered, so first-timers and regulars can share the same floor.</div>
+                          <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                         </div>
                       </div>
                     </div>
@@ -547,9 +527,23 @@
                       <div class="content-box">
                         <div class="inner-box">
                           <div class="image"><img src="images/resource/service1-1.jpg" alt="Guided yoga class" loading="lazy" decoding="async" /></div>
-                          <h3 class="h3 title">Guided Breathwork</h3>
-                          <div class="text">Our retreats weave together time-honored techniques and mindful experiences to restore balance, deepen self-awareness, and reconnect you with the rhythms of nature. Each practice is guided by experienced facilitators and designed to support your journey toward lasting well-being.</div>
-                          <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                          <h3 class="h3 title">Yoga Retreats</h3>
+                          <div class="text">Four days and three nights in Rishikesh: yoga as the sun comes up, sound healing in the evening, Ganga Aarti and a great deal of Himalayan silence. Small groups, all levels welcome, registration opens ahead of every departure.</div>
+                          <a href="#contact" class="theme-btn btn-style-one">Ask About Retreats <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Tab -->
+                  <div class="tab" id="prod-fitness">
+                    <div class="tab-inner-content">
+                      <div class="content-box">
+                        <div class="inner-box">
+                          <div class="image"><img src="images/resource/service1-1.jpg" alt="Fitness training session with weights" loading="lazy" decoding="async" /></div>
+                          <h3 class="h3 title">Fitness Training</h3>
+                          <div class="text">Personal training shaped around your goal — strength, stamina, mobility or a careful return after injury. Programmes are built for the equipment you actually have at home or in the studio, with form checks on every session.</div>
+                          <a href="#contact" class="theme-btn btn-style-one">Start Training <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                         </div>
                       </div>
                     </div>
@@ -578,7 +572,7 @@
           <div class="content-column col-xl-6 col-lg-7">
             <div class="inner-column">
               <div class="sec-title mb-30 mt-20">
-                <h2 class="h2 title char-animation">Why Choose a Screen- Free Retreat</h2>
+                <h2 class="h2 title char-animation">Why Practise With Lotus U Yoga</h2>
               </div>
               <div class="row gsap-stagger-parent">
                 <div class="wcu-block col-md-6 gsap-stagger-item">
@@ -586,8 +580,8 @@
                     <div class="icon">
                       <i aria-hidden="true" class=" flaticon-set-yoga-13"></i>
                     </div>
-                    <div class="h4 title">Sleep for Deep Rest</div>
-                    <div class="text">everyone with high and useful reward for his Financial statement </div>
+                    <div class="h4 title">Certified, Hands-On Teaching</div>
+                    <div class="text">A Rishikesh-certified trainer in the room — adjusting, cueing and correcting, not just calling out poses.</div>
                   </div>
                 </div>
                 <div class="wcu-block col-md-6 gsap-stagger-item">
@@ -595,8 +589,8 @@
                     <div class="icon">
                       <i aria-hidden="true" class=" flaticon-set-yoga-11"></i>
                     </div>
-                    <div class="h4 title">Reconnect with Yourself</div>
-                    <div class="text">everyone with high and useful reward for his Financial statement </div>
+                    <div class="h4 title">Small Batches, Real Attention</div>
+                    <div class="text">Batches are capped deliberately, so nobody spends a class hiding at the back of a screen.</div>
                   </div>
                 </div>
                 <div class="wcu-block col-md-6 gsap-stagger-item">
@@ -604,8 +598,8 @@
                     <div class="icon">
                       <i aria-hidden="true" class=" flaticon-set-mental-health"></i>
                     </div>
-                    <div class="h4 title">Inner Mental Clarity</div>
-                    <div class="text">everyone with high and useful reward for his Financial statement </div>
+                    <div class="h4 title">Online &amp; Offline, Same Care</div>
+                    <div class="text">Indore studio or live video — same sequence, same accountability, same follow-up.</div>
                   </div>
                 </div>
                 <div class="wcu-block col-md-6 gsap-stagger-item">
@@ -613,12 +607,12 @@
                     <div class="icon">
                       <i aria-hidden="true" class=" flaticon-set-brochure"></i>
                     </div>
-                    <div class="h4 title">Rediscover Presence</div>
-                    <div class="text">everyone with high and useful reward for his Financial statement </div>
+                    <div class="h4 title">Programmes That Fit Life</div>
+                    <div class="text">Retreats, therapy or a monthly plan. You choose the commitment; we build the structure around it.</div>
                   </div>
                 </div>
               </div>
-              <a href="#" class="theme-btn btn-style-one">Discover More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+              <a href="#services" class="theme-btn btn-style-one">See All Services <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
             </div>
           </div>
         </div>
@@ -627,12 +621,12 @@
     <!-- end why-choose-us-section -->
 
     <!-- start services-section-two -->
-    <section class="services-section-two">
+    <section class="services-section-two" id="retreats">
       <div class="outer-box fix section-padding">
         <div class="bg bg-image"><img src="images/resource/service2-1-bg.png" alt="" loading="lazy" decoding="async" /></div>
         <div class="auto-container">
           <div class="sec-title text-center light mb-50">
-            <h2 class="h2 title char-animation">Integrated Healing for Body <br>& Soul</h2>
+            <h2 class="h2 title char-animation">Retreats &amp; Signature <br>Experiences</h2>
           </div>
         </div>
         <div class="service-outer">
@@ -643,15 +637,15 @@
                   <div class="upper-box">
                     <div class="title-outer">
                       <div class="h5 number">01</div>
-                      <div class="h4 title">Awaken with <br>Ritual Flow</div>
+                      <div class="h4 title">Rishikesh<br>Retreat</div>
                     </div>
                     <div class="image">
-                      <img src="images/resource/service2-1.jpg" alt="" loading="lazy" decoding="async" />
-                      <img src="images/resource/service2-1.jpg" alt="" loading="lazy" decoding="async" />
+                      <img src="images/resource/service2-1.jpg" alt="Sunrise yoga on the riverbank in Rishikesh" loading="lazy" decoding="async" />
+                      <img src="images/resource/service2-1.jpg" alt="Sunrise yoga on the riverbank in Rishikesh" loading="lazy" decoding="async" />
                     </div>
                   </div>
-                  <div class="text">We believe in delivering top-tier technology solutions </div>
-                  <a href="#" class="theme-btn btn-style-one">Read More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                  <div class="text">Four days, three nights, sunrise yoga on the Ganga — plus sound healing and a great deal of silence.</div>
+                  <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                 </div>
               </div>
               <div class="service-block-two swiper-slide">
@@ -659,15 +653,15 @@
                   <div class="upper-box">
                     <div class="title-outer">
                       <div class="h5 number">02</div>
-                      <div class="h4 title">Yin Yoga for <br>Deep Rest</div>
+                      <div class="h4 title">Sound Healing<br>&amp; Deep Rest</div>
                     </div>
                     <div class="image">
-                      <img src="images/resource/service2-2.jpg" alt="" loading="lazy" decoding="async" />
-                      <img src="images/resource/service2-2.jpg" alt="" loading="lazy" decoding="async" />
+                      <img src="images/resource/service2-2.jpg" alt="Restorative yoga for deep relaxation" loading="lazy" decoding="async" />
+                      <img src="images/resource/service2-2.jpg" alt="Restorative yoga for deep relaxation" loading="lazy" decoding="async" />
                     </div>
                   </div>
-                  <div class="text">We believe in delivering top-tier technology solutions </div>
-                  <a href="#" class="theme-btn btn-style-one">Read More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                  <div class="text">Himalayan bowls, guided Yoga Nidra and an hour where nothing is asked of you.</div>
+                  <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                 </div>
               </div>
               <div class="service-block-two swiper-slide">
@@ -675,15 +669,15 @@
                   <div class="upper-box">
                     <div class="title-outer">
                       <div class="h5 number">03</div>
-                      <div class="h4 title">Activate Inner <br>Energy</div>
+                      <div class="h4 title">Yoga Therapy<br>Clinic</div>
                     </div>
                     <div class="image">
-                      <img src="images/resource/service2-3.jpg" alt="" loading="lazy" decoding="async" />
-                      <img src="images/resource/service2-3.jpg" alt="" loading="lazy" decoding="async" />
+                      <img src="images/resource/service2-3.jpg" alt="Therapeutic yoga session with props" loading="lazy" decoding="async" />
+                      <img src="images/resource/service2-3.jpg" alt="Therapeutic yoga session with props" loading="lazy" decoding="async" />
                     </div>
                   </div>
-                  <div class="text">We believe in delivering top-tier technology solutions </div>
-                  <a href="#" class="theme-btn btn-style-one">Read More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                  <div class="text">Therapeutic sessions for backs, knees, posture and the slow damage of desk work.</div>
+                  <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                 </div>
               </div>
               <div class="service-block-two swiper-slide">
@@ -691,15 +685,15 @@
                   <div class="upper-box">
                     <div class="title-outer">
                       <div class="h5 number">04</div>
-                      <div class="h4 title">Activate Inner <br>Energy</div>
+                      <div class="h4 title">Zumba Dance<br>Fitness</div>
                     </div>
                     <div class="image">
-                      <img src="images/resource/service2-4.jpg" alt="" loading="lazy" decoding="async" />
-                      <img src="images/resource/service2-4.jpg" alt="" loading="lazy" decoding="async" />
+                      <img src="images/resource/service2-4.jpg" alt="Zumba dance fitness class" loading="lazy" decoding="async" />
+                      <img src="images/resource/service2-4.jpg" alt="Zumba dance fitness class" loading="lazy" decoding="async" />
                     </div>
                   </div>
-                  <div class="text">We believe in delivering top-tier technology solutions </div>
-                  <a href="#" class="theme-btn btn-style-one">Read More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                  <div class="text">Forty-five minutes of music, sweat and no mirrors to hide behind.</div>
+                  <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                 </div>
               </div>
               <div class="service-block-two swiper-slide">
@@ -707,15 +701,15 @@
                   <div class="upper-box">
                     <div class="title-outer">
                       <div class="h5 number">05</div>
-                      <div class="h4 title">Sleep for <br>Deep Rest</div>
+                      <div class="h4 title">Online<br>Studio</div>
                     </div>
                     <div class="image">
-                      <img src="images/resource/service2-5.jpg" alt="" loading="lazy" decoding="async" />
-                      <img src="images/resource/service2-5.jpg" alt="" loading="lazy" decoding="async" />
+                      <img src="images/resource/service2-5.jpg" alt="Live online yoga class at home" loading="lazy" decoding="async" />
+                      <img src="images/resource/service2-5.jpg" alt="Live online yoga class at home" loading="lazy" decoding="async" />
                     </div>
                   </div>
-                  <div class="text">We believe in delivering top-tier technology solutions </div>
-                  <a href="#" class="theme-btn btn-style-one">Read More <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+                  <div class="text">Live classes from wherever you are — same sequence, same corrections, recorded for 7 days.</div>
+                  <a href="#contact" class="theme-btn btn-style-one">Enquire <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
                 </div>
               </div>
             </div>
@@ -727,46 +721,47 @@
     <!-- end services-section-two -->
 
     <!-- start pricing-section -->
-    <section class="pricing-section fix section-padding">
+    <section class="pricing-section fix section-padding" id="pricing">
       <div class="auto-container">
         <div class="sec-title mb-50">
-          <h2 class="h2 title char-animation">Special Offer! choose your pack</h2>
-          <a href="#" class="theme-btn btn-style-one">View all Packages <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+          <h2 class="h2 title char-animation">Choose Your Practice Pack</h2>
+          <a href="#contact" class="theme-btn btn-style-one">Talk to Us <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
         </div>
+        <p class="pricing-note">Transparent monthly pricing. Pause or switch anytime — no lock-in, no joining fee.</p>
         <div class="row gx-4 gsap-stagger-parent">
           <div class="pricing-block col-xl-4 col-md-6 gsap-stagger-item">
             <div class="inner-block">
               <div class="shape"><img src="images/icons/shape-9.png" alt="" loading="lazy" decoding="async" /></div>
               <div class="upper-box">
-                <div class="h6 cat">Basic</div>
-                <div class="h5 title">Step away weekend & return renewed</div>
-                <div class="h6 price"><span>$60</span>/Month</div>
+                <div class="h6 cat">At the studio</div>
+                <div class="h5 title">Group practice, twice a week</div>
+                <div class="h6 price"><span>&#8377;1,999</span>/Month</div>
               </div>
               <div class="pricing-feature">
                 <div class="h5 title">Includes</div>
                 <ul class="feature">
                   <li class="active">
                     <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
-                    <span>Time That Works for You</span>
+                    <span>8 group sessions a month</span>
                   </li>
                   <li class="active">
                     <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
-                    <span>Personal Movement Coach</span>
+                    <span>Yoga and Zumba both included</span>
+                  </li>
+                  <li class="active">
+                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
+                    <span>Beginner options in every class</span>
                   </li>
                   <li>
                     <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
-                    <span>Welcome Pack Included</span>
+                    <span>Monthly progress check-in</span>
                   </li>
                   <li>
                     <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
-                    <span>Certified Personal Trainer</span>
-                  </li>
-                  <li>
-                    <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
-                    <span>Schedule That Fits You</span>
+                    <span>Pause or switch anytime</span>
                   </li>
                 </ul>
-                <a href="#" class="pricing-btn">View All Details</a>
+                <a href="#contact" class="pricing-btn">Book this pack</a>
               </div>
             </div>
           </div>
@@ -774,35 +769,35 @@
             <div class="inner-block active">
               <div class="shape"><img src="images/icons/shape-9.png" alt="" loading="lazy" decoding="async" /></div>
               <div class="upper-box">
-                <div class="h6 cat">Standard</div>
-                <div class="h5 title">A week of stillness, care, & restoration</div>
-                <div class="h6 price"><span>$96</span>/Month</div>
+                <div class="h6 cat">Most popular</div>
+                <div class="h5 title">Unlimited practice plus a monthly 1:1</div>
+                <div class="h6 price"><span>&#8377;3,999</span>/Month</div>
               </div>
               <div class="pricing-feature">
                 <div class="h5 title">Includes</div>
                 <ul class="feature">
                   <li class="active">
                     <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
-                    <span>Time That Works for You</span>
+                    <span>Unlimited group sessions</span>
                   </li>
                   <li class="active">
                     <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
-                    <span>Personal Movement Coach</span>
+                    <span>One private session each month</span>
                   </li>
                   <li class="active">
                     <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
-                    <span>Welcome Pack Included</span>
+                    <span>Simple nutrition guidance</span>
                   </li>
-                  <li>
+                  <li class="active">
                     <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
-                    <span>Certified Personal Trainer</span>
+                    <span>Priority booking on retreats</span>
                   </li>
-                  <li>
+                  <li class="active">
                     <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
-                    <span>Schedule That Fits You</span>
+                    <span>WhatsApp support between classes</span>
                   </li>
                 </ul>
-                <a href="#" class="pricing-btn">View All Details</a>
+                <a href="#contact" class="pricing-btn">Book this pack</a>
               </div>
             </div>
           </div>
@@ -810,35 +805,35 @@
             <div class="inner-block">
               <div class="shape"><img src="images/icons/shape-9.png" alt="" loading="lazy" decoding="async" /></div>
               <div class="upper-box">
-                <div class="h6 cat">advanced</div>
-                <div class="h5 title">shared lodging & full access for two</div>
-                <div class="h6 price"><span>$124</span>/Month</div>
+                <div class="h6 cat">One-to-one</div>
+                <div class="h5 title">Private coaching with Varsha</div>
+                <div class="h6 price"><span>&#8377;7,999</span>/Month</div>
               </div>
               <div class="pricing-feature">
                 <div class="h5 title">Includes</div>
                 <ul class="feature">
                   <li class="active">
                     <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
-                    <span>Time That Works for You</span>
+                    <span>8 private sessions a month</span>
                   </li>
                   <li class="active">
                     <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
-                    <span>Personal Movement Coach</span>
+                    <span>Posture and movement assessment</span>
                   </li>
                   <li class="active">
                     <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
-                    <span>Welcome Pack Included</span>
+                    <span>Therapy plan for your condition</span>
                   </li>
                   <li class="active">
                     <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
-                    <span>Certified Personal Trainer</span>
+                    <span>Home practice videos</span>
                   </li>
                   <li class="active">
                     <img src="images/icons/check.png" alt="" loading="lazy" decoding="async" />
-                    <span>Schedule That Fits You</span>
+                    <span>Direct chat with your trainer</span>
                   </li>
                 </ul>
-                <a href="#" class="pricing-btn">View All Details</a>
+                <a href="#contact" class="pricing-btn">Book this pack</a>
               </div>
             </div>
           </div>
@@ -919,17 +914,17 @@
                   <div class="swiper testi-slider  pb-0">
                     <div class="swiper-wrapper">
                       <div class="swiper-slide">
-                        <div class="text gsap-stagger-item">From branding to web development, their team delivered a seamless experience. The attention to detail, responsiveness, and innovative approach their team!</div>
+                        <div class="text gsap-stagger-item">I came for my back and stayed for everything else. Six months in, the morning stiffness is gone and I can sit through a workday without thinking about my spine. Varsha corrects the small things — that is the difference.</div>
                         <div class="info-box gsap-stagger-item">
-                          <div class="h4 name">Dianne Russell</div>
-                          <div class="designation">Brand Manager</div>
+                          <div class="h4 name">Shreya Deshmukh</div>
+                          <div class="designation">Marketing professional, Indore</div>
                         </div>
                       </div>
                       <div class="swiper-slide">
-                        <div class="text">From branding to web development, their team delivered a seamless experience. The attention to detail, responsiveness, and innovative approach their team!</div>
+                        <div class="text">The Rishikesh retreat reset something I did not know was stuck. Four days without a phone, sunrise practice by the Ganga, and the best sleep I have had all year. I have already asked about the next one.</div>
                         <div class="info-box  gsap-stagger-item">
-                          <div class="h4 name">Emily Carter</div>
-                          <div class="designation">Project Manager</div>
+                          <div class="h4 name">Rohan Verma</div>
+                          <div class="designation">Retreat guest, 2026</div>
                         </div>
                       </div>
                     </div>
@@ -944,7 +939,7 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                       </div>
-                      <div class="h6 rating-text">2,488 Rating</div>
+                      <div class="h6 rating-text">From studio &amp; online students</div>
                     </div>
                   </div>
                   <div class="aroow-box">
@@ -961,7 +956,7 @@
     <!-- end testimonial-section -->
 
     <!-- start contact-section -->
-    <section class="contact-section">
+    <section class="contact-section" id="contact">
       <div class="outer-box section-padding">
         <div class="bg bg-image"><img src="images/resource/contact1-1-bg.png" alt="" loading="lazy" decoding="async" /></div>
         <div class="shape-1 float-horizontal"><img src="images/icons/shape-12.png" alt="" loading="lazy" decoding="async" /></div>
@@ -972,8 +967,8 @@
             <div class="content-column col-lg-6">
               <div class="inner-column">
                 <div class="sec-title">
-                  <h2 class="h2 title char-animation">Claim Your Place</h2>
-                  <div class="text">Approach to relieving chronic pain, offering a range of safe and effective treatment <br>options delivered</div>
+                  <h2 class="h2 title char-animation">Book Your First Session</h2>
+                  <div class="text">Tell us where you are starting from — a stubborn back, a first class, a big event, <br>or a retreat. We will suggest the right way in. Studio in Indore, online anywhere.</div>
                 </div>
                 <!-- Form Column -->
                 <div class="form-column ">
@@ -1012,12 +1007,12 @@
                           </div>
                           <div class="col-sm-12 gsap-stagger-item">
                             <div class="form-clt">
-                              <label class="sr-only" for="contact-retreat">Choose a retreat</label>
-                              <input type="text" name="retreat" id="contact-retreat" placeholder="Choose a Retreat" autocomplete="off" maxlength="80">
+                              <label class="sr-only" for="contact-retreat">What are you interested in</label>
+                              <input type="text" name="retreat" id="contact-retreat" placeholder="Interested in — yoga, therapy, Zumba, retreat…" autocomplete="off" maxlength="80">
                             </div>
                           </div>
                           <div class="col-sm-12 gsap-stagger-item">
-                            <button href="#" class="theme-btn btn-style-one" type="submit">Send message <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></button>
+                            <button class="theme-btn btn-style-one" type="submit">Send message <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></button>
                           </div>
                           <div class="col-sm-12">
                             <p class="form-consent">By sending this message you agree that we may contact you about your enquiry. See our <a href="privacy.html">Privacy Policy</a>.</p>
@@ -1043,22 +1038,22 @@
     <!-- end contact-section -->
 
     <!-- start blog-section -->
-    <section class="blog-section fix section-padding">
+    <section class="blog-section fix section-padding" id="journal">
       <div class="auto-container">
         <div class="sec-title mb-50">
-          <h2 class="h2 title char-animation">Success Stories <br>from Our Valued Clients</h2>
-          <a href="#" class="theme-btn btn-style-one">See All Blog <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
+          <h2 class="h2 title char-animation">From the <br>Lotus Journal</h2>
+          <a href="#contact" class="theme-btn btn-style-one">Ask Us Anything <span><img src="images/icons/arrow.png" alt="" loading="lazy" decoding="async" /></span></a>
         </div>
         <div class="row gx-4 gsap-stagger-parent">
           <div class="blog-block col-xl-4 col-md-6 gsap-stagger-item">
             <div class="inner-block">
               <div class="content">
                 <div class="catagories">
-                  <div class="cat">15 Dec 2025</div>
+                  <div class="cat">12 Oct 2026</div>
                   <span></span>
-                  <div class="cat">Wellness</div>
+                  <div class="cat">Office Life</div>
                 </div>
-                <div class="h4 title"><a href="#">Finding Life Balance Through <br>Yoga and Meditation </a></div>
+                <div class="h4 title"><a href="#journal">Five Poses That Undo <br>a Day of Sitting </a></div>
               </div>
               <div class="image">
                 <img src="images/resource/blog1-1.jpg" alt="Woman meditating at sunrise" loading="lazy" decoding="async" />
@@ -1070,11 +1065,11 @@
             <div class="inner-block">
               <div class="content">
                 <div class="catagories">
-                  <div class="h6 cat">15 Dec 2025</div>
+                  <div class="h6 cat">28 Sep 2026</div>
                   <span></span>
-                  <div class="h6 cat">Wellness</div>
+                  <div class="h6 cat">Retreats</div>
                 </div>
-                <div class="h4 title"><a href="#">Healing the Body and Soul <br>Through Retreats </a></div>
+                <div class="h4 title"><a href="#retreats">What Four Days in Rishikesh <br>Actually Changes </a></div>
               </div>
               <div class="image">
                 <img src="images/resource/blog1-2.jpg" alt="Group yoga retreat outdoors" loading="lazy" decoding="async" />
@@ -1086,11 +1081,11 @@
             <div class="inner-block">
               <div class="content">
                 <div class="catagories">
-                  <div class="h6 cat">15 Dec 2025</div>
+                  <div class="h6 cat">09 Sep 2026</div>
                   <span></span>
-                  <div class="h6 cat">Wellness</div>
+                  <div class="h6 cat">Training</div>
                 </div>
-                <div class="h4 title"><a href="#">Why Luxury Wellness Retreats <br>Captivate the Soul </a></div>
+                <div class="h4 title"><a href="#services">Zumba or Yoga? Why You <br>Do Not Have to Choose </a></div>
               </div>
               <div class="image">
                 <img src="images/resource/blog1-3.jpg" alt="Relaxing wellness retreat setting" loading="lazy" decoding="async" />
@@ -1194,10 +1189,10 @@
                 <div class="widget-content">
                   <ul class="user-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Classes</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#retreats">Retreats</a></li>
+                    <li><a href="#contact">Contact</a></li>
                   </ul>
                 </div>
               </div>
@@ -1207,8 +1202,8 @@
               <div class="footer-widget links-widget style-two gsap-stagger-item">
                 <div class="h4 widget-title"> Address</div>
                 <div class="widget-content">
-                  <div class="text">2972 Westheimer Rd. Santa Ana, Illinois 85486 </div>
-                  <div class="text">Mon-Fri: 9am – 5pm <br class="d-block">Make ap Appointment First </div>
+                  <div class="text"><a href="https://www.instagram.com/lotusyoga_vshu" target="_blank" rel="noopener">Indore, Madhya Pradesh</a><br>Studio address shared on booking</div>
+                  <div class="text">Mon–Sat: 6am – 8pm <br class="d-block">Sunday: retreats &amp; online only </div>
                 </div>
               </div>
             </div>
@@ -1220,11 +1215,11 @@
                   <div class="content">
                     <span>
                       <i aria-hidden="true" class="icon flaticon-common-phone-call"></i>
-                      +1 200-123-1234
+                      <a href="tel:+917067700613">+91 70677 00613</a>
                     </span>
                     <span>
                       <i aria-hidden="true" class="icon flaticon-common-envelope"></i>
-                      <a href="mailto:info@example.com">info@example.com</a>
+                      <a href="https://www.instagram.com/lotusyoga_vshu" target="_blank" rel="noopener">@lotusyoga_vshu</a>
                     </span>
                   </div>
                   <!-- The template nests <li> in a div. Keeping the <li>
@@ -1232,18 +1227,18 @@
                        supplying list semantics via ARIA instead. -->
                   <div class="social-icon-two" role="list">
                     <li role="listitem">
-                      <a href="#" aria-label="Lotus U Yoga on Facebook">
-                        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
-                      </a>
-                    </li>
-                    <li role="listitem">
-                      <a href="#" aria-label="Lotus U Yoga on Instagram">
+                      <a href="https://www.instagram.com/lotusyoga_vshu" target="_blank" rel="noopener" aria-label="Lotus U Yoga on Instagram">
                         <i class="fa-brands fa-instagram" aria-hidden="true"></i>
                       </a>
                     </li>
                     <li role="listitem">
-                      <a href="#" aria-label="Lotus U Yoga on X">
-                        <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+                      <a href="https://wa.me/917067700613" target="_blank" rel="noopener" aria-label="Message Lotus U Yoga on WhatsApp">
+                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                    <li role="listitem">
+                      <a href="tel:+917067700613" aria-label="Call Lotus U Yoga">
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
                       </a>
                     </li>
                   </div>
@@ -1257,11 +1252,12 @@
         <div class="inner-container">
           <ul class="footer-nav">
             <li><a href="index.html">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contacts</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#journal">Journal</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
-          <p class="copyright-text">© Copyright 2026 by Company.com</p>
+          <p class="copyright-text">© 2026 Lotus U Yoga · Indore, Madhya Pradesh</p>
         </div>
       </div>
     </footer>

@@ -28,6 +28,9 @@ window.APPWRITE_CONFIG = {
       services: 'services',
       // Guest create only, admin read. Used by js/appwrite/contact-form.js.
       contact: 'contact',
+      // Admin-only. Retreats, trainings and events, edited from the
+      // dashboard workspace (js/appwrite/dashboard.js).
+      workshops: 'workshops',
     },
   },
 

@@ -5,6 +5,7 @@
  * Creates/repairs the database objects the website expects:
  *
  *   services table   public read, admin-only writes  (homepage slider)
+ *   workshops table  admin only                     (dashboard workspace)
  *   contact table    public create, admin read       (enquiry form)
  *   media bucket     public read, admin write        (future image uploads)
  *
@@ -145,6 +146,15 @@ async function ensureString(table, key, size, required = false) {
   );
 }
 
+async function ensureInteger(table, key) {
+  await step(
+    'column ' + table + '.' + key + ' (integer)',
+    'POST',
+    '/tablesdb/' + DATABASE + '/tables/' + table + '/columns/integer',
+    { key, required: false, array: false, min: 0, max: 100000, default: 0 }
+  );
+}
+
 async function ensureBoolean(table, key, defaultValue) {
   await step(
     'column ' + table + '.' + key + ' (boolean)',
@@ -180,6 +190,22 @@ async function main() {
   await ensureString('services', 'link', 255);
   await ensureBoolean('services', 'published', true);
   await ensureIndex('services', 'number_idx', ['number']);
+
+  /* ---- workshops: dashboard workspace ---- */
+  await ensureTable('workshops', 'Workshops & retreats', [ADMIN('read'), ADMIN('create'), ADMIN('update'), ADMIN('delete')], false);
+  await ensureString('workshops', 'title', 160, true);
+  await ensureString('workshops', 'type', 32);
+  await ensureString('workshops', 'status', 24);
+  await ensureString('workshops', 'startDate', 32);
+  await ensureString('workshops', 'endDate', 32);
+  await ensureString('workshops', 'mode', 24);
+  await ensureString('workshops', 'location', 160);
+  await ensureString('workshops', 'price', 40);
+  await ensureInteger('workshops', 'seats');
+  await ensureString('workshops', 'summary', 600);
+  await ensureString('workshops', 'image', 255);
+  await ensureBoolean('workshops', 'published', true);
+  await ensureIndex('workshops', 'status_idx', ['status']);
 
   /* ---- contact: enquiry form ---- */
   await ensureTable('contact', 'Contact enquiries', [ANY('create'), ADMIN('read'), ADMIN('update'), ADMIN('delete')], false);

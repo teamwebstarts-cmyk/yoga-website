@@ -46,17 +46,19 @@ License: copyright commercial
   --r: 30px; /* radius */
   --s: 50px; /* size of the inner curve*/
   --_m:/calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%,#0000 72%) no-repeat;
-  --theme-color1: #417572;
+  /* Lotus U Yoga palette: deep forest green primary, cream surfaces,
+     oxblood maroon as a sparing accent (badges, small highlights). */
+  --theme-color1: #1E3216;
   --theme-color2: #121212;
-  --theme-color3: #10551F;
+  --theme-color3: #6D2006;
   --theme-color4: #0d0d0d;
   --theme-color1-text-color: #fff;
   --theme-color2-text-color: #fff;
   --theme-color3-text-color: #fff;
   --theme-color4-text-color: #fff;
-  --theme-color1-rgb: 65, 117, 114;
+  --theme-color1-rgb: 30, 50, 22;
   --theme-color2-rgb: 18, 18, 18;
-  --theme-color3-rgb: 16, 85, 31;
+  --theme-color3-rgb: 109, 32, 6;
   --theme-color4-rgb: 13, 13, 13;
   --theme-color-white: #ffffff;
   --theme-color-white-rgb: 255,255,255;
@@ -75,7 +77,7 @@ License: copyright commercial
   --gradient-6: linear-gradient(180deg, #0a0a0a 0%, rgba(10, 10, 10, 0.3) 45%, #0a0a0a 90%);
   --gradient-7: linear-gradient(180deg, rgba(217, 244, 95, 0.7) 37.5%, rgba(255, 212, 212, 0) 100%);
   --text-color: #787880;
-  --headings-color: #121212;
+  --headings-color: #18200F;
   --link-color: var(--theme-color1);
   --link-hover-color: var(--theme-color1);
   --body-font-family: "Archivo", sans-serif;
