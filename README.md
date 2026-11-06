@@ -107,4 +107,5 @@ section never renders empty.
    (`index.html` head, `sitemap.xml`, `robots.txt`).
 
 See `PROJECT-AUDIT.md` for the full scored assessment and
-`PROJECT-STATUS.md` for what has been fixed and what is still open.
+`PROJECT-STATUS.md` for what has been fixed and what is still open, and
+`NEXT-STEPS.md` for the prioritised to-do list.

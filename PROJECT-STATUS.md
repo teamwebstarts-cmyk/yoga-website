@@ -292,7 +292,7 @@ cards sorted completed work first (fixed). Both were re-shot and confirmed.
 6. **Licensing is unchanged** — template, Gallient font, Flaticon, stock
    photos. Nothing here fixes that.
 
-## 9. What to do next (in order)
+## 10. What to do next (in order)
 
 1. **Fix Appwrite billing** (Organisation → Billing), then run
    `node tools/setup-appwrite.mjs` to create the `workshops` table, then open
@@ -308,6 +308,65 @@ cards sorted completed work first (fixed). Both were re-shot and confirmed.
 5. **Buy or replace the licences** before this is public.
 6. Optional polish: an image upload control using the existing `media`
    bucket, and editing for hero/about/pricing copy from the dashboard.
+
+## 11. Round 4 — invisible content (this session)
+
+### Reported symptom
+Text, the contact “Send message” button, testimonials and journal/gallery
+images were not visible on several pages, especially when arriving from a
+`#`-style link.
+
+### Root cause
+Template reveals use GSAP ScrollTrigger with `toggleActions` such as
+`play reverse play reverse`. On scroll-out, each element animates back to
+opacity 0, and on reload / on a deep link some elements never left the
+hidden phase. This is a behaviour bug in the template’s animation config,
+not a CSS or missing-data problem. The two stacked images in the retreat
+and journal hover cards are intentionally one-hidden-one-shown — that is
+the template’s design, not a bug.
+
+### What changed
+- Every `toggleActions` in `js/theme/script.js` (7) and
+  `js/theme/custom-gsap.js` (9) changed from variants ending in `reverse`
+  to `play none none none`, so reveals play once and stay in view.
+- Stagger reduced from `0.5` to `0.09` and duration from `1.5` to
+  `0.9` so sections reveal faster and overlap less.
+- A safety-net script appended at the end of `js/theme/script.js` re-reveals
+  any on-screen element still sitting at opacity 0 after load + 1.6s, and
+  again 700ms after scroll comes to rest.
+- Removed the template’s dead search overlay (nothing could open it; its
+  form posted to a static page).
+- Shortened the long “interested in” placeholder on mobile.
+
+### Verification
+- The contact heading and the “Send message” button now render, on both
+  desktop and mobile, including when landing directly on `#contact`.
+- Responsive screenshot (desktop + mobile) shows the contact section fully
+  visible.
+- Visibility scan no longer reports any *real* hidden content. The only
+  remaining opacity-0 entries are the intentional hover-card paired image
+  (second image of each retreat/journal image pair).
+- Re-ran `node --check` on every JS file, the homepage/section audit, and
+  the dashboard functional test: all pass, no new regressions.
+
+### Files touched this round
+- `js/theme/script.js`
+- `js/theme/custom-gsap.js`
+- `index.html`
+
+### What still cannot be done
+- The Appwrite project is **read-only** (`402`), so the contact form, the
+  services fetch, and the dashboard save/delete cannot be run against a live
+  table. The homepage currently pays the 402 in the console and falls back
+  to the built-in cards; the dashboard creates only the UI/workspace.
+- Images still show **Yogava** and the old template photos; image edits are
+  not requested.
+
+### Next round
+- Fix Appwrite billing, run `setup-appwrite.mjs`, then exercise the
+  contact form and dashboard save/delete against the live project.
+- Build the “Upcoming retreats” strip so workshops publish to the homepage.
+- Deliver the Lotus U Yoga logo so the Yogava wordmark is replaced.
 
 Nothing in this round is committed. All changes are in the working tree, so
 review them and tell me what to keep.

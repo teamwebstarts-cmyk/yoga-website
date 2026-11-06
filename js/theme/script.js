@@ -289,10 +289,11 @@ var THEMEMASCOT = {};
         trigger: splitTextLine,
         start: 'top 90%',
         end: 'bottom 10%',
-        /* toggleActions parameters: 
-           onEnter, onLeave, onEnterBack, onLeaveBack
-        */
-        toggleActions: 'play reverse play reverse', 
+        /* Reveal once and stay revealed. The template used
+           'play reverse play reverse', which hid a title again as soon as
+           its section scrolled past — and left it hidden for good if the
+           page was opened straight at #anchor. */
+        toggleActions: 'play none none none',
         markers: false,
       }
     });
@@ -422,7 +423,7 @@ fadeInUp.forEach((el) => {
             trigger: el,
             start: 'top 90%',
 		        end: 'bottom 10%',
-            toggleActions: 'play reverse play reverse',
+            toggleActions: 'play none none none',
         }
     });
 });
@@ -440,7 +441,7 @@ fadeInLeft.forEach((el) => {
             trigger: el,
             start: 'top 90%',
 		        end: 'bottom 10%',
-            toggleActions: 'play reverse play reverse',
+            toggleActions: 'play none none none',
         }
     });
 });
@@ -458,7 +459,7 @@ fadeInRight.forEach((el) => {
             trigger: el,
             start: 'top 90%',
             end: 'bottom 10%',
-            toggleActions: 'play reverse play reverse',
+            toggleActions: 'play none none none',
         }
     });
 });
@@ -470,14 +471,14 @@ staggerWrappers.forEach((wrapper) => {
     gsap.from(children, {
         y: 100,
         opacity: 0,
-        duration: 1.5,
-        stagger: 0.5, 
+        duration: 0.9,
+        stagger: 0.09, 
         ease: "power2.out",
         scrollTrigger: {
             trigger: wrapper,
             start: 'top 90%',
 		        end: 'bottom 10%',
-            toggleActions: 'play reverse play reverse',
+            toggleActions: 'play none none none',
         }
     });
 });
@@ -501,7 +502,7 @@ reveals.forEach((el) => {
             trigger: el,
             start: 'top 90%',
             end: 'bottom 10%',
-            toggleActions: 'play reverse play reverse',
+            toggleActions: 'play none none none',
         }
     });
 });
@@ -544,7 +545,7 @@ if (pointers.length > 0) {
             trigger: ".image-map-container",
 		        start: "top 80%",
 		        end: 'bottom 10%',
-		        toggleActions: 'play reverse play reverse',
+		        toggleActions: 'play none none none',
         },
         onComplete: () => {
             gsap.set(pointers, { clearProps: "all" });
@@ -1126,3 +1127,55 @@ if (pointers.length > 0) {
 	});
 
 })(window.jQuery);
+/* ==========================================================================
+   Content visibility guard
+   --------------------------------------------------------------------------
+   Every reveal animation on this page starts its elements at opacity 0.
+   If a ScrollTrigger never fires — a link that lands mid-page, the mobile
+   menu jump, a fast scroll, a browser that throttles the tab — that text,
+   image or button stays invisible for good.
+
+   This block is the safety net: anything that is clearly on screen and
+   still invisible once the page has settled is faded back in, so content
+   can never be permanently lost. Off-screen elements are left alone so
+   their entrance animation still plays normally.
+   ========================================================================== */
+(function () {
+  if (typeof window.gsap === 'undefined') return;
+
+  function revealStuck() {
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var nodes = document.querySelectorAll('[style*="opacity"]');
+
+    Array.prototype.forEach.call(nodes, function (el) {
+      var shown = parseFloat(window.getComputedStyle(el).opacity);
+      if (shown > 0.05) return;
+
+      var box = el.getBoundingClientRect();
+      if (box.height < 2 || box.width < 2) return;
+      // Only what is unambiguously on screen: past the top edge and well
+      // inside the viewport, so we never pre-empt an entrance animation.
+      if (box.top > vh * 0.6 || box.bottom < 48) return;
+      if (el.closest('.mobile-menu, .search-popup, .mouseCursor, .modal, .admin-shell')) return;
+
+      window.gsap.to(el, {
+        opacity: 1,
+        duration: 0.35,
+        overwrite: 'auto',
+        onComplete: function () {
+          if (el.style.visibility === 'hidden') el.style.removeProperty('visibility');
+        },
+      });
+    });
+  }
+
+  window.addEventListener('load', function () {
+    setTimeout(revealStuck, 1600);
+  });
+
+  var timer = null;
+  window.addEventListener('scroll', function () {
+    window.clearTimeout(timer);
+    timer = window.setTimeout(revealStuck, 700);
+  }, { passive: true });
+})();

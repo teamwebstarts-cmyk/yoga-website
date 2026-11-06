@@ -212,23 +212,11 @@
           </ul>
         </nav>
       </div>
-      <!-- End Mobile Menu -->
+      <!-- End Mobile Menu -->      <!-- Note: the template's search overlay was removed here. Nothing on
+           the page could open it (no .search-btn exists), and its form posted
+           to index.html, which a static host answers with 405. If a search is
+           wanted later, it should be built against the real content. -->
 
-      <!-- Header Search -->
-      <div class="search-popup">
-        <span class="search-back-drop"></span>
-        <button class="close-search"><span class="fa fa-times"></span></button>
-
-        <div class="search-inner">
-          <form method="post" action="index.html">
-            <div class="form-group">
-              <input type="search" name="search-field" value="" placeholder="Search..." required="" />
-              <button type="submit"><i class="fa fa-search"></i></button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <!-- End Header Search -->
 
       <!-- Sticky Header  -->
       <div class="sticky-header">
@@ -1008,7 +996,7 @@
                           <div class="col-sm-12 gsap-stagger-item">
                             <div class="form-clt">
                               <label class="sr-only" for="contact-retreat">What are you interested in</label>
-                              <input type="text" name="retreat" id="contact-retreat" placeholder="Interested in — yoga, therapy, Zumba, retreat…" autocomplete="off" maxlength="80">
+                              <input type="text" name="retreat" id="contact-retreat" placeholder="Yoga, therapy, Zumba, retreat?" autocomplete="off" maxlength="80">
                             </div>
                           </div>
                           <div class="col-sm-12 gsap-stagger-item">
