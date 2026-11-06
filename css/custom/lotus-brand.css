@@ -33,3 +33,22 @@
     margin-bottom: 26px;
   }
 }
+
+/* ─── Hero text — shift right ──────────────────────────────────────────
+   The .content-column already floats right of the image column.
+   Extra padding-left pushes the headline further right so it sits
+   more clearly in its own space, away from the overlapping photo.
+   Only active at the two-column breakpoints (≥1200px).
+   ─────────────────────────────────────────────────────────────────── */
+@media (min-width: 1200px) {
+  .banner-section .outer-box .content-column .inner-column {
+    padding-left: 80px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .banner-section .outer-box .content-column .inner-column {
+    padding-left: 110px;
+  }
+}
+

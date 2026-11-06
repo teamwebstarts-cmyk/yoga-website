@@ -26,6 +26,20 @@ h6 {
   margin-top: 0;
 }
 
+/* Prevent CSS transitions from conflicting with GSAP transforms & opacity (fixes text delay & blurriness) */
+.char-animation,
+.char-animation *,
+.tm-split-text,
+.tm-split-text *,
+.gsap-fade-up,
+.gsap-fade-left,
+.gsap-fade-right,
+.gsap-stagger-item,
+.gsap-reveal {
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+
 /* ------------------------------------------------------------------
    2. Contrast (finding C3)
    ------------------------------------------------------------------

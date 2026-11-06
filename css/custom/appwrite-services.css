@@ -1,7 +1,7 @@
 /**
  * Services slider (Appwrite-driven) — card consistency overrides
  * ---------------------------------------------------------------
- * Loaded after style.css. Equalizes card heights across the row and
+ * Loaded after style.css. Equalises card heights across the row and
  * bottom-aligns the CTA so every .service-block-two card matches,
  * regardless of description length.
  *
@@ -36,7 +36,7 @@
 }
 
 /* Description grows to absorb height differences between cards,
-   which keeps every "Read More" button aligned on the same baseline. */
+   which keeps every "Reserve My Spot" button aligned on the same baseline. */
 .service-slider .service-block-two .inner-block .text {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
@@ -49,4 +49,141 @@
   .service-slider .service-block-two .inner-block {
     padding: 30px 20px;
   }
+}
+
+/* ─── Event-type badge ────────────────────────────────────────────────
+   Overlaid on the photo at top-left so it doesn't disrupt the
+   vertical-title layout in .title-outer.
+   The parent .image already has position:relative and overflow:hidden.
+ */
+.service-block-two .inner-block .upper-box .image {
+  position: relative; /* ensure stacking context (already set in theme) */
+}
+
+.service-block-two .event-type-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 20px;
+  background: rgba(10, 30, 10, 0.55);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #d4f0b2;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  /* keep badge visible even when the hover image-swap animation runs */
+  -webkit-transition: opacity 300ms ease;
+          transition: opacity 300ms ease;
+}
+
+/* ─── Event meta row ──────────────────────────────────────────────────
+   Calendar / location / seats row below the upper-box.
+ */
+.service-block-two .event-meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6px 16px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.service-block-two .event-meta-item {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.4;
+}
+
+.service-block-two .event-meta-item i {
+  color: #a8d08d;
+  font-size: 0.78rem;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+/* ─── Fix hover image-swap animation ─────────────────────────────────
+   The theme uses img:first-child / img:nth-child(2) selectors to do
+   the image cross-fade on hover. Adding the badge <span> as the first
+   child inside .image breaks those selectors because the <span> is now
+   the first child, shifting the imgs to :nth-child(2) and :nth-child(3).
+
+   Fix: re-declare the same animation rules using :first-of-type /
+   :nth-of-type(2), which target the first/second <img> element
+   regardless of any preceding non-img siblings.
+
+   These rules sit in a later stylesheet so they win the cascade.
+   ─────────────────────────────────────────────────────────────────── */
+
+/* Default state — hover-reveal image is hidden, positioned absolutely */
+.service-block-two .inner-block .upper-box .image img:first-of-type {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  -webkit-transform: translate(50%) scaleX(2);
+          transform: translate(50%) scaleX(2);
+  opacity: 0;
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+  -webkit-transition: all 500ms ease;
+          transition: all 500ms ease;
+}
+
+/* Reset the broken :first-child rule (it was targeting nothing, but
+   just in case — ensure the default-visible img:nth-of-type(2) has
+   no stray transform applied from the old selector) */
+.service-block-two .inner-block .upper-box .image img:nth-of-type(2) {
+  -webkit-transform: none;
+          transform: none;
+  opacity: 1;
+  -webkit-filter: none;
+          filter: none;
+  -webkit-transition: all 500ms ease;
+          transition: all 500ms ease;
+}
+
+/* Hover / active state — reveal first image, hide second */
+.service-block-two .inner-block.active .upper-box .image img:first-of-type,
+.service-block-two .inner-block:hover .upper-box .image img:first-of-type {
+  -webkit-transform: translateX(0) scaleX(1);
+          transform: translateX(0) scaleX(1);
+  opacity: 1;
+  -webkit-filter: blur(0);
+          filter: blur(0);
+}
+
+.service-block-two .inner-block.active .upper-box .image img:nth-of-type(2),
+.service-block-two .inner-block:hover .upper-box .image img:nth-of-type(2) {
+  -webkit-transform: translateX(-50%) scaleX(2);
+          transform: translateX(-50%) scaleX(2);
+  opacity: 0;
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
 }
