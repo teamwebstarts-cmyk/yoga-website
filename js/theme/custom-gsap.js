@@ -70,8 +70,9 @@
                     el.anim = gsap.to(el.split.chars, {
                         scrollTrigger: {
                             trigger: el,
-                            toggleActions: "restart pause resume reverse",
+                            toggleActions: "play none none none",
                             start: "top 90%",
+                            once: true,
                         },
                         x: "0",
                         y: "0",
@@ -156,7 +157,8 @@
                 scrub: 2,
                 start: "top 90%",
                 end: "top 70%",
-                toggleActions: "play none none reverse",
+                toggleActions: "play none none none",
+                once: true,
                 markers: false
             }
         })
@@ -172,7 +174,8 @@
                 scrub: 2,
                 start: "top 90%",
                 end: "top 70%",
-                toggleActions: "play none none reverse",
+                toggleActions: "play none none none",
+                once: true,
                 markers: false
             }
         })
@@ -188,7 +191,8 @@
                 scrub: 2,
                 start: "top 90%",
                 end: "top 70%",
-                toggleActions: "play none none reverse",
+                toggleActions: "play none none none",
+                once: true,
                 markers: false
             }
         })
@@ -204,7 +208,8 @@
                 scrub: 2,
                 start: "top 90%",
                 end: "top 70%",
-                toggleActions: "play none none reverse",
+                toggleActions: "play none none none",
+                once: true,
                 markers: false
             }
         })
@@ -222,7 +227,7 @@
                 scrub: 1,
                 start: "top 100%",
                 end: "top -50%",
-                toggleActions: "play none none reverse",
+                toggleActions: "play none none none",
                 markers: false
             }
         })
@@ -239,7 +244,7 @@
                 scrub: 1,
                 start: "top 100%",
                 end: "top -50%",
-                toggleActions: "play none none reverse",
+                toggleActions: "play none none none",
                 markers: false
             }
         })

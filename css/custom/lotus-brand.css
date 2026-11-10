@@ -266,3 +266,23 @@
   }
 }
 
+/* ─── Scroll Persistence Guarantee ─────────────────────────────────────
+   Ensures that once sections (gallery, testimonials, footer) are reached,
+   they permanently stay visible, legible and interactable even on rapid
+   scroll up or down.
+   ─────────────────────────────────────────────────────────────────── */
+.gallary-section,
+.gallary-section-two,
+.main-footer,
+.services-section-two,
+.testimonial-section,
+.blog-section {
+  position: relative;
+  visibility: visible !important;
+}
+
+.gallary-section .outer-box .gallary-outer .image,
+.gallary-section-two .gallary-outer .image {
+  visibility: visible !important;
+}
+

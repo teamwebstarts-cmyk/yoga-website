@@ -281,12 +281,9 @@ var THEMEMASCOT = {};
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: splitTextLine,
-        start: 'top 90%',
-        end: 'bottom 10%',
-        /* toggleActions parameters: 
-           onEnter, onLeave, onEnterBack, onLeaveBack
-        */
-        toggleActions: 'play reverse play reverse', 
+        start: 'top 92%',
+        once: true,
+        toggleActions: 'play none none none',
         markers: false,
       }
     });
@@ -294,12 +291,15 @@ var THEMEMASCOT = {};
     gsap.set(splitTextLine, { perspective: 400 });
 
     tl.from(itemSplitted.chars, {
-      duration: 1.5,
-      delay: 0.2,
-      x: 100,
+      duration: 1.2,
+      delay: 0.1,
+      x: 60,
       autoAlpha: 0,
-      stagger: 0.05,
-      ease: "back.out(1.7)",
+      stagger: 0.03,
+      ease: "power2.out",
+      onComplete: () => {
+        gsap.set(itemSplitted.chars, { clearProps: "transform,opacity,visibility" });
+      }
     });
   });
 }
@@ -389,7 +389,7 @@ const lenis = new Lenis({
 lenis.on('scroll', ScrollTrigger.update);
 
 gsap.ticker.add((time) => {
-    lenis.raf(time * 500);
+    lenis.raf(time * 1000);
 });
 
 gsap.ticker.lagSmoothing(0);
@@ -399,15 +399,19 @@ const fadeInUp = document.querySelectorAll('.gsap-fade-up');
 fadeInUp.forEach((el) => {
 	const customDelay = el.getAttribute('data-delay') || 0;
     gsap.from(el, {
-        y: 100,
+        y: 60,
         opacity: 0,
         duration: 1,
+        delay: parseFloat(customDelay) || 0,
         ease: "power2.out",
         scrollTrigger: {
             trigger: el,
-            start: 'top 90%',
-		        end: 'bottom 10%',
-            toggleActions: 'play reverse play reverse',
+            start: 'top 92%',
+            once: true,
+            toggleActions: 'play none none none',
+        },
+        onComplete: () => {
+            gsap.set(el, { clearProps: "opacity,transform" });
         }
     });
 });
@@ -417,15 +421,19 @@ const fadeInLeft = document.querySelectorAll('.gsap-fade-left');
 fadeInLeft.forEach((el) => {
 	const customDelay = el.getAttribute('data-delay') || 0;
     gsap.from(el, {
-        x: -100,
+        x: -60,
         opacity: 0,
-        duration: 1.5,
+        duration: 1.2,
+        delay: parseFloat(customDelay) || 0,
         ease: "power2.out",
         scrollTrigger: {
             trigger: el,
-            start: 'top 90%',
-		        end: 'bottom 10%',
-            toggleActions: 'play reverse play reverse',
+            start: 'top 92%',
+            once: true,
+            toggleActions: 'play none none none',
+        },
+        onComplete: () => {
+            gsap.set(el, { clearProps: "opacity,transform" });
         }
     });
 });
@@ -435,15 +443,19 @@ const fadeInRight = document.querySelectorAll('.gsap-fade-right');
 fadeInRight.forEach((el) => {
 	const customDelay = el.getAttribute('data-delay') || 0;
     gsap.from(el, {
-        x: 100,
+        x: 60,
         opacity: 0,
-        duration: 1.5,
+        duration: 1.2,
+        delay: parseFloat(customDelay) || 0,
         ease: "power2.out",
         scrollTrigger: {
             trigger: el,
-            start: 'top 90%',
-            end: 'bottom 10%',
-            toggleActions: 'play reverse play reverse',
+            start: 'top 92%',
+            once: true,
+            toggleActions: 'play none none none',
+        },
+        onComplete: () => {
+            gsap.set(el, { clearProps: "opacity,transform" });
         }
     });
 });
@@ -452,17 +464,21 @@ fadeInRight.forEach((el) => {
 const staggerWrappers = document.querySelectorAll('.gsap-stagger-parent');
 staggerWrappers.forEach((wrapper) => {
     const children = wrapper.querySelectorAll('.gsap-stagger-item');
+    if (!children.length) return;
     gsap.from(children, {
-        y: 100,
+        y: 50,
         opacity: 0,
-        duration: 1.5,
-        stagger: 0.5, 
+        duration: 1,
+        stagger: 0.12, 
         ease: "power2.out",
         scrollTrigger: {
             trigger: wrapper,
-            start: 'top 90%',
-		        end: 'bottom 10%',
-            toggleActions: 'play reverse play reverse',
+            start: 'top 92%',
+            once: true,
+            toggleActions: 'play none none none',
+        },
+        onComplete: () => {
+            gsap.set(children, { clearProps: "opacity,transform" });
         }
     });
 });
@@ -480,13 +496,16 @@ reveals.forEach((el) => {
 
     gsap.from(el, {
         clipPath: clipValue,
-        duration: 1.5,
-        ease: "power4.inOut",
+        duration: 1.2,
+        ease: "power3.out",
         scrollTrigger: {
             trigger: el,
             start: 'top 90%',
-            end: 'bottom 10%',
-            toggleActions: 'play reverse play reverse',
+            once: true,
+            toggleActions: 'play none none none',
+        },
+        onComplete: () => {
+            gsap.set(el, { clearProps: "clipPath" });
         }
     });
 });
@@ -522,14 +541,14 @@ if (pointers.length > 0) {
         y: () => (Math.random() - 0.5) * 1000,
         opacity: 0,
         scale: 0,
-        duration: 1.5,
-        stagger: 0.2,
-        ease: "power3.out",
+        duration: 1.2,
+        stagger: 0.1,
+        ease: "power2.out",
         scrollTrigger: {
             trigger: ".image-map-container",
-		        start: "top 80%",
-		        end: 'bottom 10%',
-		        toggleActions: 'play reverse play reverse',
+		        start: "top 85%",
+            once: true,
+            toggleActions: 'play none none none',
         },
         onComplete: () => {
             gsap.set(pointers, { clearProps: "all" });
