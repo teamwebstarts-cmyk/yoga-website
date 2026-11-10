@@ -1,4 +1,4 @@
-# Lotus U Yoga — website
+# Lotus Yoga — website
 
 A single-page yoga studio site (`index.html`) with a small Appwrite-backed
 admin dashboard (`dashboard.html`). The visual design comes from a

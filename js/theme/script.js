@@ -602,16 +602,18 @@ if (pointers.length > 0) {
 	if($('.service-slider').length > 0) {
 		const projectSlider = new Swiper(".service-slider", {
 			spaceBetween: 30,
-			speed: 1500,
+			speed: 800,
 			loop: true,
+			loopedSlides: 4,
 			autoplay: {
-				delay: 1000,
+				delay: 3500,
 				disableOnInteraction: false,
+				pauseOnMouseEnter: true,
 			},
 			// pagination
 			pagination: {
 				el: ".service-slider-dots",
-				clickable:true,
+				clickable: true,
 			},
 			breakpoints: {
 				1400: {

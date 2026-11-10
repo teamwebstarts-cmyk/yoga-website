@@ -175,9 +175,14 @@
     destroySwiper(el);
     new window.Swiper(el, {
       spaceBetween: 30,
-      speed: 1500,
+      speed: 800,
       loop: true,
-      autoplay: { delay: 1000, disableOnInteraction: false },
+      loopedSlides: 4,
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      },
       pagination: { el: '.service-slider-dots', clickable: true },
       breakpoints: {
         1400: { slidesPerView: 4 },
@@ -197,12 +202,18 @@
     var wrapper = document.querySelector('.service-slider .swiper-wrapper');
     if (!wrapper || !rows || !rows.length) return false; // keep static cards
 
-    var activeIndex = Math.min(2, Math.floor(rows.length / 2));
+    // Swiper 11 loop mode requires at least 8 slides (slidesPerView 4 * 2) to scroll continuously
+    var displayRows = rows.slice();
+    while (displayRows.length < 8 && rows.length > 0) {
+      displayRows = displayRows.concat(rows);
+    }
+
+    var activeIndex = Math.min(2, Math.floor(displayRows.length / 2));
     var html = '';
-    rows.forEach(function (row, i) {
+    displayRows.forEach(function (row, i) {
       html += cardHtml(
         {
-          number: row.number || pad2(i + 1),
+          number: row.number || pad2((i % rows.length) + 1),
           title: row.title || '',
           line2: row.line2 || '',
           image: row.image || '',

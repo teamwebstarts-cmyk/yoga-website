@@ -1,4 +1,4 @@
-# Lotus U Yoga
+# Lotus Yoga
 # TODO(domain): once the production domain is known, add a Sitemap line:
 #   Sitemap: https://<domain>/sitemap.xml
 
